@@ -1,0 +1,1721 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="El Ghali Sany — premium bilingual Saudi Vision 2030 research portfolio connecting Casablanca, Regraga cultural memory, smart-city analytics, sustainability, digital ethics, and evidence-based development." />
+<title>El Ghali Sany | Saudi Vision 2030 Research Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Inter:wght@400;500;600;700;800;900&family=Noto+Kufi+Arabic:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+:root{
+  color-scheme:light;
+  --diriyah:#7A4E36;
+  --mud:#9B6A4D;
+  --sand:#D3A86B;
+  --sand-soft:#F7E7CB;
+  --alula:#C58B57;
+  --redsea:#007C89;
+  --redsea-2:#00A3AD;
+  --green:#006C35;
+  --green-2:#1B8F56;
+  --regraga-red:#A13B39;
+  --regraga-red-2:#C14F4D;
+  --metal:#AEB8BC;
+  --ink:#17211D;
+  --muted:#45554B;
+  --paper:#FFF9EF;
+  --white:#FFFFFF;
+  --focus:#111827;
+  --shadow:0 18px 44px rgba(24,34,30,.14);
+  --shadow-soft:0 10px 26px rgba(24,34,30,.10);
+  --radius:26px;
+  --font-en:'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-ar:'Noto Kufi Arabic','Cairo',Tahoma,sans-serif;
+  --font-mono:'Share Tech Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-en);
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 10% 12%, rgba(161,59,57,.14), transparent 28%),
+    radial-gradient(circle at 91% 10%, rgba(0,124,137,.14), transparent 28%),
+    linear-gradient(135deg, #fffaf0 0%, #f7ead4 44%, #edf7f5 100%);
+  min-height:100vh;
+  overflow-x:hidden;
+  font-size:16px;
+}
+body.rtl{font-family:var(--font-ar);direction:rtl}
+body.green-mode{
+  --diriyah:#30583D;
+  --mud:#4A7353;
+  --sand:#D7E5C0;
+  --sand-soft:#F1FAEE;
+  --alula:#9BC47A;
+  --redsea:#127A68;
+  --redsea-2:#2FB890;
+  --green:#0D5A30;
+  --green-2:#2AA96A;
+  --paper:#F5FFF3;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.07;
+  background-image:
+    linear-gradient(45deg, transparent 45%, var(--diriyah) 46%, var(--diriyah) 48%, transparent 49%),
+    linear-gradient(-45deg, transparent 45%, var(--redsea) 46%, var(--redsea) 48%, transparent 49%),
+    linear-gradient(90deg, transparent 48%, var(--regraga-red) 49%, var(--regraga-red) 51%, transparent 52%);
+  background-size:42px 42px,42px 42px,64px 64px;
+  z-index:-3;
+}
+body::after{
+  content:"";
+  position:fixed;
+  inset:auto 0 0 0;
+  height:220px;
+  background:linear-gradient(to top, rgba(0,108,53,.14), transparent);
+  pointer-events:none;
+  z-index:-2;
+}
+a{color:inherit;text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:.22em}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+img,svg{max-width:100%}
+:focus-visible{outline:4px solid var(--focus);outline-offset:3px;border-radius:12px}
+.skip{position:absolute;inset-inline-start:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip:focus{inset-inline-start:20px;top:20px;width:auto;height:auto;background:var(--green);color:#fff;padding:12px 16px;border-radius:12px;z-index:1000;font-weight:900}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.nav{position:sticky;top:0;z-index:60;backdrop-filter:blur(18px);background:rgba(255,249,239,.92);border-bottom:1px solid rgba(122,78,54,.18)}
+.nav-inner{max-width:1280px;margin:auto;padding:14px 22px;display:flex;align-items:center;gap:16px;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:-.04em;min-width:max-content}
+body.rtl .logo{letter-spacing:0}
+.logo-mark{width:46px;height:46px;border-radius:15px;background:linear-gradient(135deg,var(--regraga-red),var(--green));display:grid;place-items:center;box-shadow:0 10px 22px rgba(161,59,57,.26);color:#fff;flex:0 0 auto}
+.logo-mark svg{width:26px;height:26px}
+.nav-links{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:center}
+.nav-links a,.pill-btn,.green-toggle,.lang-wrap{min-height:44px}
+.nav-links a,.pill-btn{
+  border:1px solid rgba(122,78,54,.22);
+  background:rgba(255,255,255,.8);
+  padding:9px 13px;
+  border-radius:999px;
+  font-weight:800;
+  font-size:.88rem;
+  color:var(--ink);
+}
+.nav-links a:hover,.pill-btn:hover{border-color:var(--redsea);box-shadow:0 8px 24px rgba(0,124,137,.14)}
+.lang-btn[aria-pressed="true"]{background:var(--green);color:#fff;border-color:var(--green)}
+.lang-wrap{display:flex;align-items:center;gap:8px;padding:2px 2px 2px 10px;border-radius:999px;background:rgba(255,255,255,.82);border:1px solid rgba(122,78,54,.18);position:relative;overflow:hidden}
+body.rtl .lang-wrap{padding:2px 10px 2px 2px}
+.tifinagh-mark{font-weight:900;color:rgba(161,59,57,.25);font-size:1.05rem;line-height:1;user-select:none}
+.green-toggle{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--green),var(--green-2));color:#fff;border:0;padding:10px 14px;border-radius:999px;box-shadow:0 12px 28px rgba(0,108,53,.22);font-weight:900}
+.dallah-scene-wrap:hover .dallah-finjan,
+.dallah-scene-wrap:focus .dallah-finjan{transform:translateX(0)!important;opacity:1!important}
+.dallah-scene-wrap:hover .dallah-steam,
+.dallah-scene-wrap:focus .dallah-steam{opacity:1!important}
+.dallah-scene-wrap:hover .dallah-main-svg{transform:rotate(-4deg);transition:transform .4s ease}
+.dallah-main-svg{transition:transform .4s ease;transform-origin:center bottom}
+@keyframes steamRise{0%{opacity:0;transform:translateY(0) scaleX(1)}40%{opacity:.8}100%{opacity:0;transform:translateY(-18px) scaleX(1.3)}}
+@keyframes easterLineGlow{0%,100%{opacity:.5;transform:scaleX(.6)}50%{opacity:1;transform:scaleX(1)}}
+.solar-icon{width:28px;height:20px;border-radius:4px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.96) 0 3px,rgba(255,255,255,.38) 3px 6px);border:1px solid rgba(255,255,255,.68);transform:skewX(-10deg)}
+.fixed-line{position:fixed;inset-inline-start:50%;top:88%;width:170px;height:3px;transform:translateX(-50%) scaleX(var(--scroll-scale,.12));transform-origin:center;background:linear-gradient(90deg,transparent,var(--redsea-2),#fff,var(--redsea-2),transparent);box-shadow:0 0 22px rgba(0,163,173,.76);border-radius:99px;pointer-events:none;z-index:10;opacity:.7}
+.container{max-width:1280px;margin:auto;padding:22px}
+.hero{position:relative;display:grid;grid-template-columns:1.22fr .78fr;gap:22px;align-items:stretch;min-height:620px;padding-top:12px}
+.hero-card,.glass-card{background:rgba(255,255,255,.78);border:1px solid rgba(122,78,54,.20);border-radius:var(--radius);box-shadow:var(--shadow);backdrop-filter:blur(18px);overflow:hidden}
+.hero-card{padding:40px;position:relative;background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(255,249,239,.78)),linear-gradient(90deg,rgba(161,59,57,.08),transparent)}
+.ornament{position:absolute;inset-inline-end:26px;top:24px;width:170px;height:170px;opacity:.15;background:conic-gradient(from 45deg,var(--regraga-red),var(--redsea),var(--sand),var(--green),var(--regraga-red));clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(0,108,53,.12);color:var(--green);font-weight:900;font-size:.84rem;margin-bottom:24px}
+h1{font-size:clamp(2.45rem,5vw,5.7rem);line-height:.96;letter-spacing:-.075em;max-width:960px;margin-bottom:22px}
+body.rtl h1{letter-spacing:-.02em;line-height:1.18}
+.gradient-text{background:linear-gradient(100deg,var(--regraga-red),var(--redsea),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:clamp(1rem,1.7vw,1.26rem);line-height:1.75;max-width:830px;color:var(--muted);font-weight:600;margin-bottom:26px}
+.vision-pills{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0}
+.vision-pill{padding:16px;border-radius:18px;background:rgba(255,255,255,.88);border:1px solid rgba(122,78,54,.16);box-shadow:var(--shadow-soft)}
+.vision-pill b{display:block;margin-bottom:8px;color:var(--diriyah)}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 18px;border-radius:16px;font-weight:900;min-height:48px}
+.cta.primary{background:linear-gradient(135deg,var(--regraga-red),var(--green));color:#fff;box-shadow:0 12px 24px rgba(161,59,57,.2)}
+.cta.secondary{background:rgba(255,255,255,.84);border:1px solid rgba(122,78,54,.2)}
+.hero-side{display:grid;gap:18px}
+.metric-card,.side-card{padding:24px;border-radius:var(--radius);background:rgba(255,255,255,.80);border:1px solid rgba(122,78,54,.18);box-shadow:var(--shadow)}
+.metric-num{font-size:3.3rem;line-height:.95;font-weight:900;color:var(--diriyah);margin:8px 0 10px}
+.metric-label{color:var(--muted);line-height:1.7;font-weight:600}
+.side-card h2{font-size:1.18rem;margin-bottom:14px}
+.profile-grid{display:grid;gap:12px}
+.profile-row{display:flex;justify-content:space-between;gap:12px;padding-bottom:12px;border-bottom:1px dashed rgba(122,78,54,.18)}
+.profile-row strong{color:var(--diriyah)}
+.section{padding:26px 0}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;margin-bottom:18px}
+.kicker{font-size:.83rem;font-weight:900;text-transform:uppercase;letter-spacing:.16em;color:var(--green);margin-bottom:8px}
+body.rtl .kicker{letter-spacing:.08em}
+h2{font-size:clamp(1.6rem,3vw,2.7rem);line-height:1.12;letter-spacing:-.04em}
+body.rtl h2{letter-spacing:0}
+.section-note{max-width:780px;color:var(--muted);line-height:1.75;font-weight:600}
+.grid-2,.grid-3,.research-lab,.footer-grid{display:grid;gap:16px}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.research-lab{grid-template-columns:1.05fr .95fr;align-items:start}
+.panel,.thesis-card,.timeline-item,.book,.easter-card,.access-card{padding:22px;border-radius:24px;background:rgba(255,255,255,.84);border:1px solid rgba(122,78,54,.18);box-shadow:var(--shadow-soft)}
+.panel h3,.thesis-card h3,.timeline-item h3,.book h3,.easter-card h3,.access-card h3{margin-bottom:10px;color:var(--diriyah);font-size:1.08rem}
+.panel p,.thesis-card p,.timeline-item p,.book p,.easter-card p,.access-card p{line-height:1.72;color:var(--muted);font-weight:600}
+.panel small,.bridge-note{display:block;margin-top:12px;color:var(--regraga-red);font-weight:800}
+.tag-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.tag{padding:7px 10px;border-radius:999px;background:rgba(0,124,137,.10);border:1px solid rgba(0,124,137,.14);color:#005c66;font-weight:800;font-size:.82rem}
+.thesis-card ul{margin-top:14px;padding-inline-start:18px;display:grid;gap:10px}
+.thesis-card li{line-height:1.65;color:var(--muted);font-weight:650}
+.timeline{display:grid;gap:14px}
+.timeline-item{position:relative;padding-inline-start:26px}
+.timeline-item::before{content:"";position:absolute;inset-inline-start:0;top:5px;bottom:5px;width:7px;border-radius:999px;background:linear-gradient(180deg,var(--regraga-red),var(--redsea),var(--green))}
+.bridge-banner{padding:20px 22px;border-radius:24px;background:linear-gradient(135deg,rgba(161,59,57,.08),rgba(0,108,53,.08));border:1px solid rgba(122,78,54,.16);margin-top:16px}
+.bridge-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(161,59,57,.11);color:var(--regraga-red);font-weight:900;margin-bottom:14px}
+.urban-map{display:grid;grid-template-columns:1.08fr .92fr;gap:16px;align-items:start}
+.city-metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.city-pill{padding:18px;border-radius:18px;background:rgba(255,255,255,.9);border:1px solid rgba(122,78,54,.16);box-shadow:var(--shadow-soft)}
+.city-pill b{display:block;color:var(--diriyah);margin-bottom:8px}
+.assumption{display:inline-flex;align-items:center;gap:6px;padding:6px 9px;border-radius:999px;background:rgba(161,59,57,.1);color:var(--regraga-red);font-size:.78rem;font-weight:900;margin-top:12px}
+.daour-shell{padding:24px;border-radius:28px;background:rgba(255,255,255,.82);border:1px solid rgba(122,78,54,.18);box-shadow:var(--shadow);overflow:hidden}
+.daour-top{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:20px}
+.daour-note{max-width:720px;line-height:1.75;color:var(--muted);font-weight:600}
+/* ── Daour Cycle: SVG hub + outer card grid ── */
+.daour-layout{display:block}
+.daour-cycle-wrap{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:auto auto auto;gap:14px;align-items:center;justify-items:center}
+.daour-hub-cell{grid-column:2;grid-row:2;width:100%;display:flex;align-items:center;justify-content:center}
+.daour-hub{position:relative;width:210px;height:210px;flex:0 0 210px}
+.daour-hub-svg{width:100%;height:100%}
+.daour-hub-inner{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120px;height:120px;border-radius:50%;display:grid;place-items:center;text-align:center;padding:10px;background:linear-gradient(135deg,var(--regraga-red),var(--green));color:#fff;box-shadow:0 14px 28px rgba(20,40,30,.22);z-index:2}
+.daour-hub-inner b{display:block;font-size:.72rem;font-weight:900;margin-bottom:3px;line-height:1.2}
+.daour-hub-inner span{font-size:.62rem;font-weight:700;line-height:1.35;opacity:.92}
+.daour-stop{padding:12px 13px;border-radius:16px;background:#fff;border:1.5px solid rgba(122,78,54,.16);box-shadow:var(--shadow-soft);width:100%;cursor:pointer;transition:box-shadow .2s,border-color .2s,transform .15s}
+.daour-stop:hover{border-color:var(--redsea);box-shadow:0 10px 26px rgba(0,124,137,.18);transform:translateY(-2px)}
+.daour-stop h3{font-size:.85rem;color:var(--diriyah);margin-bottom:3px;line-height:1.3;font-weight:800}
+.daour-stop p{font-size:.75rem;line-height:1.5;color:var(--muted);font-weight:600}
+.daour-stop .meta{display:block;margin-top:5px;font-size:.68rem;font-weight:900;color:var(--green)}
+.daour-stop .mini-tag{display:inline-block;margin-bottom:5px;padding:3px 7px;border-radius:999px;background:rgba(0,124,137,.1);font-size:.67rem;font-weight:900;color:#005c66}
+/* grid positions for 7 stops around hub */
+.ds-1{grid-column:2;grid-row:1}
+.ds-2{grid-column:3;grid-row:1}
+.ds-3{grid-column:3;grid-row:2}
+.ds-4{grid-column:3;grid-row:3}
+.ds-5{grid-column:2;grid-row:3}
+.ds-6{grid-column:1;grid-row:3}
+.ds-7{grid-column:1;grid-row:2}
+.daour-list{display:grid;gap:12px;margin-top:20px;grid-template-columns:repeat(4,1fr)}
+.daour-list article{padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.94);border:1px solid rgba(122,78,54,.16)}
+.daour-list h3{font-size:.95rem;color:var(--diriyah);margin-bottom:6px}
+.daour-list p{line-height:1.65;color:var(--muted);font-weight:600;font-size:.88rem}
+.daour-list .step-badge{display:inline-flex;padding:4px 9px;border-radius:999px;background:rgba(161,59,57,.1);color:var(--regraga-red);font-size:.73rem;font-weight:900;margin-bottom:7px}
+@media(max-width:860px){
+  .daour-cycle-wrap{grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto auto}
+  .daour-hub-cell{grid-column:1/3;grid-row:1}
+  .ds-1{grid-column:1;grid-row:2}
+  .ds-2{grid-column:2;grid-row:2}
+  .ds-3{grid-column:1;grid-row:3}
+  .ds-4{grid-column:2;grid-row:3}
+  .ds-5{grid-column:1;grid-row:4}
+  .ds-6{grid-column:2;grid-row:4}
+  .ds-7{grid-column:1/3;grid-row:5;max-width:340px;justify-self:center}
+  .daour-list{grid-template-columns:repeat(2,1fr)}
+}
+.tab-shell{margin-top:18px;border-radius:var(--radius);background:rgba(255,255,255,.82);border:1px solid rgba(122,78,54,.20);box-shadow:var(--shadow);overflow:hidden}
+.tab-list{display:flex;gap:8px;flex-wrap:wrap;padding:12px;background:rgba(247,231,203,.52);border-bottom:1px solid rgba(122,78,54,.18)}
+.tab-button{border:1px solid rgba(122,78,54,.24);background:#fff;color:var(--ink);border-radius:999px;padding:11px 15px;font-weight:900;min-height:44px}
+.tab-button[aria-selected="true"]{background:linear-gradient(135deg,var(--green),var(--redsea));color:#fff;border-color:transparent}
+.tab-panel{padding:24px}
+.tab-panel[hidden]{display:none}
+.commercial-map{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.commercial-step{padding:18px;border-radius:18px;background:rgba(0,124,137,.08);border:1px solid rgba(0,124,137,.16)}
+.commercial-step b{display:block;margin-bottom:8px;color:#005862}
+.ethics-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+.ethics-item{padding:16px;border-radius:16px;background:rgba(255,255,255,.88);border:1px solid rgba(122,78,54,.16)}
+.ethics-item b{display:block;color:var(--diriyah);margin-bottom:6px}
+.manifesto-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:16px}
+.manifesto-card{position:relative;overflow:hidden;padding:20px;border-radius:22px;background:rgba(255,255,255,.88);border:1px solid rgba(122,78,54,.18);box-shadow:var(--shadow-soft);min-height:250px}
+.manifesto-card::before{content:"";position:absolute;inset:0 0 auto 0;height:6px;background:linear-gradient(90deg,var(--regraga-red),var(--green),var(--redsea));opacity:.92}
+.manifesto-term{display:block;margin-bottom:8px;color:var(--green);font-weight:900;font-size:1.06rem;line-height:1.35}
+.manifesto-card h3{font-size:1rem;color:var(--diriyah);margin-bottom:10px}
+.manifesto-card p{line-height:1.68;color:var(--muted);font-weight:650}
+.clarity-panel{margin-top:18px;padding:24px;border-radius:26px;background:linear-gradient(135deg,rgba(0,108,53,.10),rgba(161,59,57,.08));border:1px solid rgba(122,78,54,.18);box-shadow:var(--shadow-soft)}
+.clarity-panel h3{color:var(--diriyah);font-size:1.25rem;margin-bottom:10px}
+.clarity-panel p{color:var(--muted);line-height:1.72;font-weight:650}
+.clarity-commitments{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+.clarity-item{padding:15px;border-radius:16px;background:rgba(255,255,255,.88);border:1px solid rgba(122,78,54,.14)}
+.clarity-item b{display:block;color:var(--green);margin-bottom:6px}
+.khaima-grid,.pillars-summary{display:grid;gap:14px}
+.khaima-grid{grid-template-columns:1.05fr .95fr;align-items:start}
+.khaima-card{padding:24px;border-radius:26px;background:rgba(255,255,255,.86);border:1px solid rgba(122,78,54,.18);box-shadow:var(--shadow-soft)}
+.khaima-card h3{font-size:1.08rem;color:var(--diriyah);margin-bottom:10px}
+.khaima-card p{line-height:1.72;color:var(--muted);font-weight:650}
+.khaima-header{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.khaima-icon{width:62px;height:62px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,var(--regraga-red),#cf5f5c);color:#fff;box-shadow:0 14px 24px rgba(161,59,57,.24);flex:0 0 auto}
+.khaima-icon svg{width:34px;height:34px}
+.khaima-points{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
+.khaima-point{padding:15px;border-radius:16px;background:rgba(161,59,57,.07);border:1px solid rgba(161,59,57,.14)}
+.khaima-point b{display:block;margin-bottom:6px;color:var(--regraga-red)}
+.service-banner{margin-top:16px;padding:22px 24px;border-radius:24px;background:linear-gradient(135deg,rgba(161,59,57,.10),rgba(0,108,53,.10));border:1px solid rgba(122,78,54,.18);box-shadow:var(--shadow-soft)}
+.service-banner p{line-height:1.72;color:var(--muted);font-weight:650}
+.service-banner .assumption{margin-top:14px}
+.pillars-summary{grid-template-columns:repeat(3,1fr);margin-top:16px}
+.pillar-chip{padding:16px;border-radius:18px;background:rgba(255,255,255,.92);border:1px solid rgba(122,78,54,.16);box-shadow:var(--shadow-soft)}
+.pillar-chip b{display:block;margin-bottom:8px;color:var(--diriyah)}
+.consent-banner{position:fixed;z-index:90;inset:auto 18px 18px 18px;max-width:1120px;margin:auto;padding:18px;border-radius:24px;background:rgba(255,255,255,.96);border:1px solid rgba(122,78,54,.24);box-shadow:0 24px 70px rgba(20,32,28,.22);backdrop-filter:blur(16px)}
+.consent-banner[hidden]{display:none}
+.consent-inner{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
+.consent-title{display:block;color:var(--diriyah);font-weight:900;margin-bottom:6px}
+.consent-text{color:var(--muted);line-height:1.65;font-weight:650}
+.consent-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.consent-btn{min-height:44px;border-radius:999px;padding:10px 14px;font-weight:900;border:1px solid rgba(122,78,54,.26);background:#fff;color:var(--ink)}
+.consent-btn.save{background:linear-gradient(135deg,var(--green),var(--redsea));color:#fff;border-color:transparent}
+.consent-btn.session{background:#fff;color:var(--ink)}
+@media (forced-colors:active){.consent-banner,.panel,.manifesto-card,.clarity-panel{border:2px solid CanvasText}.fixed-line{display:none}.cta.primary,.green-toggle,.tab-button[aria-selected="true"]{forced-color-adjust:none}}
+
+.bookshelf,.easter-grid,.accessibility-grid{display:grid;gap:14px}
+.bookshelf{grid-template-columns:repeat(5,1fr)}
+.book{display:flex;flex-direction:column;justify-content:space-between;min-height:220px;background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(247,231,203,.8));border-bottom:7px solid var(--diriyah)}
+.book:nth-child(2n){border-bottom-color:var(--redsea)}
+.book:nth-child(3n){border-bottom-color:var(--green)}
+.book:nth-child(4n){border-bottom-color:var(--regraga-red)}
+.easter-grid{grid-template-columns:repeat(4,1fr)}
+.easter-card{position:relative;min-height:250px}
+.dallah-btn{width:70px;height:70px;border-radius:22px;border:0;background:linear-gradient(135deg,var(--regraga-red),var(--sand));display:grid;place-items:center;color:#fff;box-shadow:0 12px 24px rgba(161,59,57,.22);margin-bottom:14px;position:relative}
+.dallah-btn svg{width:36px;height:36px}
+.finjan{position:absolute;inset-inline-end:14px;top:16px;width:34px;height:34px;border-radius:50% 50% 40% 40%;background:#fff;border:2px solid rgba(161,59,57,.3);transform:translateX(8px) translateY(-4px) scale(.55);opacity:0;transition:all .35s ease}
+.finjan::after{content:"";position:absolute;inset:auto 8px -7px 8px;height:10px;border-radius:0 0 10px 10px;background:var(--sand)}
+.dallah-wrap:hover .finjan,.dallah-wrap:focus-within .finjan{opacity:1;transform:translateX(0) translateY(0) scale(1)}
+.easter-icon{width:74px;height:74px;border-radius:22px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(0,124,137,.14),rgba(255,255,255,.8));margin-bottom:14px;position:relative;overflow:hidden}
+.easter-icon svg{width:40px;height:40px}
+.khaima-svg path{fill:var(--regraga-red)}
+.toggle-demo{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:rgba(0,108,53,.12);font-weight:900;color:var(--green);margin-top:12px}
+.accessibility-grid{grid-template-columns:repeat(4,1fr)}
+.access-card{min-height:180px}
+.footer{margin-top:18px;padding:28px;border-radius:30px 30px 0 0;background:linear-gradient(135deg,#12241f,#234137);color:#fff}
+.footer-grid{grid-template-columns:1.2fr .8fr;align-items:center}
+.countdown{display:inline-flex;align-items:center;gap:12px;padding:12px 16px;border-radius:18px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);font-weight:900;color:#fff;margin-top:16px}
+.countdown:hover{text-decoration:none;background:rgba(255,255,255,.16)}
+.countdown small{display:block;font-size:.78rem;color:rgba(255,255,255,.75);font-weight:700}
+.micro{margin-top:10px;color:rgba(255,255,255,.85);min-height:1.8em}
+.hidden-message{margin-top:12px;color:#d7fce8;font-weight:800;opacity:0;transform:translateY(6px);transition:all .28s ease}
+.hidden-message.revealed{opacity:1;transform:translateY(0)}
+.source-note{margin-top:12px;color:rgba(255,255,255,.78);line-height:1.7}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.fixed-line{display:none}}
+@media(max-width:1180px){.daour-layout{grid-template-columns:1fr}.daour-wheel{width:460px;height:460px}.stop1{left:161px}.stop5{left:161px}.bookshelf{grid-template-columns:repeat(3,1fr)}.manifesto-grid{grid-template-columns:repeat(2,1fr)}.easter-grid{grid-template-columns:repeat(2,1fr)}.accessibility-grid,.clarity-commitments{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:1060px){.hero,.grid-2,.research-lab,.footer-grid,.urban-map,.khaima-grid{grid-template-columns:1fr}.grid-3,.commercial-map,.city-metrics,.pillars-summary,.khaima-points{grid-template-columns:1fr 1fr}.vision-pills{grid-template-columns:1fr}.nav-inner{align-items:flex-start;flex-direction:column}.nav-links{justify-content:flex-start}.hero-card{padding:28px}.metric-num{font-size:2.6rem}}
+@media(max-width:760px){.container{padding:14px}.grid-3,.commercial-map,.accessibility-grid,.ethics-list,.manifesto-grid,.clarity-commitments,.bookshelf,.easter-grid,.city-metrics,.pillars-summary,.khaima-points{grid-template-columns:1fr}.section-head,.daour-top{display:block}.hero-card,.panel,.side-card,.thesis-card,.khaima-card{border-radius:20px}.fixed-line{top:88%;opacity:.48}.nav-links a,.pill-btn,.green-toggle,.lang-wrap{width:100%;justify-content:center}.nav-links{width:100%}.vision-pill{padding:14px}h1{font-size:2.35rem}.footer{border-radius:22px 22px 0 0}.daour-wheel{width:100%;height:auto;display:grid;grid-template-columns:1fr;gap:12px;border:none;background:transparent}.daour-wheel::before,.daour-center{display:none}.daour-stop{position:static;width:auto;min-height:auto}.daour-layout,.khaima-grid{grid-template-columns:1fr}.consent-inner{grid-template-columns:1fr}.consent-actions{justify-content:stretch}.consent-btn{width:100%}}
+
+
+/* === Final premium UI/UX pass: readability, mobile navigation, depth === */
+html{scroll-padding-top:92px}
+body{text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+.nav{box-shadow:0 10px 30px rgba(23,33,29,.06)}
+.nav-inner{max-width:1440px;padding:12px clamp(14px,2vw,28px)}
+.logo{max-width:360px;line-height:1.08}
+.logo span[data-i18n="brand"]{white-space:normal}
+.nav-links{flex:1;min-width:0;justify-content:flex-end;overflow-x:auto;scrollbar-width:none;padding-block:2px}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a,.pill-btn,.green-toggle,.lang-wrap{white-space:nowrap;flex:0 0 auto}
+.hero-card{isolation:isolate}
+.hero-card::before{content:"";position:absolute;inset:0 0 auto 0;height:7px;background:linear-gradient(90deg,var(--regraga-red),var(--sand),var(--green),var(--redsea));opacity:.96;z-index:1}
+.hero-card::after{content:"";position:absolute;inset:auto -90px -110px auto;width:330px;height:330px;border-radius:50%;background:radial-gradient(circle,rgba(0,124,137,.18),transparent 68%);z-index:-1}
+.hero-card .eyebrow{box-shadow:inset 0 0 0 1px rgba(0,108,53,.10)}
+.evidence-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px;padding-top:18px;border-top:1px solid rgba(122,78,54,.14)}
+.evidence-item{position:relative;padding:15px 15px 15px 18px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(255,249,239,.78));border:1px solid rgba(122,78,54,.16);box-shadow:var(--shadow-soft);overflow:hidden}
+body.rtl .evidence-item{padding:15px 18px 15px 15px}
+.evidence-item::before{content:"";position:absolute;inset:14px auto 14px 0;width:4px;border-radius:99px;background:linear-gradient(180deg,var(--green),var(--redsea))}
+body.rtl .evidence-item::before{inset:14px 0 14px auto}
+.evidence-item b{display:block;color:var(--diriyah);font-size:.92rem;margin-bottom:6px}
+.evidence-item span{display:block;color:var(--muted);font-size:.82rem;line-height:1.55;font-weight:650}
+.panel,.thesis-card,.timeline-item,.book,.easter-card,.access-card,.khaima-card,.city-pill,.pillar-chip,.ethics-item,.manifesto-card{transition:transform .24s ease,box-shadow .24s ease,border-color .24s ease;background-clip:padding-box}
+@media (hover:hover){.panel:hover,.thesis-card:hover,.timeline-item:hover,.book:hover,.easter-card:hover,.access-card:hover,.khaima-card:hover,.city-pill:hover,.pillar-chip:hover,.ethics-item:hover,.manifesto-card:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(24,34,30,.14);border-color:rgba(0,124,137,.28)}}
+.section{padding:34px 0}.section-head{margin-bottom:22px}.section-note{font-size:1.01rem}
+.tab-shell,.daour-shell,.hero-card,.metric-card,.side-card{outline:1px solid rgba(255,255,255,.55);outline-offset:-2px}
+.footer{position:relative;overflow:hidden}.footer::before{content:"";position:absolute;inset:-40% auto auto -10%;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);pointer-events:none}body.rtl .footer::before{inset:-40% -10% auto auto}
+@media(max-width:1180px){.evidence-strip{grid-template-columns:repeat(2,1fr)}.logo{max-width:100%}}
+@media(max-width:1060px){.nav-inner{align-items:stretch}.nav-links{justify-content:flex-start;flex-wrap:nowrap}.hero{min-height:auto}}
+@media(max-width:760px){html{scroll-padding-top:120px}.nav-links{display:flex;flex-wrap:nowrap;gap:8px;overflow-x:auto;justify-content:flex-start;padding-bottom:8px}.nav-links a,.pill-btn,.green-toggle,.lang-wrap{width:auto;min-width:max-content;justify-content:center}.hero-card{padding:24px 18px}.evidence-strip{grid-template-columns:1fr}.metric-card,.side-card{padding:20px}.consent-banner{inset:auto 10px 10px 10px;padding:14px}.section{padding:26px 0}.lead{line-height:1.68}}
+
+
+/* === Ihsan AI module: Projects / Research visual integration === */
+.ihsan-ai-module{
+  margin-top:18px;
+  padding:24px;
+  border-radius:30px;
+  background:
+    radial-gradient(circle at 6% 12%,rgba(0,108,53,.16),transparent 30%),
+    radial-gradient(circle at 92% 4%,rgba(161,59,57,.14),transparent 28%),
+    linear-gradient(135deg,rgba(255,255,255,.92),rgba(247,231,203,.78));
+  border:1px solid rgba(122,78,54,.20);
+  box-shadow:var(--shadow);
+  position:relative;
+  overflow:hidden;
+}
+.ihsan-ai-module::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:8px;
+  background:linear-gradient(90deg,var(--green),var(--sand),var(--regraga-red),var(--redsea));
+  opacity:.95;
+}
+.ihsan-ai-head{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:16px;
+  align-items:start;
+  margin-bottom:18px;
+  position:relative;
+  z-index:1;
+}
+.ihsan-ai-head h3{
+  color:var(--diriyah);
+  font-size:clamp(1.35rem,2.4vw,2.15rem);
+  line-height:1.12;
+  letter-spacing:-.035em;
+  margin-bottom:10px;
+}
+body.rtl .ihsan-ai-head h3{letter-spacing:0}
+.ihsan-ai-head p{
+  max-width:860px;
+  color:var(--muted);
+  line-height:1.74;
+  font-weight:650;
+}
+.ihsan-badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-height:42px;
+  padding:9px 13px;
+  border-radius:999px;
+  background:rgba(0,108,53,.12);
+  color:var(--green);
+  border:1px solid rgba(0,108,53,.18);
+  font-weight:900;
+  white-space:nowrap;
+}
+.ihsan-projects{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  position:relative;
+  z-index:1;
+}
+.ihsan-project-card{
+  display:flex;
+  flex-direction:column;
+  min-height:100%;
+  padding:18px;
+  border-radius:22px;
+  background:rgba(255,255,255,.90);
+  border:1px solid rgba(122,78,54,.16);
+  box-shadow:var(--shadow-soft);
+}
+.ihsan-project-top{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  margin-bottom:14px;
+}
+.ihsan-orb{
+  width:46px;
+  height:46px;
+  flex:0 0 auto;
+  border-radius:16px;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  background:linear-gradient(135deg,var(--green),var(--redsea));
+  box-shadow:0 12px 22px rgba(0,108,53,.20);
+  font-weight:900;
+}
+.ihsan-project-card:nth-child(2) .ihsan-orb{background:linear-gradient(135deg,var(--regraga-red),var(--sand))}
+.ihsan-project-card:nth-child(3) .ihsan-orb{background:linear-gradient(135deg,var(--redsea),var(--green-2))}
+.ihsan-project-card h4{
+  color:var(--diriyah);
+  font-size:1rem;
+  line-height:1.35;
+  margin-bottom:7px;
+}
+.ihsan-status{
+  display:inline-flex;
+  padding:5px 9px;
+  border-radius:999px;
+  background:rgba(161,59,57,.09);
+  color:var(--regraga-red);
+  border:1px solid rgba(161,59,57,.12);
+  font-size:.74rem;
+  line-height:1.2;
+  font-weight:900;
+}
+.ihsan-axis-list{
+  display:grid;
+  gap:10px;
+  margin-top:auto;
+}
+.ihsan-axis{
+  padding:13px;
+  border-radius:16px;
+  background:linear-gradient(180deg,rgba(255,249,239,.82),rgba(255,255,255,.92));
+  border:1px solid rgba(122,78,54,.13);
+}
+.ihsan-axis b{
+  display:block;
+  color:var(--green);
+  margin-bottom:6px;
+  font-size:.88rem;
+}
+.ihsan-axis span{
+  display:block;
+  color:var(--muted);
+  font-size:.88rem;
+  line-height:1.58;
+  font-weight:630;
+}
+.ihsan-footnote{
+  margin-top:14px;
+  padding:14px 16px;
+  border-radius:18px;
+  background:rgba(0,124,137,.08);
+  border:1px solid rgba(0,124,137,.14);
+  color:#005862;
+  font-weight:750;
+  line-height:1.65;
+}
+@media(max-width:1060px){.ihsan-projects{grid-template-columns:1fr}.ihsan-ai-head{grid-template-columns:1fr}.ihsan-badge{width:max-content}}
+@media(max-width:760px){.ihsan-ai-module{padding:20px 16px;border-radius:24px}.ihsan-badge{width:100%;white-space:normal;text-align:center}.ihsan-project-card{padding:16px}}
+
+
+/* ── SUMO Simulation Dashboard ── */
+.egs-sumo-shell {
+ background: #050505;
+ color: #E8FCEE;
+ border: 1px solid #004400;
+ font-family: var(--font-mono);
+}
+.egs-sumo-toolbar {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 6px;
+ padding: 7px;
+ border-bottom: 1px solid #004400;
+ background: #071107;
+}
+.egs-mode-btn,
+.egs-zone-btn,
+.egs-control-btn {
+ border: 1px solid #004400;
+ background: #101b10;
+ color: #75a875;
+ border-radius: 3px;
+ padding: 5px 9px;
+ font-family: var(--font-mono);
+ font-size: 10px;
+ cursor: pointer;
+ line-height: 1.15;
+}
+.egs-mode-btn:hover,
+.egs-zone-btn:hover,
+.egs-control-btn:hover { color: #00FF88; border-color: #00AA55; }
+.egs-mode-btn.active,
+.egs-zone-btn.active {
+ background: rgba(0,255,136,.12);
+ color: var(--tc, #00FF88);
+ border-color: var(--tc, #00FF88);
+ box-shadow: inset 0 -2px 0 var(--tc, #00FF88);
+}
+.egs-sumo-grid {
+ display: grid;
+ grid-template-columns: minmax(0, 1fr) 220px;
+ min-height: 430px;
+}
+.egs-map-wrap { position: relative; min-height: 430px; background: #0A0A0A; }
+#egsSumoMap { position:absolute; inset:0; z-index:1; min-height:430px; }
+#egsTrafficCanvas { position:absolute; inset:0; z-index:500; width:100%; height:100%; pointer-events:none; }
+.egs-map-badge {
+ position: absolute;
+ z-index: 700;
+ top: 10px; left: 10px;
+ max-width: calc(100% - 20px);
+ background: rgba(0, 10, 0, .82);
+ border: 1px solid #004400;
+ border-radius: 3px;
+ padding: 7px 9px;
+ color: #00FF88;
+ pointer-events: none;
+}
+.egs-map-badge strong { display:block; font-size: 11px; margin-bottom:2px; }
+.egs-map-badge span { display:block; font-size: 9px; color:#77aa77; line-height:1.35; }
+.egs-legend {
+ position: absolute;
+ z-index: 700;
+ left: 10px; bottom: 10px;
+ display:flex; gap:8px; flex-wrap:wrap;
+ background: rgba(0, 10, 0, .82);
+ border: 1px solid #004400;
+ border-radius: 3px;
+ padding: 6px 8px;
+ font-size: 9px;
+ color:#77aa77;
+ pointer-events:none;
+}
+.egs-dot { display:inline-block; width:10px; height:10px; border-radius:99px; margin-right:4px; vertical-align:-1px; }
+.egs-dot.green { background:#00FF88; }
+.egs-dot.yellow { background:#FFD700; }
+.egs-dot.red { background:#FF3355; }
+.egs-side {
+ background: #050505;
+ border-left: 1px solid #004400;
+ display:flex;
+ flex-direction:column;
+}
+.egs-kpis { display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid #004400; }
+.egs-kpi { padding:8px 7px; border-right:1px solid #004400; border-bottom:1px solid #004400; text-align:center; }
+.egs-kpi:nth-child(2n) { border-right:none; }
+.egs-kpi-label { color:#446644; font-size:8px; margin-bottom:3px; }
+.egs-kpi-val { color:#00FF88; font-size:18px; font-weight:700; line-height:1; }
+.egs-controls { padding:8px; border-bottom:1px solid #004400; }
+.egs-control-row { margin-bottom:8px; }
+.egs-control-row label { display:block; color:#668866; font-size:8px; margin-bottom:3px; }
+.egs-control-row input[type="range"] { width:100%; accent-color:#00FF88; }
+.egs-control-buttons { display:grid; grid-template-columns:1fr 1fr; gap:5px; margin-bottom:8px; }
+.egs-note { padding:8px; color:#668866; font-size:9px; line-height:1.5; overflow-y:auto; }
+.egs-hidden { display:none !important; }
+.egs-link-row { display:flex; gap:5px; flex-wrap:wrap; padding:7px; border-top:1px solid #004400; }
+.egs-small-tag { border:1px solid #004400; color:#668866; padding:2px 6px; border-radius:2px; font-size:8px; }
+@media (max-width: 760px) {
+ .egs-sumo-grid { grid-template-columns: 1fr; }
+ .egs-side { border-left:none; border-top:1px solid #004400; }
+ .egs-map-wrap, #egsSumoMap { min-height: 360px; }
+}
+
+/* ── Saudi portfolio compatibility wrapper for copied Chinese SUMO block ── */
+#sumo-dashboard{
+  margin-top:18px;
+  overflow:hidden;
+}
+#sumo-dashboard .ph{
+  padding:10px 14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  border-radius:20px 20px 0 0;
+  min-height:48px;
+}
+#sumo-dashboard .ph-en{
+  font-size:.72rem;
+  font-weight:700;
+  white-space:normal;
+}
+#sumo-dashboard .pb{
+  border-radius:0 0 20px 20px;
+  overflow:hidden;
+}
+#sumo-dashboard [data-zh]{display:none!important;}
+body.rtl #sumo-dashboard{direction:ltr;font-family:var(--font-en);}
+
+</style>
+</head>
+<body>
+<a href="#main" class="skip" data-i18n="skip">Skip to main content</a>
+<div class="fixed-line" aria-hidden="true"></div>
+<header class="nav" role="banner">
+  <nav class="nav-inner" aria-label="Primary navigation">
+    <a class="logo" href="#top" aria-label="El Ghali Sany portfolio home">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 44L32 16L54 44H10Z" fill="currentColor" opacity=".95"/>
+          <path d="M22 44V34L32 24L42 34V44" fill="#ffffff" opacity=".28"/>
+        </svg>
+      </span>
+      <span data-i18n="brand">Casablanca → Saudi Vision 2030 Portfolio</span>
+    </a>
+    <div class="nav-links">
+      <a href="#bridge" data-i18n="navBridge">Vibrant Society / My Story</a>
+      <a href="#urban" data-i18n="navUrban">Casablanca Perspective</a>
+      <a href="#research" data-i18n="navResearch">Thriving Economy / My Research</a>
+      <a href="#gift" data-i18n="navGift">Daour Methodology</a>
+      <a href="#commercialization" data-i18n="navCommercial">Commercialization</a>
+      <a href="#engagement" data-i18n="navEngagement">Ambitious Nation / Engagement</a>
+      <a href="#ethics" data-i18n="navEthics">Digital Ethics</a>
+      <a href="#manifesto" data-i18n="navManifesto">Research Manifesto</a>
+      <a href="#knowledge" data-i18n="navKnowledge">Knowledge Base</a>
+      <a href="#reality" data-i18n="navReality">Reality Check</a>
+      <div class="lang-wrap" aria-label="Language switcher with Amazigh visual tribute">
+        <span class="tifinagh-mark" aria-hidden="true">ⵣ</span>
+        <button class="pill-btn lang-btn" id="enBtn" type="button" aria-pressed="true" aria-label="Switch language to English">EN</button>
+        <button class="pill-btn lang-btn" id="arBtn" type="button" aria-pressed="false" aria-label="Switch language to Arabic">AR</button>
+      </div>
+      <button class="green-toggle" id="greenToggle" type="button" aria-pressed="false"><span class="solar-icon" aria-hidden="true"></span><span data-i18n="greenMode">Green Mode</span></button>
+    </div>
+  </nav>
+</header>
+
+<section class="consent-banner" id="privacyConsent" aria-labelledby="consentTitle" aria-describedby="consentText">
+  <div class="consent-inner">
+    <div>
+      <strong class="consent-title" id="consentTitle" data-i18n="consentTitle">Privacy-respectful consent</strong>
+      <p class="consent-text" id="consentText" data-i18n="consentText">In the spirit of Al-Amānah and Iḥtirām al-khuṣūṣiyyah, this portfolio uses no analytics, advertising pixels, or hidden trackers. Your choice only controls whether this notice is hidden in this browser. Full access is available either way.</p>
+    </div>
+    <div class="consent-actions" aria-label="Privacy consent choices">
+      <button class="consent-btn session" id="consentSession" type="button" data-i18n="consentSession">Continue without saving</button>
+      <button class="consent-btn save" id="consentSave" type="button" data-i18n="consentSave">Save choice locally</button>
+    </div>
+  </div>
+</section>
+
+<main id="main" class="container" tabindex="-1">
+  <section id="top" class="hero" aria-labelledby="heroTitle">
+    <div class="hero-card">
+      <div class="ornament" aria-hidden="true"></div>
+      <div class="eyebrow" data-i18n="eyebrow">Casablanca-born · Regraga-rooted · Vision 2030 aligned</div>
+      <h1 id="heroTitle"><span data-i18n="heroTitleA">A Moroccan scholar shaped by Casablanca,</span> <span class="gradient-text" data-i18n="heroTitleB">drawn to Saudi Arabia by history, faith, and future innovation.</span></h1>
+      <p class="lead" data-i18n="heroLead">I grew up in Casablanca and I am a proud descendant of the Regraga tribe. My portfolio presents my academic path to Saudi Arabia as both a modern research mission and a symbolic return to the birthplace of Islam, where I hope to develop high-impact knowledge for smart cities, sustainability, and evidence-based development.</p>
+      <div class="vision-pills" aria-label="Vision 2030 pillars alignment">
+        <div class="vision-pill"><b data-i18n="pillar1">A Vibrant Society</b><span data-i18n="pillar1Text">A story of belonging, heritage, and service rooted in the heart of the Arab and Islamic worlds.</span></div>
+        <div class="vision-pill"><b data-i18n="pillar2">A Thriving Economy</b><span data-i18n="pillar2Text">Research and commercialization paths that support diversification, smarter infrastructure, and SME-ready innovation.</span></div>
+        <div class="vision-pill"><b data-i18n="pillar3">An Ambitious Nation</b><span data-i18n="pillar3Text">A commitment to service, volunteering, ethical technology, and contributions to community life.</span></div>
+      </div>
+      <div class="cta-row">
+        <a class="cta primary" href="#bridge" data-i18n="ctaBridge">Read the narrative</a>
+        <a class="cta secondary" href="#gift" data-i18n="ctaGift">Explore the research cycle</a>
+      </div>
+      <div class="evidence-strip" aria-label="Credibility indicators">
+        <div class="evidence-item"><b data-i18n="evidence1">Verified academic base</b><span data-i18n="evidence1Text">Built from a documented PFE on mobility, profitability, and urban decision support.</span></div>
+        <div class="evidence-item"><b data-i18n="evidence2">Bilingual intellectual bridge</b><span data-i18n="evidence2Text">English/Arabic interface with RTL integrity and heritage-aware narrative framing.</span></div>
+        <div class="evidence-item"><b data-i18n="evidence3">Ethics by design</b><span data-i18n="evidence3Text">Privacy, explainability, and academic honesty are visible within the interface.</span></div>
+        <div class="evidence-item"><b data-i18n="evidence4">Saudi research fit</b><span data-i18n="evidence4Text">Smart-city, sustainability, and infrastructure analytics translated into Vision 2030 logic.</span></div>
+      </div>
+    </div>
+    <aside class="hero-side" aria-label="Applicant evidence summary">
+      <div class="metric-card">
+        <div data-i18n="metricTop">Core evidence from previous thesis</div>
+        <div class="metric-num" aria-label="IRP plus SUMO plus GIS">IRP</div>
+        <p class="metric-label" data-i18n="metricLabel">Potential Profitability Index built from traffic, socioeconomic, regulatory, and cost variables.</p>
+      </div>
+      <div class="side-card">
+        <h2 data-i18n="profileTitle">Applicant Positioning</h2>
+        <div class="profile-grid">
+          <div class="profile-row"><strong data-i18n="nameLabel">Name</strong><span>El Ghali Sany</span></div>
+          <div class="profile-row"><strong data-i18n="originLabel">Origin</strong><span data-i18n="originValue">Casablanca, Morocco · Regraga heritage</span></div>
+          <div class="profile-row"><strong data-i18n="fieldLabel">Field</strong><span data-i18n="fieldValue">Procurement, Supply Chain & Business Analysis</span></div>
+          <div class="profile-row"><strong data-i18n="toolsLabel">Tools</strong><span>Excel · SUMO · GIS/QGIS · KPI · ROI/TCO</span></div>
+          <div class="profile-row"><strong data-i18n="targetLabel">Targets</strong><span>KAUST · KSU · KFUPM</span></div>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <section id="bridge" class="section" aria-labelledby="bridgeTitle">
+    <div class="section-head">
+      <div><div class="kicker" data-i18n="bridgeKicker">A Vibrant Society / My Story</div><h2 id="bridgeTitle" data-i18n="bridgeTitle">From the Seven Saints Regraga to a modern academic journey toward the heart of the Islamic world.</h2></div>
+      <p class="section-note" data-i18n="bridgeNote">This section frames the Regraga journey to Mecca as a respectful metaphor for my own academic path: a modern search for excellence, knowledge, and service within the heart of the Islamic world.</p>
+    </div>
+    <div class="grid-3">
+      <article class="panel">
+        <h3 data-i18n="bridge1Title">The Seven Saints Regraga: an ancestral departure toward Mecca</h3>
+        <p data-i18n="bridge1Text">According to Regraga oral tradition, seven Amazigh saints journeyed from Morocco to Mecca before the Hijra, met the Prophet Muhammad, and were entrusted with carrying Islam back to the Maghreb. The tradition also preserves the beautiful idea that they were welcomed in their own Berber language, making the journey a symbol of faith, transmission, and dignity.</p>
+        <small data-i18n="bridge1Note">Presented respectfully as an ancestral narrative and cultural memory.</small>
+      </article>
+      <article class="panel">
+        <h3 data-i18n="bridge2Title">My academic parallel</h3>
+        <p data-i18n="bridge2Text">My move toward Saudi Arabia is therefore not presented as a simple study plan. It is a contemporary scholarly journey toward the heart of the Arab and Islamic worlds: a way to seek excellence, absorb frontier knowledge, and then carry that value outward through research, service, and practical impact.</p>
+        <div class="tag-row"><span class="tag">Vision 2030</span><span class="tag" data-i18n="bridgeTag">Heart of the Arab and Islamic Worlds</span></div>
+      </article>
+      <article class="panel">
+        <h3 data-i18n="bridge3Title">Why this belongs to a vibrant society narrative</h3>
+        <p data-i18n="bridge3Text">This heritage helps me align naturally with the Vision 2030 pillar of a Vibrant Society. It positions my story around belonging, cultural literacy, and a sense of responsibility: learning in Saudi Arabia not only to advance personally, but to participate in a living civilizational project rooted in faith, openness, and excellence.</p>
+        <div class="tag-row"><span class="tag">Morocco</span><span class="tag">Saudi Arabia</span><span class="tag">Knowledge transfer</span></div>
+      </article>
+    </div>
+    <div class="bridge-banner">
+      <div class="bridge-badge" data-i18n="bridgeBadge">Narrative positioning</div>
+      <p data-i18n="bridgeBannerText">I am not presenting myself only as a student seeking a degree. I am presenting myself as a modern scholar from Casablanca, rooted in the Regraga legacy, travelling symbolically toward the birthplace of Islam in order to seek excellence and bring back knowledge that can serve communities, institutions, and the future ambitions of Vision 2030.</p>
+      <span class="assumption" data-i18n="bridgeLegendNote">Historical note: the Regraga story is presented as a revered traditional narrative rather than a claim of modern historical proof.</span>
+    </div>
+  </section>
+
+  <section id="urban" class="section" aria-labelledby="urbanTitle">
+    <div class="section-head">
+      <div><div class="kicker" data-i18n="urbanKicker">A Thriving Economy / Casablanca Perspective</div><h2 id="urbanTitle" data-i18n="urbanTitle">Why Casablanca taught me to think in systems, flows, and urban productivity.</h2></div>
+      <p class="section-note" data-i18n="urbanNote">Growing up in Morocco’s economic capital shaped a practical understanding of infrastructure pressure, mobility bottlenecks, inequality of access, and the urgency of smarter city planning.</p>
+    </div>
+    <div class="urban-map">
+      <article class="panel">
+        <h3 data-i18n="urban1Title">A city of contrast and acceleration</h3>
+        <p data-i18n="urban1Text">Casablanca combines business districts, commercial density, expanding infrastructure, and peripheral urban growth. Living in that environment sharpened my interest in traffic systems, investment efficiency, land-use value, and evidence-based urban decision making.</p>
+        <h3 style="margin-top:16px" data-i18n="urban2Title">Why this matters for Saudi Arabia</h3>
+        <p data-i18n="urban2Text">That background helps me appreciate why Saudi Arabia is investing in hyper-planned urban models such as NEOM and in the transformation of Riyadh. I do not see these projects as abstract megaprojects; I see them as responses to the real coordination challenges of growth, mobility, sustainability, and quality of life.</p>
+      </article>
+      <div>
+        <div class="city-metrics">
+          <article class="city-pill"><b data-i18n="city1Title">Mobility awareness</b><span data-i18n="city1Text">Casablanca’s congestion challenges made mobility analysis and traffic simulation personally meaningful.</span></article>
+          <article class="city-pill"><b data-i18n="city2Title">Economic lens</b><span data-i18n="city2Text">Growing up in the country’s economic capital nurtured an instinct for productivity, investment prioritization, and commercial viability.</span></article>
+          <article class="city-pill"><b data-i18n="city3Title">Smart-city relevance</b><span data-i18n="city3Text">My background gives me a realistic understanding of why sustainable, data-informed, human-centered city design matters.</span></article>
+          <article class="city-pill"><b data-i18n="city4Title">Saudi fit</b><span data-i18n="city4Text">I want to contribute to urban futures linked to NEOM, Riyadh’s renewal, and infrastructure systems that blend ambition with livability.</span></article>
+        </div>
+        <div class="bridge-banner" style="margin-top:16px">
+          <div class="bridge-badge" data-i18n="urbanBadge">Positioning statement</div>
+          <p data-i18n="urbanBannerText">Casablanca taught me what urban pressure feels like. Saudi Arabia represents the opportunity to study how visionary planning can turn pressure into possibility. That is the intellectual bridge I want my scholarship journey to embody.</p>
+          <span class="assumption" data-i18n="urbanAssumption">Research themes related to NEOM and Riyadh are proposed directions, not claimed completed projects.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="research" class="section" aria-labelledby="researchTitle">
+    <div class="section-head">
+      <div><div class="kicker" data-i18n="researchKicker">A Thriving Economy / My Research</div><h2 id="researchTitle" data-i18n="researchTitle">A research agenda designed for iterative learning and economic diversification.</h2></div>
+      <p class="section-note" data-i18n="researchNote">The content below remains anchored in documented work, while clearly extending that base toward a Saudi research agenda focused on urban systems, infrastructure intelligence, and tools that can support diversification, productivity, and smarter investment choices.</p>
+    </div>
+    <div class="research-lab">
+      <article class="thesis-card">
+        <h3 data-i18n="thesisTitle">Proposed Thesis Direction</h3>
+        <p id="thesisText" data-i18n="thesisText">AI-assisted decision model for sustainable urban infrastructure investment in Saudi Arabia, combining mobility data, cost modeling, socioeconomic indicators, and environmental constraints.</p>
+        <ul>
+          <li data-i18n="thesisLi1">Method: mixed-methods, spatial analytics, financial modeling, and stakeholder validation.</li>
+          <li data-i18n="thesisLi2">Output: decision-support model, scoring dashboard, commercialization path, and governance checklist.</li>
+          <li data-i18n="thesisLi3">Status: proposed research extension, not claimed as completed experience.</li>
+        </ul>
+        <div class="tag-row"><span class="tag">AI</span><span class="tag">SUMO/GIS</span><span class="tag">TCO</span><span class="tag">Vision 2030</span></div>
+      </article>
+      <div class="timeline" aria-label="Research evidence timeline">
+        <div class="timeline-item"><h3 data-i18n="project1Title">Past Project: Mobility-to-profitability model</h3><p data-i18n="project1Text">Existing PFE: financial profitability of outdoor advertising in Casablanca using road traffic, GIS, demographics, CAPEX, OPEX, ROI, and regulatory constraints.</p></div>
+        <div class="timeline-item"><h3 data-i18n="project2Title">Saudi Extension: Smart-city investment scoring</h3><p data-i18n="project2Text">Extend the logic from advertising locations to urban infrastructure assets: transport nodes, tourism areas, logistics zones, water systems, and service accessibility.</p></div>
+        <div class="timeline-item"><h3 data-i18n="project3Title">Green Mode Extension</h3><p data-i18n="project3Text">When Green Mode is activated, the thesis shifts toward sustainable desalination, renewable-energy infrastructure, and environmental impact scoring.</p></div>
+      </div>
+    </div>
+
+<!-- SUMO Integrated Dashboard — Heatmap + Real Vehicle Simulation -->
+ <div class="panel fi" id="sumo-dashboard">
+ <div class="ph" style="background:linear-gradient(90deg,#001A00,#003300);border-bottom:1px solid #00AA44;">
+ <span style="color:#00FF88;font-family:'Share Tech Mono',monospace;font-size:11px;" data-zh>🚗 交通仿真分析 · 热力图与实时模拟</span><span style="color:#00FF88;font-family:'Share Tech Mono',monospace;font-size:11px;" data-en>🚗 Traffic Simulation · Heatmap &amp; Real-time Simulation</span>
+ <span class="ph-en" style="color:#448844;">OpenStreetMap · SUMO FCD · 5 Casablanca zones</span>
+ </div>
+ <div class="pb egs-sumo-shell" style="padding:0;">
+
+ <div class="egs-sumo-toolbar" aria-label="SUMO dashboard modes">
+ <button class="egs-mode-btn active" data-egs-mode="heatmap">HEATMAP</button>
+ <button class="egs-mode-btn" data-egs-mode="simulation">SIMULATION</button>
+ </div>
+
+ <div class="egs-sumo-toolbar" aria-label="SUMO zones">
+ <button class="egs-zone-btn active" data-egs-zone="maarif" style="--tc:#FF3355;">Maârif</button>
+ <button class="egs-zone-btn" data-egs-zone="hay_hassani" style="--tc:#FFB830;">Hay Hassani</button>
+ <button class="egs-zone-btn" data-egs-zone="ben_msick" style="--tc:#00E676;">Ben M'Sick</button>
+ <button class="egs-zone-btn" data-egs-zone="sidi_maarouf" style="--tc:#BF5AF2;">Sidi Maârouf</button>
+ <button class="egs-zone-btn" data-egs-zone="bd_mohammed_v" style="--tc:#00B4D8;">Bd. Mohammed V</button>
+ </div>
+
+ <div class="egs-sumo-grid">
+ <div class="egs-map-wrap">
+ <div id="egsSumoMap"></div>
+ <canvas id="egsTrafficCanvas"></canvas>
+
+ <div class="egs-map-badge">
+ <strong id="egsZoneTitle">Maârif</strong>
+ <span id="egsStatusText">Loading SUMO heatmap...</span>
+ </div>
+
+ <div class="egs-legend" id="egsHeatLegend">
+ <div><span class="egs-dot green"></span>Low concentration</div>
+ <div><span class="egs-dot yellow"></span>Medium</div>
+ <div><span class="egs-dot red"></span>High</div>
+ </div>
+
+ <div class="egs-legend egs-hidden" id="egsSimulationLegend">
+ <div><span class="egs-dot red"></span>Slow</div>
+ <div><span class="egs-dot yellow"></span>Medium</div>
+ <div><span class="egs-dot green"></span>Fast</div>
+ </div>
+ </div>
+
+ <div class="egs-side">
+ <div class="egs-kpis">
+ <div class="egs-kpi"><div class="egs-kpi-label" id="egsMainLabel">POINTS</div><div class="egs-kpi-val" id="egsKpiMain">—</div></div>
+ <div class="egs-kpi"><div class="egs-kpi-label">VEHICLES</div><div class="egs-kpi-val" id="egsKpiVehicles">—</div></div>
+ <div class="egs-kpi"><div class="egs-kpi-label">STEPS</div><div class="egs-kpi-val" id="egsKpiSteps">—</div></div>
+ <div class="egs-kpi"><div class="egs-kpi-label">AVG SPEED</div><div class="egs-kpi-val" id="egsKpiSpeed">—</div></div>
+ </div>
+
+ <div class="egs-controls" id="egsHeatControls">
+ <div class="egs-control-row"><label>Heat radius</label><input id="egsRadiusRange" type="range" min="4" max="30" value="10"></div>
+ <div class="egs-control-row"><label>Blur</label><input id="egsBlurRange" type="range" min="3" max="30" value="8"></div>
+ <div class="egs-control-row"><label>Intensity</label><input id="egsIntensityRange" type="range" min="1" max="10" value="3"></div>
+ <button class="egs-control-btn" id="egsResetHeatmapBtn" type="button">Recenter</button>
+ </div>
+
+ <div class="egs-controls egs-hidden" id="egsSimulationControls">
+ <div class="egs-control-buttons">
+ <button class="egs-control-btn" id="egsPlayBtn" type="button">Play</button>
+ <button class="egs-control-btn" id="egsPauseBtn" type="button">Pause</button>
+ <button class="egs-control-btn" id="egsRestartBtn" type="button">Restart</button>
+ <button class="egs-control-btn" id="egsResetSimulationBtn" type="button">Recenter</button>
+ </div>
+ <div class="egs-control-row"><label>Animation speed</label><input id="egsSpeedRange" type="range" min="1" max="12" value="6"></div>
+ <div class="egs-control-row"><label>Vehicle size</label><input id="egsVehicleSizeRange" type="range" min="2" max="10" value="6"></div>
+ </div>
+
+ <div class="egs-note" id="egsAnalysisText">
+ Heatmap based on geo-corrected SUMO FCD outputs. Switch to Simulation to display vehicles step-by-step.
+ </div>
+
+ <div class="egs-link-row">
+ <span class="egs-small-tag">FCD → GPS</span>
+ <span class="egs-small-tag">SUMO .net.xml correction</span>
+ <span class="egs-small-tag">5 Casablanca zones</span>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+
+    <div class="ihsan-ai-module" aria-labelledby="ihsanAiTitle">
+      <div class="ihsan-ai-head">
+        <div>
+          <div class="kicker" data-i18n="ihsanAiKicker">IA, Ihsan & Vision 2030</div>
+          <h3 id="ihsanAiTitle" data-i18n="ihsanAiTitle">L’IA au service de l’Ihsan (L’Excellence)</h3>
+          <p data-i18n="ihsanAiIntro">Ce module relie chaque projet à une logique d’excellence utile : renforcer la précision, automatiser ce qui est répétitif, puis orienter la technologie vers un bénéfice humain, environnemental ou social compatible avec Vision 2030.</p>
+        </div>
+        <span class="ihsan-badge" data-i18n="ihsanAiBadge">Precision · Automation · Ar-Raḥmah</span>
+      </div>
+      <div class="ihsan-projects" aria-label="AI, Ihsan and project impact matrix">
+        <article class="ihsan-project-card">
+          <div class="ihsan-project-top">
+            <span class="ihsan-orb" aria-hidden="true">01</span>
+            <div>
+              <h4 data-i18n="ihsanProject1Title">PFE Casablanca: Mobility-to-profitability model</h4>
+              <span class="ihsan-status" data-i18n="ihsanProject1Status">Documented base + AI layer</span>
+            </div>
+          </div>
+          <div class="ihsan-axis-list">
+            <div class="ihsan-axis"><b data-i18n="ihsanPrecisionTitle">La Précision augmentée</b><span data-i18n="ihsanProject1Precision">L’IA sert à contrôler la cohérence entre données SUMO, couches SIG, hypothèses CAPEX/OPEX et score IRP, afin de réduire les erreurs de saisie et rendre chaque arbitrage plus vérifiable.</span></div>
+            <div class="ihsan-axis"><b data-i18n="ihsanAutomationTitle">L’Élévation par l’automatisation</b><span data-i18n="ihsanProject1Automation">Les tâches répétitives, extraction XML, comparaison de scénarios ROI/TCO et classement des emplacements, sont transférées vers un pipeline automatisé pour concentrer l’effort humain sur le jugement multicritère.</span></div>
+            <div class="ihsan-axis"><b data-i18n="ihsanRahmahTitle">L’Impact Humain (Ar-Raḥmah)</b><span data-i18n="ihsanProject1Rahmah">La finalité est une ville moins saturée visuellement, des supports mieux placés, des choix plus conformes et une publicité urbaine pensée comme optimisation de l’espace public.</span></div>
+          </div>
+        </article>
+        <article class="ihsan-project-card">
+          <div class="ihsan-project-top">
+            <span class="ihsan-orb" aria-hidden="true">02</span>
+            <div>
+              <h4 data-i18n="ihsanProject2Title">Saudi Extension: Smart-city investment scoring</h4>
+              <span class="ihsan-status" data-i18n="ihsanProject2Status">Proposed research extension</span>
+            </div>
+          </div>
+          <div class="ihsan-axis-list">
+            <div class="ihsan-axis"><b data-i18n="ihsanPrecisionTitle">La Précision augmentée</b><span data-i18n="ihsanProject2Precision">L’IA croise mobilité, coûts, accessibilité, indicateurs socio-économiques et contraintes de gouvernance pour limiter les décisions fondées uniquement sur l’intuition ou le prestige du projet.</span></div>
+            <div class="ihsan-axis"><b data-i18n="ihsanAutomationTitle">L’Élévation par l’automatisation</b><span data-i18n="ihsanProject2Automation">Les simulations de scénarios, les pondérations et les tableaux de bord décisionnels deviennent reproductibles, ce qui libère du temps pour analyser les compromis entre rentabilité, service public et durabilité.</span></div>
+            <div class="ihsan-axis"><b data-i18n="ihsanRahmahTitle">L’Impact Humain (Ar-Raḥmah)</b><span data-i18n="ihsanProject2Rahmah">L’objectif prédictif est d’orienter les investissements vers des infrastructures réellement utiles : meilleure accessibilité, meilleure qualité de service et décision publique plus transparente.</span></div>
+          </div>
+        </article>
+        <article class="ihsan-project-card">
+          <div class="ihsan-project-top">
+            <span class="ihsan-orb" aria-hidden="true">03</span>
+            <div>
+              <h4 data-i18n="ihsanProject3Title">Green Mode: Water, energy and sustainability scoring</h4>
+              <span class="ihsan-status" data-i18n="ihsanProject3Status">Sustainability-focused extension</span>
+            </div>
+          </div>
+          <div class="ihsan-axis-list">
+            <div class="ihsan-axis"><b data-i18n="ihsanPrecisionTitle">La Précision augmentée</b><span data-i18n="ihsanProject3Precision">L’IA permet de comparer les coûts, risques et impacts environnementaux des options vertes avec une logique traçable, en évitant les conclusions générales non appuyées par les données.</span></div>
+            <div class="ihsan-axis"><b data-i18n="ihsanAutomationTitle">L’Élévation par l’automatisation</b><span data-i18n="ihsanProject3Automation">Les calculs récurrents de TCO, sensibilité énergétique, contraintes environnementales et priorisation des alternatives sont automatisés pour consacrer le raisonnement aux choix stratégiques.</span></div>
+            <div class="ihsan-axis"><b data-i18n="ihsanRahmahTitle">L’Impact Humain (Ar-Raḥmah)</b><span data-i18n="ihsanProject3Rahmah">Le bénéfice attendu est environnemental et social : soutenir la résilience hydrique, réduire l’empreinte énergétique et privilégier une technologie qui protège les ressources futures.</span></div>
+          </div>
+        </article>
+      </div>
+      <p class="ihsan-footnote" data-i18n="ihsanAiFootnote">Note d’intégrité : le module distingue le socle déjà documenté du PFE et les extensions de recherche proposées. Il valorise l’IA comme outil de rigueur et de service, sans revendiquer des résultats non encore validés.</p>
+    </div>
+  </section>
+
+  <section id="gift" class="section" aria-labelledby="giftTitle">
+    <div class="daour-shell">
+      <div class="daour-top">
+        <div>
+          <div class="kicker" data-i18n="giftKicker">A Thriving Economy / Daour Methodology</div>
+          <h2 id="giftTitle" data-i18n="giftTitle">A Daour-inspired research cycle for iterative methodology and economic contribution.</h2>
+        </div>
+        <p class="daour-note" data-i18n="giftNote">Instead of a linear gantt chart, the research plan is visualized as a Daour-inspired cycle. Each stop mirrors the circular logic of the Regraga pilgrimage while also structuring an iterative research method: grounding a Saudi problem, investigating evidence, formulating models, and translating results into tools that can contribute to economic diversification and decision quality.</p>
+      </div>
+      <div class="daour-layout">
+        <div class="daour-cycle-wrap" id="daourCycle">
+
+          <!-- Stop 1: top-center -->
+          <article class="daour-stop ds-1" data-stop="0">
+            <span class="mini-tag" data-i18n="giftPhaseG">Grounding</span>
+            <h3 data-i18n="stop1Title">1. Intention</h3>
+            <p data-i18n="stop1Text">Define the Saudi problem, purpose, and intended public value.</p>
+            <span class="meta" data-i18n="stop1Meta">Month 1</span>
+          </article>
+
+          <!-- Stop 2: top-right -->
+          <article class="daour-stop ds-2" data-stop="1">
+            <span class="mini-tag" data-i18n="giftPhaseG">Grounding</span>
+            <h3 data-i18n="stop2Title">2. Literature Cartography</h3>
+            <p data-i18n="stop2Text">Map the research gap across urban planning, mobility, and sustainable investment.</p>
+            <span class="meta" data-i18n="stop2Meta">Month 2</span>
+          </article>
+
+          <!-- Hub: center -->
+          <div class="daour-hub-cell">
+            <div class="daour-hub" id="daourHub">
+              <svg class="daour-hub-svg" id="daourHubSvg" viewBox="0 0 210 210" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <!-- outer dashed ring -->
+                <circle cx="105" cy="105" r="100" fill="none" stroke="rgba(161,59,57,.28)" stroke-width="1.5" stroke-dasharray="5 4"/>
+                <!-- inner guide ring -->
+                <circle cx="105" cy="105" r="68" fill="none" stroke="rgba(0,124,137,.18)" stroke-width="1"/>
+                <!-- warm fill -->
+                <circle cx="105" cy="105" r="67" fill="rgba(247,231,203,.45)"/>
+                <!-- spoke lines drawn by JS -->
+                <g id="daourSpokeGroup"></g>
+                <!-- step number dots on the outer ring -->
+                <g id="daourDots"></g>
+              </svg>
+              <div class="daour-hub-inner">
+                <div><b data-i18n="daourCenterTitle">39-day inspiration</b><span data-i18n="daourCenterText">A circular journey of learning, refinement, and return — reimagined as iterative research.</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stop 3: mid-right -->
+          <article class="daour-stop ds-3" data-stop="2">
+            <span class="mini-tag" data-i18n="giftPhaseI">Investigation</span>
+            <h3 data-i18n="stop3Title">3. Data Gathering</h3>
+            <p data-i18n="stop3Text">Assemble datasets, indicators, stakeholder evidence, and contextual constraints.</p>
+            <span class="meta" data-i18n="stop3Meta">Month 3–4</span>
+          </article>
+
+          <!-- Stop 7: mid-left -->
+          <article class="daour-stop ds-7" data-stop="6">
+            <span class="mini-tag" data-i18n="giftPhaseT">Translation</span>
+            <h3 data-i18n="stop7Title">7. Return with Impact</h3>
+            <p data-i18n="stop7Text">Deliver the thesis, practical model, product concept, and a knowledge-transfer output.</p>
+            <span class="meta" data-i18n="stop7Meta">Month 11–12</span>
+          </article>
+
+          <!-- Stop 6: bottom-left -->
+          <article class="daour-stop ds-6" data-stop="5">
+            <span class="mini-tag" data-i18n="giftPhaseT">Translation</span>
+            <h3 data-i18n="stop6Title">6. Validation &amp; Ethics</h3>
+            <p data-i18n="stop6Text">Check usability, explainability, commercialization relevance, and ethical safeguards.</p>
+            <span class="meta" data-i18n="stop6Meta">Month 9–10</span>
+          </article>
+
+          <!-- Stop 5: bottom-center -->
+          <article class="daour-stop ds-5" data-stop="4">
+            <span class="mini-tag" data-i18n="giftPhaseF">Formulation</span>
+            <h3 data-i18n="stop5Title">5. Model Building</h3>
+            <p data-i18n="stop5Text">Build the decision model, scorecards, scenarios, and dashboard architecture.</p>
+            <span class="meta" data-i18n="stop5Meta">Month 6–8</span>
+          </article>
+
+          <!-- Stop 4: bottom-right -->
+          <article class="daour-stop ds-4" data-stop="3">
+            <span class="mini-tag" data-i18n="giftPhaseI">Investigation</span>
+            <h3 data-i18n="stop4Title">4. Field Logic</h3>
+            <p data-i18n="stop4Text">Test assumptions against real-world infrastructure, planning, and user needs.</p>
+            <span class="meta" data-i18n="stop4Meta">Month 5</span>
+          </article>
+
+        </div>
+
+        <div class="daour-list" role="list">
+          <article role="listitem"><span class="step-badge" data-i18n="giftGTitle">Grounding</span><h3 data-i18n="giftList1Title">From heritage to hypothesis</h3><p data-i18n="giftList1Text">The journey starts with problem framing: a Saudi urban or sustainability challenge is grounded in Vision 2030, personal motivation, and a sharp review of evidence.</p></article>
+          <article role="listitem"><span class="step-badge" data-i18n="giftITitle">Investigation</span><h3 data-i18n="giftList2Title">From observation to evidence</h3><p data-i18n="giftList2Text">Data, field logic, and stakeholder insights build a credible empirical base rather than a purely conceptual proposal.</p></article>
+          <article role="listitem"><span class="step-badge" data-i18n="giftFTitle">Formulation</span><h3 data-i18n="giftList3Title">From evidence to model</h3><p data-i18n="giftList3Text">The middle of the journey transforms evidence into a decision-support model, scenario analysis, and clear investment logic.</p></article>
+          <article role="listitem"><span class="step-badge" data-i18n="giftTTitle">Translation</span><h3 data-i18n="giftList4Title">From model to service</h3><p data-i18n="giftList4Text">The final return turns research into usable outputs for academia, policy, entrepreneurship, and the diversification ambitions of Vision 2030.</p></article>
+        </div>
+      </div>
+        <div class="daour-list">
+          <article><span class="step-badge" data-i18n="giftGTitle">Grounding</span><h3 data-i18n="giftList1Title">From heritage to hypothesis</h3><p data-i18n="giftList1Text">The journey starts with problem framing: a Saudi urban or sustainability challenge is grounded in Vision 2030, personal motivation, and a sharp review of evidence.</p></article>
+          <article><span class="step-badge" data-i18n="giftITitle">Investigation</span><h3 data-i18n="giftList2Title">From observation to evidence</h3><p data-i18n="giftList2Text">Data, field logic, and stakeholder insights build a credible empirical base rather than a purely conceptual proposal.</p></article>
+          <article><span class="step-badge" data-i18n="giftFTitle">Formulation</span><h3 data-i18n="giftList3Title">From evidence to model</h3><p data-i18n="giftList3Text">The middle of the journey transforms evidence into a decision-support model, scenario analysis, and clear investment logic.</p></article>
+          <article><span class="step-badge" data-i18n="giftTTitle">Translation</span><h3 data-i18n="giftList4Title">From model to service</h3><p data-i18n="giftList4Text">The final return is not symbolic only: it turns research into usable outputs for academia, policy, entrepreneurship, and the diversification ambitions of Vision 2030.</p></article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="commercialization" class="section" aria-labelledby="commercialTitle">
+    <div class="section-head">
+      <div><div class="kicker" data-i18n="commercialKicker">Entrepreneurial Commercialization</div><h2 id="commercialTitle" data-i18n="commercialTitle">From thesis to Saudi SME-ready product.</h2></div>
+      <p class="section-note" data-i18n="commercialNote">This tab connects the proposed research to Vision 2030’s SME contribution target of 35% of GDP by 2030, while keeping the candidate’s current stage honestly framed as proposed contribution, not achieved impact.</p>
+    </div>
+    <div class="tab-shell">
+      <div class="tab-list" role="tablist" aria-label="Research, commercialization and ethics tabs">
+        <button class="tab-button" id="tab-roadmap" role="tab" aria-selected="true" aria-controls="panel-roadmap" type="button" data-i18n="tabRoadmap">Research Roadmap</button>
+        <button class="tab-button" id="tab-commercial" role="tab" aria-selected="false" aria-controls="panel-commercial" type="button" data-i18n="tabCommercial">Commercialization</button>
+        <button class="tab-button" id="tab-ethics" role="tab" aria-selected="false" aria-controls="panel-ethics" type="button" data-i18n="tabEthics">Digital Ethics</button>
+      </div>
+      <div class="tab-panel" id="panel-roadmap" role="tabpanel" tabindex="0" aria-labelledby="tab-roadmap">
+        <h3 data-i18n="roadmapTitle">Research to impact pathway</h3>
+        <p data-i18n="roadmapText">The portfolio shows a disciplined progression: identify a Saudi problem, collect evidence, build a decision model, validate it, and translate it into a dashboard plus an academic output.</p>
+      </div>
+      <div class="tab-panel" id="panel-commercial" role="tabpanel" tabindex="0" aria-labelledby="tab-commercial" hidden>
+        <h3 data-i18n="commercialPanelTitle">SME-aligned product concept</h3>
+        <p data-i18n="commercialPanelText">The long-term commercialization concept is a decision-support toolkit for Saudi SMEs, municipalities, or infrastructure operators: score investment options, estimate Total Cost of Ownership, and compare environmental and service impacts.</p>
+        <div class="commercial-map">
+          <div class="commercial-step"><b data-i18n="comm1Title">1. Research asset</b><span data-i18n="comm1Text">Documented scoring model, dashboard prototype, and transparent methodology.</span></div>
+          <div class="commercial-step"><b data-i18n="comm2Title">2. SME use case</b><span data-i18n="comm2Text">Lightweight analytics for site selection, service expansion, logistics planning, or green-infrastructure decisions.</span></div>
+          <div class="commercial-step"><b data-i18n="comm3Title">3. Vision linkage</b><span data-i18n="comm3Text">Supports productivity, data-driven entrepreneurship, and the SME GDP contribution objective.</span></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="panel-ethics" role="tabpanel" tabindex="0" aria-labelledby="tab-ethics" hidden>
+        <h3 data-i18n="ethicsPanelTitle">Ethics-by-design statement</h3>
+        <p data-i18n="ethicsPanelText">Any model using mobility, socioeconomic, or operational data must be privacy-preserving, explainable, and bounded by human accountability. The objective is decision support, not opaque surveillance or automated exclusion.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="engagement" class="section" aria-labelledby="engagementTitle">
+    <div class="section-head">
+      <div><div class="kicker" data-i18n="engagementKicker">An Ambitious Nation / Engagement & Volunteering</div><h2 id="engagementTitle" data-i18n="engagementTitle">A red Khaïma for service: how I hope to share knowledge, time, and technological baraka.</h2></div>
+      <p class="section-note" data-i18n="engagementNote">This section presents my intended contribution to the nonprofit and community sphere in Saudi Arabia. It is framed as a forward-looking commitment, not as a claim of past volunteering that has not been documented here.</p>
+    </div>
+    <div class="khaima-grid">
+      <article class="khaima-card">
+        <div class="khaima-header">
+          <div class="khaima-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <path d="M10 44L22 20H42L54 44H10Z" fill="currentColor"/>
+              <path d="M22 20L32 10L42 20" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18 44V30L32 22L46 30V44" fill="#fff" opacity=".18"/>
+            </svg>
+          </div>
+          <div>
+            <h3 data-i18n="engagementPanelTitle">The Khaïma as a service symbol</h3>
+            <p data-i18n="engagementPanelText">In Regraga memory, the red Khaïma evokes hospitality, movement, gathering, and transmission. In this portfolio, it becomes the icon of my intended civic posture in Saudi Arabia: to create value not only through research outputs, but also through mentorship, useful knowledge sharing, and community-minded technological support.</p>
+          </div>
+        </div>
+        <div class="pillars-summary">
+          <div class="pillar-chip"><b data-i18n="engage1Title">Knowledge-sharing</b><span data-i18n="engage1Text">I want to contribute by translating technical ideas into accessible insights for students, peers, and nonprofit-oriented initiatives.</span></div>
+          <div class="pillar-chip"><b data-i18n="engage2Title">Volunteer mindset</b><span data-i18n="engage2Text">My goal is to support the Vision 2030 ambition of a stronger nonprofit culture and the national target of one million volunteers through meaningful, skills-based contribution.</span></div>
+          <div class="pillar-chip"><b data-i18n="engage3Title">Technological baraka</b><span data-i18n="engage3Text">By “technological baraka,” I mean applying analytical tools with generosity: helping communities benefit from data, structure, and digital clarity rather than keeping expertise isolated.</span></div>
+        </div>
+      </article>
+      <div>
+        <article class="khaima-card">
+          <h3 data-i18n="engagementRouteTitle">My intended engagement routes</h3>
+          <p data-i18n="engagementRouteText">If given the opportunity to study in Saudi Arabia, I want my engagement to accompany my academic work. The aim is not only to complete research, but to become useful in environments where structured thinking, digital ethics, and practical analysis can help others grow.</p>
+          <div class="khaima-points">
+            <div class="khaima-point"><b data-i18n="route1Title">Student mentoring</b><span data-i18n="route1Text">Support peers through study groups, method notes, and analytics-oriented academic collaboration.</span></div>
+            <div class="khaima-point"><b data-i18n="route2Title">Nonprofit contribution</b><span data-i18n="route2Text">Contribute analytical thinking to nonprofit or community initiatives where planning, reporting, or digital organization can create value.</span></div>
+            <div class="khaima-point"><b data-i18n="route3Title">Knowledge translation</b><span data-i18n="route3Text">Turn research findings into understandable visuals, briefs, or dashboards that make ideas more usable for wider audiences.</span></div>
+            <div class="khaima-point"><b data-i18n="route4Title">Community hospitality</b><span data-i18n="route4Text">Carry the spirit of the Khaïma into collaboration: welcoming exchange, humility, listening, and practical service.</span></div>
+          </div>
+        </article>
+        <div class="service-banner" style="display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center">
+          <div>
+            <p data-i18n="engagementBannerText">The Vision 2030 pillar of an Ambitious Nation calls for disciplined citizens, active communities, and a flourishing nonprofit ecosystem. My contribution would be modest but sincere: combining research discipline with service, and using my skills to give something back to the academic and social environment that hosts me.</p>
+            <span class="assumption" data-i18n="engagementAssumption">Forward-looking note: this section expresses intended engagement and volunteering goals, not undocumented past achievements.</span>
+          </div>
+          <!-- Dallah hospitality egg — naturally placed in the service/hospitality section -->
+          <div class="dallah-scene-wrap" style="position:relative;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:0 0 auto" tabindex="0" title="Saudi hospitality — hover to serve" aria-label="Dallah coffee pot">
+            <div class="dallah-scene" style="position:relative;width:150px;height:110px">
+              <svg style="position:absolute;bottom:0;left:50%;transform:translateX(-50%)" viewBox="0 0 150 14" width="150" height="14" fill="none">
+                <ellipse cx="75" cy="8" rx="68" ry="5" fill="rgba(211,168,107,.16)" stroke="rgba(161,59,57,.18)" stroke-width="1"/>
+              </svg>
+              <svg class="dallah-main-svg" style="position:absolute;bottom:12px;left:14px" viewBox="0 0 88 110" width="76" height="95" fill="none">
+                <path d="M20 90 C14 85 10 76 10 64 L10 44 C10 30 18 20 28 18 L52 18 C62 18 70 28 70 42 L70 65 C70 78 66 88 60 92 Z" fill="#C4873A" stroke="#8B5E2A" stroke-width="1.5"/>
+                <ellipse cx="35" cy="52" rx="9" ry="14" fill="rgba(255,220,140,.28)" transform="rotate(-10 35 52)"/>
+                <rect x="28" y="8" width="26" height="14" rx="7" fill="#B87830" stroke="#8B5E2A" stroke-width="1.2"/>
+                <path d="M26 9 Q41 2 56 9" stroke="#8B5E2A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                <ellipse cx="41" cy="4" rx="5" ry="4" fill="#D4943E" stroke="#8B5E2A" stroke-width="1"/>
+                <circle cx="41" cy="3" r="2" fill="#E8B060"/>
+                <path d="M68 38 Q82 28 86 22 Q88 18 84 16 Q80 14 76 20 Q72 26 68 34" fill="#B87830" stroke="#8B5E2A" stroke-width="1.2"/>
+                <path d="M10 44 Q-4 44 -4 58 Q-4 72 10 72" stroke="#8B5E2A" stroke-width="5" stroke-linecap="round" fill="none"/>
+                <ellipse cx="40" cy="91" rx="22" ry="5" fill="#A06828" stroke="#8B5E2A" stroke-width="1"/>
+                <path d="M12 60 Q40 56 68 62" stroke="rgba(255,220,140,.4)" stroke-width="2" fill="none"/>
+              </svg>
+              <svg class="dallah-steam" style="position:absolute;bottom:68px;left:74px;opacity:0;transition:opacity .4s" viewBox="0 0 30 36" width="26" height="32" fill="none">
+                <path d="M6 34 Q2 26 8 20 Q14 14 10 6" stroke="rgba(200,180,140,.7)" stroke-width="2" stroke-linecap="round" fill="none" style="animation:steamRise 1.8s ease-in-out infinite"/>
+                <path d="M16 34 Q12 24 18 18 Q24 12 20 4" stroke="rgba(200,180,140,.5)" stroke-width="1.5" stroke-linecap="round" fill="none" style="animation:steamRise 1.8s ease-in-out infinite .35s"/>
+                <path d="M24 34 Q22 26 26 20 Q30 14 28 8" stroke="rgba(200,180,140,.4)" stroke-width="1.2" stroke-linecap="round" fill="none" style="animation:steamRise 1.8s ease-in-out infinite .7s"/>
+              </svg>
+              <svg class="dallah-finjan" style="position:absolute;bottom:12px;right:4px;transform:translateX(55px);opacity:0;transition:transform .55s cubic-bezier(.34,1.56,.64,1),opacity .4s" viewBox="0 0 52 52" width="46" height="46" fill="none">
+                <ellipse cx="26" cy="44" rx="22" ry="6" fill="rgba(211,168,107,.3)" stroke="rgba(161,59,57,.2)" stroke-width="1"/>
+                <ellipse cx="26" cy="42" rx="18" ry="4.5" fill="rgba(247,231,203,.7)" stroke="rgba(161,59,57,.2)" stroke-width="1"/>
+                <path d="M12 22 L15 40 Q26 44 37 40 L40 22 Z" fill="#D4943E" stroke="#8B5E2A" stroke-width="1.2"/>
+                <ellipse cx="26" cy="22" rx="14" ry="4" fill="#E8B060" stroke="#8B5E2A" stroke-width="1"/>
+                <ellipse cx="26" cy="22" rx="11" ry="3" fill="#5C3317"/>
+                <path d="M20 21 Q26 19 32 22" stroke="rgba(255,240,200,.6)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                <path d="M40 26 Q48 26 48 32 Q48 38 40 38" stroke="#8B5E2A" stroke-width="3" stroke-linecap="round" fill="none"/>
+                <path d="M22 16 Q20 10 24 6" stroke="rgba(200,180,140,.5)" stroke-width="1.2" stroke-linecap="round" fill="none" style="animation:steamRise 1.4s ease-in-out infinite .2s"/>
+                <path d="M30 15 Q28 9 32 5" stroke="rgba(200,180,140,.4)" stroke-width="1" stroke-linecap="round" fill="none" style="animation:steamRise 1.4s ease-in-out infinite .55s"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ethics" class="section" aria-labelledby="ethicsTitle">
+    <div class="section-head">
+      <div><div class="kicker" data-i18n="ethicsKicker">Digital Ethics</div><h2 id="ethicsTitle" data-i18n="ethicsTitle">Trustworthy analytics for public-value research.</h2></div>
+      <p class="section-note" data-i18n="ethicsNote">The digital ethics statement is visible, not buried in a footer, because scholarship reviewers should see technical ambition balanced with governance maturity.</p>
+    </div>
+    <div class="ethics-list">
+      <article class="ethics-item"><b data-i18n="ethic1Title">Data minimization</b><p data-i18n="ethic1Text">Collect only variables required for the research question; prefer aggregated and anonymized indicators.</p></article>
+      <article class="ethics-item"><b data-i18n="ethic2Title">Explainability</b><p data-i18n="ethic2Text">Every score must be traceable to clear criteria: cost, service coverage, risk, sustainability, or socioeconomic relevance.</p></article>
+      <article class="ethics-item"><b data-i18n="ethic3Title">Human oversight</b><p data-i18n="ethic3Text">The model supports expert judgment; it does not replace governance, academic supervision, or stakeholder review.</p></article>
+      <article class="ethics-item"><b data-i18n="ethic4Title">No surveillance frame</b><p data-i18n="ethic4Text">Mobility and urban data should serve planning and public value, never intrusive tracking or discriminatory profiling.</p></article>
+    </div>
+  </section>
+
+
+  <section id="manifesto" class="section" aria-labelledby="manifestoTitle">
+    <div class="section-head">
+      <div><div class="kicker" data-i18n="manifestoKicker">Ethical Manifesto & Research Philosophy</div><h2 id="manifestoTitle" data-i18n="manifestoTitle">Islamic digital ethics as a research operating system.</h2></div>
+      <p class="section-note" data-i18n="manifestoNote">This manifesto translates Islamic ethical concepts into practical research competencies for data, sustainability, cybersecurity, algorithmic fairness, and public-value innovation aligned with Saudi Vision 2030.</p>
+    </div>
+    <div class="manifesto-grid" aria-label="Islamic ethics research competencies">
+      <article class="manifesto-card"><span class="manifesto-term">Ihsan</span><h3 data-i18n="ihsanTitle">Excellence in work</h3><p data-i18n="ihsanText">I treat research quality as a moral discipline: rigorous methods, reproducible models, clear limitations, careful writing, and refusal to overclaim results.</p></article>
+      <article class="manifesto-card"><span class="manifesto-term">Khilāfat al-arḍ</span><h3 data-i18n="khilafatTitle">Stewardship of the earth</h3><p data-i18n="khilafatText">My sustainability projects frame data as a tool for responsible stewardship: lower waste, better infrastructure decisions, environmental resilience, and long-term public benefit.</p></article>
+      <article class="manifesto-card"><span class="manifesto-term">Al-Amānah</span><h3 data-i18n="amanahTitle">Trust and reliability</h3><p data-i18n="amanahText">In data management and cybersecurity, trust means controlled access, clean documentation, traceable assumptions, secure handling, and accountability for every analytical output.</p></article>
+      <article class="manifesto-card"><span class="manifesto-term">Al-‘Adālah</span><h3 data-i18n="adalahTitle">Justice and equity</h3><p data-i18n="adalahText">Algorithmic models should be tested for bias, distributional impact, and unfair exclusion. Efficiency is not sufficient if the model harms vulnerable users or invisible communities.</p></article>
+      <article class="manifesto-card"><span class="manifesto-term">Iḥtirām al-khuṣūṣiyyah</span><h3 data-i18n="privacyTitle">Sacred respect for privacy</h3><p data-i18n="privacyText">Mobility, socioeconomic, and operational data should be minimized, aggregated when possible, anonymized, and used only for clear research purposes.</p></article>
+    </div>
+    <div class="clarity-panel">
+      <h3 data-i18n="sidqTitle">Al-ṣidq wa al-wuḍūḥ: honesty and clarity in interface design</h3>
+      <p data-i18n="sidqText">The UI follows a no-dark-pattern contract: transparent navigation, no deceptive consent, no hidden tracking, no preselected privacy surrender, and visible distinction between verified experience and proposed research ambition.</p>
+      <div class="clarity-commitments">
+        <div class="clarity-item"><b data-i18n="clarity1Title">Transparent paths</b><span data-i18n="clarity1Text">Every section label states exactly what the reviewer will find.</span></div>
+        <div class="clarity-item"><b data-i18n="clarity2Title">Equal choices</b><span data-i18n="clarity2Text">Consent actions are readable, balanced, and never manipulative.</span></div>
+        <div class="clarity-item"><b data-i18n="clarity3Title">Accessible by default</b><span data-i18n="clarity3Text">Keyboard access, visible focus, strong contrast, RTL support, and reduced motion are treated as respect for users.</span></div>
+        <div class="clarity-item"><b data-i18n="clarity4Title">Academic honesty</b><span data-i18n="clarity4Text">Completed work, proposed extensions, assumptions, and limits are separated clearly.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="knowledge" class="section" aria-labelledby="knowledgeTitle">
+    <div class="section-head">
+      <div><div class="kicker" data-i18n="knowledgeKicker">Knowledge Base</div><h2 id="knowledgeTitle" data-i18n="knowledgeTitle">A digital bookshelf for continuous learning.</h2></div>
+      <p class="section-note" data-i18n="knowledgeNote">Reviewers should see not only what I have done, but also what I am studying next and how it supports a coherent research identity.</p>
+    </div>
+    <div class="bookshelf">
+      <article class="book"><h3 data-i18n="book1Title">AI & decision analytics</h3><p data-i18n="book1Text">Predictive evaluation, forecasting, explainable machine learning, digital health logic, and dashboard governance.</p></article>
+      <article class="book"><h3 data-i18n="book2Title">Water security</h3><p data-i18n="book2Text">Desalination economics, water reuse, energy intensity, and resilience planning.</p></article>
+      <article class="book"><h3 data-i18n="book3Title">Renewable infrastructure</h3><p data-i18n="book3Text">Solar and wind systems, Total Cost of Ownership, spatial suitability, and payback logic.</p></article>
+      <article class="book"><h3 data-i18n="book4Title">SME entrepreneurship & skills</h3><p data-i18n="book4Text">Commercialization pathways, SME productivity, education-to-employment alignment, and knowledge-economy policy.</p></article>
+      <article class="book"><h3 data-i18n="book5Title">Saudi & Maghrebi cultural literacy</h3><p data-i18n="book5Text">Vision 2030, hospitality, Sadu, Al-Qatt Al-Asiri, Diriyah, AlUla, Casablanca urbanism, and Amazigh heritage.</p></article>
+    </div>
+  </section>
+
+
+  <section id="reality" class="section" aria-labelledby="realityTitle">
+    <div class="section-head">
+      <div><div class="kicker" data-i18n="realityKicker">Evidence Check / Implementation Realism</div><h2 id="realityTitle" data-i18n="realityTitle">Vision 2030 is treated as an active transformation, not as a completed success.</h2></div>
+      <p class="section-note" data-i18n="realityNote">This portfolio uses Vision 2030 as an alignment frame. It separates stable official structure, sector priorities, proposed research contribution, and implementation limits.</p>
+    </div>
+    <div class="grid-3">
+      <article class="panel">
+        <h3 data-i18n="reality1Title">Stable foundation</h3>
+        <p data-i18n="reality1Text">The three pillars, diversification away from oil, non-oil sector growth, tourism, technology, renewables, and SME development are treated as stable Vision 2030 themes.</p>
+        <small data-i18n="reality1Note">Portfolio rule: use these as strategic context, not personal achievements.</small>
+      </article>
+      <article class="panel">
+        <h3 data-i18n="reality2Title">Sectors still in progress</h3>
+        <p data-i18n="reality2Text">Healthcare transformation, education reform, human capability development, digital health, PPPs, sustainability, and renewable infrastructure are presented as ongoing national programs with measurable progress and remaining challenges.</p>
+        <small data-i18n="reality2Note">Portfolio rule: write target, reform, pathway, or program; avoid claiming completion.</small>
+      </article>
+      <article class="panel">
+        <h3 data-i18n="reality3Title">Critical realism</h3>
+        <p data-i18n="reality3Text">The portfolio acknowledges that implementation capacity, governance, human capital, and social/political constraints can affect delivery. This makes the research tone more credible and less promotional.</p>
+        <small data-i18n="reality3Note">Portfolio rule: ambition plus verification, never blind celebration.</small>
+      </article>
+    </div>
+    <div class="clarity-panel">
+      <h3 data-i18n="realityMatrixTitle">Claim-control matrix</h3>
+      <div class="clarity-commitments">
+        <div class="clarity-item"><b data-i18n="realityMatrix1Title">Fact</b><span data-i18n="realityMatrix1Text">Launch, pillars, official programs and targets are framed as sourced Vision 2030 facts.</span></div>
+        <div class="clarity-item"><b data-i18n="realityMatrix2Title">Target</b><span data-i18n="realityMatrix2Text">SME, private-sector, tourism, sustainability, and volunteering numbers are goals, not achieved results.</span></div>
+        <div class="clarity-item"><b data-i18n="realityMatrix3Title">Research extension</b><span data-i18n="realityMatrix3Text">Smart-city scoring, Green Mode, and healthcare/education links are proposed research applications.</span></div>
+        <div class="clarity-item"><b data-i18n="realityMatrix4Title">Metaphor</b><span data-i18n="realityMatrix4Text">The Regraga journey, Khaïma, Dallah, and 170 px line are narrative or design symbols, not proof claims.</span></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="accessibility" class="section" aria-labelledby="accessTitle">
+    <div class="section-head">
+      <div><div class="kicker" data-i18n="accessKicker">WCAG Accessibility</div><h2 id="accessTitle" data-i18n="accessTitle">Accessibility is built into the interface.</h2></div>
+      <p class="section-note" data-i18n="accessNote">The implementation follows WCAG 2.2 AA-oriented patterns: semantic structure, keyboard navigation, visible focus, reduced-motion support, bilingual direction control, and strong contrast.</p>
+    </div>
+    <div class="accessibility-grid">
+      <article class="access-card"><h3 data-i18n="access1Title">Semantic landmarks</h3><p data-i18n="access1Text">Header, navigation, main, sections, articles, footer, headings, and skip link are explicit.</p></article>
+      <article class="access-card"><h3 data-i18n="access2Title">Keyboard-operable</h3><p data-i18n="access2Text">Tabs support click, Enter/Space, Home/End, and arrow-key navigation.</p></article>
+      <article class="access-card"><h3 data-i18n="access3Title">Motion control</h3><p data-i18n="access3Text">Reduced-motion users receive static behavior and no forced animation.</p></article>
+      <article class="access-card"><h3 data-i18n="access4Title">RTL integrity</h3><p data-i18n="access4Text">The Arabic toggle changes lang, dir, typography, navigation labels, body direction, and interface text.</p></article>
+    </div>
+  </section>
+</main>
+<footer class="footer" role="contentinfo">
+  <div class="container" style="padding:0">
+    <div class="footer-grid">
+      <div>
+        <h2 data-i18n="footerTitle">Ready to contribute with measurable, realistic research.</h2>
+        <p class="source-note" data-i18n="sourceNote">Verification note: Vision 2030 figures are framed as targets, programs, or policy directions, not achieved results. Tourism is stated as a 150M annual visitors target by 2030; SME 35%, private-sector 65%, and 10 billion trees are policy goals. Healthcare transformation, human capability development, sustainability, and education reform are treated as ongoing programs with implementation challenges. THE LINE’s 170 km concept is officially described by NEOM; the 170 px rule remains only a design metaphor. Project data remains aligned with the applicant’s real PFE and internship documents.</p>
+      </div>
+      <div>
+        <button class="countdown" id="countdown" type="button" aria-expanded="false">
+          <span>
+            <small data-i18n="countdownLabel">Countdown to 2030:</small>
+            <span id="countdownValue">0d 0h 0m</span>
+          </span>
+        </button>
+        <div class="micro" id="microText"></div>
+        <div class="hidden-message" id="hiddenMessage" data-i18n="hiddenMessage">Ready to help the Kingdom turn this vision into reality.</div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+const translations={
+  en:{
+    skip:'Skip to main content',brand:'El Ghali Sany · Saudi Vision 2030 Research Portfolio',navBridge:'Story',navUrban:'Casablanca Lens',navResearch:'Research Agenda',navGift:'Daour Cycle',navCommercial:'Impact Pathway',navEngagement:'Service',navEthics:'Ethics',navManifesto:'Manifesto',navKnowledge:'Knowledge',navReality:'Reality Check',greenMode:'Green Mode',eyebrow:'Casablanca-born · Regraga-rooted · Research-driven for Vision 2030',heroTitleA:'A Moroccan researcher shaped by Casablanca,',heroTitleB:'seeking Saudi Arabia as a place of knowledge, faith, and transformative development.',heroLead:'I come from Casablanca, a city that taught me to read pressure through flows, infrastructure, and economic contrasts. Rooted in the Regraga cultural memory, I present my Saudi academic path as a disciplined search for knowledge and a sincere return toward the heart of the Islamic world, where research can serve smart cities, sustainability, and public-value development.',pillar1:'A Vibrant Society',pillar1Text:'A narrative of belonging, dignity, heritage, and service anchored in the Arab and Islamic worlds.',pillar2:'A Thriving Economy',pillar2Text:'A research pathway that connects mobility analytics, investment logic, infrastructure intelligence, and SME-ready innovation.',pillar3:'An Ambitious Nation',pillar3Text:'A civic commitment to ethical technology, knowledge-sharing, volunteering, and measurable public value.',ctaBridge:'Read the narrative',ctaGift:'Explore the research cycle',metricTop:'Verified academic foundation',metricLabel:'Potential Profitability Index derived from traffic, socioeconomic, regulatory, cost, ROI, and TCO variables.',profileTitle:'Candidate positioning',nameLabel:'Name',originLabel:'Origin',originValue:'Casablanca, Morocco · Regraga heritage',fieldLabel:'Field',fieldValue:'Procurement, Supply Chain & Business Analysis',toolsLabel:'Tools',targetLabel:'Targets',bridgeKicker:'A Vibrant Society / My Story',bridgeTitle:'From Regraga memory to a contemporary academic journey toward the heart of the Islamic world.',bridgeNote:'This section uses the Regraga journey to Mecca as a cultural and symbolic frame, not as a modern historical proof. It gives my Saudi project a human dimension: knowledge-seeking, spiritual belonging, and service through research.',bridge1Title:'The Seven Saints Regraga: cultural memory of departure and transmission',bridge1Text:'In Regraga oral tradition, seven Amazigh saints are remembered as travelling from Morocco to Mecca before the Hijra, meeting the Prophet Muhammad, and returning with the mission of transmitting Islam to the Maghreb. I present this tradition with respect, as inherited cultural memory and as a symbol of faith, language, dignity, and transmission.',bridge1Note:'Presented respectfully as an inherited cultural narrative, not as a modern proof claim.',bridge2Title:'My academic parallel',bridge2Text:'My move toward Saudi Arabia is therefore more than an application strategy. It is a contemporary scholarly journey toward a place where faith, knowledge, and national transformation converge; a journey through which I hope to learn rigorously and return value through research, dashboards, models, and service.',bridgeTag:'Heart of the Arab and Islamic Worlds',bridge3Title:'Why this strengthens the Vibrant Society narrative',bridge3Text:'This heritage gives my application a clear human root. It connects cultural literacy, humility, and responsibility with Vision 2030’s idea of a vibrant society: a society that protects identity while opening space for excellence, innovation, and contribution.',bridgeBadge:'Narrative positioning',bridgeBannerText:'I am not presenting myself only as a student seeking admission. I am presenting a coherent journey: a Moroccan candidate from Casablanca, rooted in Regraga memory, moving toward Saudi Arabia to seek knowledge, deepen discipline, and build analytical tools that can serve communities, institutions, and the future ambitions of Vision 2030.',bridgeLegendNote:'Historical note: the Regraga story is presented as a revered traditional narrative rather than a claim of modern historical proof.',urbanKicker:'A Thriving Economy / Casablanca Perspective',urbanTitle:'Casablanca trained me to think in systems, flows, and urban productivity.',urbanNote:'Growing up in Morocco’s economic capital gave me a concrete understanding of congestion, unequal access, infrastructure pressure, commercial density, and the need for evidence-based planning.',urban1Title:'A city of contrast and acceleration',urban1Text:'Casablanca combines business districts, dense commercial corridors, expanding infrastructure, and peripheral growth. Living in this environment shaped my interest in mobility systems, investment efficiency, land-use value, and practical decision models.',urban2Title:'Why this matters for Saudi Arabia',urban2Text:'This background helps me understand Saudi Arabia’s large-scale urban transformation as a serious coordination challenge rather than a visual spectacle. Projects linked to Riyadh’s renewal, NEOM, and smart infrastructure require exactly the kind of system thinking that connects data, cost, sustainability, and human experience.',city1Title:'Mobility awareness',city1Text:'Casablanca’s congestion challenges made mobility analysis and traffic simulation personally meaningful.',city2Title:'Economic lens',city2Text:'Growing up in the country’s economic capital nurtured an instinct for productivity, investment prioritization, and commercial viability.',city3Title:'Smart-city relevance',city3Text:'My background gives me a realistic understanding of why sustainable, data-informed, human-centered city design matters.',city4Title:'Saudi fit',city4Text:'I want to contribute to urban futures linked to NEOM, Riyadh’s renewal, and infrastructure systems that blend ambition with livability.',urbanBadge:'Positioning statement',urbanBannerText:'Casablanca taught me how urban pressure feels in daily life. Saudi Arabia represents the opportunity to study how ambitious planning can transform pressure into coordinated possibility. That is the intellectual bridge I want this portfolio to express.',urbanAssumption:'Research themes related to NEOM and Riyadh are proposed directions, not claimed completed projects.',researchKicker:'A Thriving Economy / My Research',researchTitle:'A research agenda built for methodological rigor and economic contribution.',researchNote:'The agenda below stays anchored in documented work while extending it cautiously toward a Saudi research direction: urban systems, infrastructure intelligence, sustainability, and decision tools that support diversification, productivity, and public-value investment.',thesisTitle:'Proposed Thesis Direction',thesisText:'AI-assisted decision model for sustainable urban infrastructure investment in Saudi Arabia, combining mobility data, cost modeling, socioeconomic indicators, environmental constraints, governance checks, and explainable scoring.',thesisLi1:'Method: mixed methods, spatial analytics, financial modeling, stakeholder validation, and transparent assumptions.',thesisLi2:'Output: decision-support model, scoring dashboard, commercialization pathway, and governance checklist.',thesisLi3:'Status: proposed research extension; it is not presented as completed professional experience.',project1Title:'Past Project: Mobility-to-profitability model',project1Text:'Documented PFE: financial profitability of outdoor advertising in Casablanca using road traffic, GIS, demographic proxies, CAPEX, OPEX, ROI, TCO, and regulatory constraints.',project2Title:'Saudi Extension: Smart-city investment scoring',project2Text:'Extend the logic from advertising locations to urban infrastructure assets: transport nodes, tourism areas, logistics zones, water systems, and service accessibility.',project3Title:'Green Mode Extension',project3Text:'When Green Mode is activated, the thesis shifts toward sustainable desalination, renewable-energy infrastructure, and environmental impact scoring.',ihsanAiKicker:'AI, Ihsan & Vision 2030',ihsanAiTitle:'AI in service of Ihsan (Excellence)',ihsanAiIntro:'This module connects each project to useful excellence: stronger precision, automation of repetitive work, and technology directed toward human, environmental, or social benefit aligned with Vision 2030.',ihsanAiBadge:'Precision · Automation · Ar-Raḥmah',ihsanProject1Title:'PFE Casablanca: Mobility-to-profitability model',ihsanProject1Status:'Documented base + AI layer',ihsanPrecisionTitle:'Augmented precision',ihsanAutomationTitle:'Elevation through automation',ihsanRahmahTitle:'Human impact (Ar-Raḥmah)',ihsanProject1Precision:'AI supports consistency checks between SUMO data, GIS layers, CAPEX/OPEX assumptions, and the IRP score, reducing input errors and making each decision more auditable.',ihsanProject1Automation:'Repetitive tasks such as XML extraction, ROI/TCO scenario comparison, and location ranking are moved into an automated pipeline so human effort focuses on multi-criteria judgement.',ihsanProject1Rahmah:'The purpose is a less visually saturated city, better placed advertising assets, stronger compliance, and urban advertising treated as responsible public-space optimization.',ihsanProject2Title:'Saudi Extension: Smart-city investment scoring',ihsanProject2Status:'Proposed research extension',ihsanProject2Precision:'AI combines mobility, cost, accessibility, socioeconomic indicators, and governance constraints to limit decisions based only on intuition or project prestige.',ihsanProject2Automation:'Scenario simulations, weightings, and decision dashboards become reproducible, freeing time to analyze trade-offs between profitability, public service, and sustainability.',ihsanProject2Rahmah:'The predictive goal is to guide investment toward infrastructure that is genuinely useful: better accessibility, better service quality, and more transparent public decision-making.',ihsanProject3Title:'Green Mode: Water, energy and sustainability scoring',ihsanProject3Status:'Sustainability-focused extension',ihsanProject3Precision:'AI helps compare costs, risks, and environmental impacts of green options through a traceable logic, avoiding broad conclusions unsupported by data.',ihsanProject3Automation:'Recurring TCO, energy-sensitivity, environmental-constraint, and alternative-prioritization calculations are automated so reasoning can focus on strategic choices.',ihsanProject3Rahmah:'The expected benefit is environmental and social: support water resilience, reduce energy footprint, and prioritize technology that protects future resources.',ihsanAiFootnote:'Integrity note: this module separates the documented PFE base from proposed research extensions. It presents AI as a tool for rigor and service, without claiming results that have not yet been validated.',giftKicker:'A Thriving Economy / Daour Methodology',giftTitle:'A Daour-inspired research cycle for iterative methodology and economic contribution.',giftNote:'Instead of a linear Gantt chart, the research plan is visualized as a Daour-inspired cycle. Each stop mirrors circular movement, discipline, and return while structuring a rigorous research method: ground the Saudi problem, investigate evidence, formulate models, then translate the results into usable tools for decision quality and economic diversification.',daourCenterTitle:'39-day inspiration',daourCenterText:'A circular journey of learning, refinement, and return, reimagined as an iterative research methodology.',giftPhaseG:'Grounding',giftPhaseI:'Investigation',giftPhaseF:'Formulation',giftPhaseT:'Translation',stop1Title:'1. Intention',stop1Text:'Define the Saudi problem, purpose, and intended public value.',stop1Meta:'Month 1',stop2Title:'2. Literature Cartography',stop2Text:'Map the research gap across urban planning, mobility, and sustainable investment.',stop2Meta:'Month 2',stop3Title:'3. Data Gathering',stop3Text:'Assemble datasets, indicators, stakeholder evidence, and contextual constraints.',stop3Meta:'Month 3–4',stop4Title:'4. Field Logic',stop4Text:'Test assumptions against real-world infrastructure, planning, and user needs.',stop4Meta:'Month 5',stop5Title:'5. Model Building',stop5Text:'Build the decision model, scorecards, scenarios, and dashboard architecture.',stop5Meta:'Month 6–8',stop6Title:'6. Validation & Ethics',stop6Text:'Check usability, explainability, commercialization relevance, and ethical safeguards.',stop6Meta:'Month 9–10',stop7Title:'7. Return with Impact',stop7Text:'Deliver the thesis, practical model, product concept, and a knowledge-transfer output that can create economic and social value.',stop7Meta:'Month 11–12',giftGTitle:'Grounding',giftITitle:'Investigation',giftFTitle:'Formulation',giftTTitle:'Translation',giftList1Title:'From heritage to hypothesis',giftList1Text:'The journey starts with problem framing: a Saudi urban or sustainability challenge is grounded in Vision 2030, personal motivation, and a sharp review of evidence.',giftList2Title:'From observation to evidence',giftList2Text:'Data, field logic, and stakeholder insights build a credible empirical base rather than a purely conceptual proposal.',giftList3Title:'From evidence to model',giftList3Text:'The middle of the journey transforms evidence into a decision-support model, scenario analysis, and clear investment logic.',giftList4Title:'From model to service',giftList4Text:'The final return is not symbolic only: it turns research into usable outputs for academia, policy, entrepreneurship, and the diversification ambitions of Vision 2030.',commercialKicker:'Entrepreneurial Commercialization',commercialTitle:'From thesis to Saudi SME-ready decision tool.',commercialNote:'This section connects the proposed research to Vision 2030’s SME contribution target of 35% of GDP by 2030, while keeping the candidate’s current stage transparent as proposed contribution, not achieved impact.',engagementKicker:'An Ambitious Nation / Engagement & Volunteering',engagementTitle:'A red Khaïma for service: sharing knowledge, time, and technological baraka.',engagementNote:'This section presents an intended contribution to Saudi academic and community life. It is forward-looking and does not claim undocumented volunteering experience.',engagementPanelTitle:'The Khaïma as a service symbol',engagementPanelText:'In Regraga memory, the red Khaïma evokes hospitality, gathering, movement, and transmission. In this portfolio, it becomes the symbol of my civic posture in Saudi Arabia: creating value not only through research, but also through mentoring, clear knowledge-sharing, and responsible digital support.',engage1Title:'Knowledge-sharing',engage1Text:'I want to contribute by translating technical ideas into accessible insights for students, peers, and nonprofit-oriented initiatives.',engage2Title:'Volunteer mindset',engage2Text:'My goal is to support Vision 2030’s ambition for a stronger nonprofit culture and a wider volunteer base through useful, skills-based contribution.',engage3Title:'Technological baraka',engage3Text:'By “technological baraka,” I mean applying analytical tools with generosity: helping communities benefit from data, structure, and digital clarity rather than keeping expertise isolated.',engagementRouteTitle:'My intended engagement routes',engagementRouteText:'If given the opportunity to study in Saudi Arabia, I want my engagement to accompany my academic work. The aim is not only to complete research, but to become useful in environments where structured thinking, digital ethics, and practical analysis can help others grow.',route1Title:'Student mentoring',route1Text:'Support peers through study groups, method notes, and analytics-oriented academic collaboration.',route2Title:'Nonprofit contribution',route2Text:'Contribute analytical thinking to nonprofit or community initiatives where planning, reporting, or digital organization can create value.',route3Title:'Knowledge translation',route3Text:'Turn research findings into understandable visuals, briefs, or dashboards that make ideas more usable for wider audiences.',route4Title:'Community hospitality',route4Text:'Carry the spirit of the Khaïma into collaboration: welcoming exchange, humility, listening, and practical service.',engagementBannerText:'The Vision 2030 pillar of an Ambitious Nation calls for disciplined citizens, active communities, and a stronger nonprofit ecosystem. My contribution would be modest, but sincere: combining research discipline with service and using my skills to give back to the academic and social environment that hosts me.',engagementAssumption:'Forward-looking note: this section expresses intended engagement and volunteering goals, not undocumented past achievements.',tabRoadmap:'Research Roadmap',tabCommercial:'Commercialization',tabEthics:'Digital Ethics',roadmapTitle:'Research to impact pathway',roadmapText:'The portfolio shows a disciplined progression: identify a Saudi problem, collect evidence, build a decision model, validate it, then translate it into a dashboard, a thesis output, and a practical use case.',commercialPanelTitle:'SME-aligned product concept',commercialPanelText:'The long-term commercialization concept is a decision-support toolkit for Saudi SMEs, municipalities, or infrastructure operators: score investment options, estimate Total Cost of Ownership, compare environmental impact, and clarify service trade-offs.',comm1Title:'1. Research asset',comm1Text:'Documented scoring model, dashboard prototype, and transparent methodology.',comm2Title:'2. SME use case',comm2Text:'Lightweight analytics for site selection, service expansion, logistics planning, or green-infrastructure decisions.',comm3Title:'3. Vision linkage',comm3Text:'Supports productivity, data-driven entrepreneurship, and the SME GDP contribution objective.',ethicsPanelTitle:'Ethics-by-design statement',ethicsPanelText:'Any model using mobility, socioeconomic, or operational data must be privacy-preserving, explainable, and bounded by human accountability. The objective is decision support, not opaque surveillance or automated exclusion.',ethicsKicker:'Digital Ethics',ethicsTitle:'Trustworthy analytics for research that serves public value.',ethicsNote:'The ethics statement is deliberately visible because scholarship reviewers should see technical ambition balanced with governance maturity, privacy discipline, and intellectual humility.',ethic1Title:'Data minimization',ethic1Text:'Collect only variables required for the research question; prefer aggregated and anonymized indicators.',ethic2Title:'Explainability',ethic2Text:'Every score must be traceable to clear criteria: cost, service coverage, risk, sustainability, or socioeconomic relevance.',ethic3Title:'Human oversight',ethic3Text:'The model supports expert judgment; it does not replace governance, academic supervision, or stakeholder review.',ethic4Title:'No surveillance frame',ethic4Text:'Mobility and urban data should serve planning and public value, never intrusive tracking or discriminatory profiling.',consentTitle:'Privacy-respectful consent',consentText:'In the spirit of Al-Amānah and Iḥtirām al-khuṣūṣiyyah, this portfolio uses no analytics, advertising pixels, or hidden trackers. Your choice only controls whether this notice is hidden in this browser. Full access is available either way.',consentSession:'Continue without saving',consentSave:'Save choice locally',manifestoKicker:'Ethical Manifesto & Research Philosophy',manifestoTitle:'Islamic digital ethics as a research operating system.',manifestoNote:'This manifesto translates Islamic ethical concepts into practical research competencies for data, sustainability, cybersecurity, algorithmic fairness, and public-value innovation aligned with Saudi Vision 2030.',ihsanTitle:'Excellence in work',ihsanText:'I treat research quality as a moral discipline: rigorous methods, reproducible models, clear limits, careful writing, and refusal to exaggerate results.',khilafatTitle:'Stewardship of the earth',khilafatText:'My sustainability projects frame data as a tool for responsible stewardship: lower waste, better infrastructure decisions, environmental resilience, and long-term public benefit.',amanahTitle:'Trust and reliability',amanahText:'In data management and cybersecurity, trust means controlled access, clean documentation, traceable assumptions, secure handling, and accountability for every analytical output.',adalahTitle:'Justice and equity',adalahText:'Algorithmic models should be tested for bias, distributional impact, and unfair exclusion. Efficiency is not sufficient if the model harms vulnerable users or invisible communities.',privacyTitle:'Sacred respect for privacy',privacyText:'Mobility, socioeconomic, and operational data should be minimized, aggregated when possible, anonymized, and used only for clear research purposes.',sidqTitle:'Al-ṣidq wa al-wuḍūḥ: honesty and clarity in interface design',sidqText:'The UI follows a no-dark-pattern contract: transparent navigation, non-deceptive consent, no hidden tracking, no preselected privacy surrender, and a clear distinction between verified experience and proposed research ambition.',clarity1Title:'Transparent paths',clarity1Text:'Every section label states exactly what the reviewer will find.',clarity2Title:'Equal choices',clarity2Text:'Consent actions are readable, balanced, and never manipulative.',clarity3Title:'Accessible by default',clarity3Text:'Keyboard access, visible focus, strong contrast, RTL support, and reduced motion are treated as respect for users.',clarity4Title:'Academic honesty',clarity4Text:'Completed work, proposed extensions, assumptions, and limits are separated clearly.',knowledgeKicker:'Knowledge Base',knowledgeTitle:'A digital bookshelf for continuous learning.',knowledgeNote:'Reviewers should see not only what I have done, but also what I am studying next and how it supports a coherent research identity.',book1Title:'AI & decision analytics',book1Text:'Predictive evaluation, forecasting, explainable machine learning, digital health logic, and dashboard governance.',book2Title:'Water security',book2Text:'Desalination economics, water reuse, energy intensity, and resilience planning.',book3Title:'Renewable infrastructure',book3Text:'Solar and wind systems, Total Cost of Ownership, spatial suitability, and payback logic.',book4Title:'SME entrepreneurship & skills',book4Text:'Commercialization pathways, SME productivity, education-to-employment alignment, and knowledge-economy policy.',book5Title:'Saudi & Maghrebi cultural literacy',book5Text:'Vision 2030, hospitality, Sadu, Al-Qatt Al-Asiri, Diriyah, AlUla, Casablanca urbanism, and Amazigh heritage.',realityKicker:'Evidence Check / Implementation Realism',realityTitle:'Vision 2030 is treated as an active transformation, not as a completed success.',realityNote:'This portfolio uses Vision 2030 as an alignment frame. It separates stable official structure, sector priorities, proposed research contribution, and implementation limits.',reality1Title:'Stable foundation',reality1Text:'The three pillars, diversification away from oil, non-oil sector growth, tourism, technology, renewables, and SME development are treated as stable Vision 2030 themes.',reality1Note:'Portfolio rule: use these as strategic context, not personal achievements.',reality2Title:'Sectors still in progress',reality2Text:'Healthcare transformation, education reform, human capability development, digital health, PPPs, sustainability, and renewable infrastructure are presented as ongoing national programs with measurable progress and remaining challenges.',reality2Note:'Portfolio rule: write target, reform, pathway, or program; avoid claiming completion.',reality3Title:'Critical realism',reality3Text:'The portfolio acknowledges that implementation capacity, governance, human capital, and social/political constraints can affect delivery. This makes the research tone more credible and less promotional.',reality3Note:'Portfolio rule: ambition plus verification, never blind celebration.',realityMatrixTitle:'Claim-control matrix',realityMatrix1Title:'Fact',realityMatrix1Text:'Launch, pillars, official programs and targets are framed as sourced Vision 2030 facts.',realityMatrix2Title:'Target',realityMatrix2Text:'SME, private-sector, tourism, sustainability, and volunteering numbers are goals, not achieved results.',realityMatrix3Title:'Research extension',realityMatrix3Text:'Smart-city scoring, Green Mode, and healthcare/education links are proposed research applications.',realityMatrix4Title:'Metaphor',realityMatrix4Text:'The Regraga journey, Khaïma, Dallah, and 170 px line are narrative or design symbols, not proof claims.',cultureKicker:'Cultural Easter Eggs',cultureTitle:'Small details that carry larger meaning.',cultureNote:'These interactions are intentionally subtle. They should feel respectful, layered, and intellectually relevant rather than decorative for decoration’s sake.',dallahTitle:'Hospitality hover',dallahText:'Hover or focus the Dallah icon and a small Finjan appears, served from the right side as a discreet nod to Saudi coffee hospitality.',dallahCaption:'Right-hand serving detail',lineTitle:'The LINE scroll effect',lineText:'A glowing horizontal rule spans exactly 170 px while you scroll, used as a symbolic design reference to THE LINE’s officially described 170 km linear-city concept; the graphic itself remains a visual metaphor.',khaimaTitle:'Red Khaïma iconography',khaimaText:'The interface blends Saudi green with a controlled Regraga red. The tent motif references the sacred red Khaïma associated with Regraga memory and gives the home identity a personal signature.',tifinaghTitle:'Linguistic tribute',tifinaghText:'The English/Arabic toggle carries a faint Tifinagh symbol, honoring Amazigh heritage and the story that linguistic difference was met with respect rather than distance.',greenDemo:'Look to the navbar for the bilingual switch.',accessKicker:'WCAG Accessibility',accessTitle:'Accessibility is built into the interface.',accessNote:'The implementation follows WCAG 2.2 AA-oriented patterns: semantic structure, keyboard navigation, visible focus, reduced-motion support, bilingual direction control, and strong contrast.',access1Title:'Semantic landmarks',access1Text:'Header, navigation, main, sections, articles, footer, headings, and skip link are explicit.',access2Title:'Keyboard-operable',access2Text:'Tabs support click, Enter/Space, Home/End, and arrow-key navigation.',access3Title:'Motion control',access3Text:'Reduced-motion users receive static behavior and no forced animation.',access4Title:'RTL integrity',access4Text:'The Arabic toggle changes lang, dir, typography, navigation labels, body direction, and interface text.',footerTitle:'Ready to contribute with measurable, ethical research.',sourceNote:'Verification note: Vision 2030 figures are framed as targets, programs, or policy directions, not achieved results. Tourism is stated as a 150M annual visitors target by 2030; SME 35%, private-sector 65%, and 10 billion trees are policy goals. Healthcare transformation, human capability development, sustainability, and education reform are treated as ongoing programs with implementation challenges. THE LINE’s 170 km concept is officially described by NEOM; the 170 px rule remains only a design metaphor. Project evidence remains aligned with the documented PFE and internship materials.',countdownLabel:'Countdown to 2030:',hiddenMessage:'Ready to serve the Kingdom’s vision with rigorous, useful, and ethical research.'
+  ,evidence1:'Verified academic base',evidence1Text:'Built from a documented PFE on mobility, profitability, and urban decision support.',evidence2:'Bilingual intellectual bridge',evidence2Text:'English/Arabic interface with RTL integrity and heritage-aware narrative framing.',evidence3:'Ethics by design',evidence3Text:'Privacy, explainability, and academic honesty are visible within the interface.',evidence4:'Saudi research fit',evidence4Text:'Smart-city, sustainability, and infrastructure analytics translated into Vision 2030 logic.'},
+  ar:{
+    skip:'تجاوز إلى المحتوى الرئيسي',brand:'ملف إل غالي ساني البحثي · رؤية السعودية 2030',navBridge:'القصة',navUrban:'عدسة الدار البيضاء',navResearch:'الأجندة البحثية',navGift:'دورة الدور',navCommercial:'مسار الأثر',navEngagement:'الخدمة',navEthics:'الأخلاقيات',navManifesto:'الميثاق',navKnowledge:'المعرفة',navReality:'فحص واقعي',greenMode:'الوضع الأخضر',eyebrow:'ابن الدار البيضاء · بجذور رݣراݣية · موجّه بحثياً نحو رؤية 2030',heroTitleA:'باحث مغربي صاغت الدار البيضاء وعيه،',heroTitleB:'ويتجه إلى السعودية بوصفها فضاءً للعلم والإيمان والتحول.',heroLead:'أنحدر من الدار البيضاء، المدينة التي علّمتني قراءة الضغط الحضري من خلال التدفقات والبنية التحتية والتباينات الاقتصادية. وبانتماء راسخ إلى الذاكرة الثقافية لرݣراݣة، أقدّم مساري الأكاديمي نحو السعودية باعتباره سعياً منضبطاً إلى المعرفة وعودة رمزية إلى قلب العالم الإسلامي، حيث يمكن للبحث أن يخدم المدن الذكية والاستدامة والتنمية ذات القيمة العامة.',pillar1:'مجتمع حيوي',pillar1Text:'سردية انتماء وكرامة وتراث وخدمة متجذرة في العالمين العربي والإسلامي.',pillar2:'اقتصاد مزدهر',pillar2Text:'مسار بحثي يربط تحليل الحركة ومنطق الاستثمار وذكاء البنية التحتية والابتكار القابل لخدمة المنشآت الصغيرة والمتوسطة.',pillar3:'وطن طموح',pillar3Text:'التزام مدني بالتقنية الأخلاقية، وتبادل المعرفة، والعمل التطوعي، والقيمة العامة القابلة للقياس.',ctaBridge:'قراءة السردية',ctaGift:'استكشاف دورة البحث',metricTop:'أساس أكاديمي موثّق',metricLabel:'مؤشر ربحية محتملة مبني على متغيرات المرور، والسياق الاجتماعي الاقتصادي، والتنظيم، والتكلفة، والعائد على الاستثمار، والتكلفة الكلية للملكية.',profileTitle:'تموقع المرشح',nameLabel:'الاسم',originLabel:'المنشأ',originValue:'الدار البيضاء، المغرب · إرث رݣراݣي',fieldLabel:'المجال',fieldValue:'المشتريات، سلاسل الإمداد، وتحليل الأعمال',toolsLabel:'الأدوات',targetLabel:'الجامعات المستهدفة',bridgeKicker:'المجتمع الحيوي / قصتي',bridgeTitle:'من ذاكرة رݣراݣة إلى رحلة أكاديمية معاصرة نحو قلب العالم الإسلامي.',bridgeNote:'تستخدم هذه الفقرة رحلة رݣراݣة إلى مكة كإطار ثقافي ورمزي، لا كدليل تاريخي حديث. وهي تمنح مشروعي السعودي بعداً إنسانياً: طلب المعرفة، والانتماء الروحي، وخدمة الناس عبر البحث.',bridge1Title:'الأولياء السبعة لرݣراݣة: ذاكرة ثقافية عن الرحيل والتبليغ',bridge1Text:'تحفظ الرواية الشفوية لرݣراݣة ذكرى سبعة أولياء أمازيغ يُروى أنهم رحلوا من المغرب إلى مكة قبل الهجرة، والتقوا بالنبي محمد، ثم عادوا برسالة نقل الإسلام إلى المغرب. أقدّم هذه الرواية باحترام، بوصفها ذاكرة ثقافية موروثة ورمزاً للإيمان واللغة والكرامة والتبليغ.',bridge1Note:'تُعرض هذه الرواية بوصفها ذاكرة تراثية محترمة، لا ادعاءً تاريخياً موثقاً بالمعنى الحديث.',bridge2Title:'المقابل الأكاديمي في مساري',bridge2Text:'لذلك لا أقدّم التوجه إلى السعودية كخطة قبول جامعي فقط. بل أراه رحلة علمية معاصرة نحو فضاء يلتقي فيه الإيمان والمعرفة والتحول الوطني؛ رحلة أتعلم فيها بصرامة، ثم أحوّل ما أتعلمه إلى نماذج ولوحات قيادة وخدمة ذات أثر.',bridgeTag:'قلب العالمين العربي والإسلامي',bridge3Title:'لماذا يعزّز ذلك سردية المجتمع الحيوي',bridge3Text:'يمنح هذا الإرث طلبي جذراً إنسانياً واضحاً. فهو يربط الثقافة والتواضع والمسؤولية بفكرة المجتمع الحيوي في رؤية 2030: مجتمع يصون الهوية ويفتح في الوقت نفسه مجالاً للإتقان والابتكار والمساهمة.',bridgeBadge:'تموقع سردي',bridgeBannerText:'لا أقدّم نفسي كطالب يبحث عن قبول فقط، بل كمرشح مغربي من الدار البيضاء، متجذر في ذاكرة رݣراݣة، يتجه إلى السعودية طلباً للعلم والانضباط، وبناء أدوات تحليلية يمكن أن تخدم المجتمعات والمؤسسات وطموحات رؤية 2030.',bridgeLegendNote:'ملاحظة تاريخية: تُعرض قصة رݣراݣة كرواية تراثية موقّرة، لا كدليل تاريخي حديث.',urbanKicker:'اقتصاد مزدهر / عدسة الدار البيضاء',urbanTitle:'درّبتني الدار البيضاء على التفكير بالأنظمة والتدفقات والإنتاجية الحضرية.',urbanNote:'منحتني النشأة في العاصمة الاقتصادية للمغرب فهماً عملياً للازدحام، وعدم تكافؤ الوصول، وضغط البنية التحتية، والكثافة التجارية، والحاجة إلى تخطيط قائم على الأدلة.',urban1Title:'مدينة التباين والتسارع',urban1Text:'تجمع الدار البيضاء بين مناطق الأعمال، والممرات التجارية الكثيفة، وتوسع البنية التحتية، والنمو الحضري في الأطراف. هذا الواقع صاغ اهتمامي بأنظمة التنقل، وكفاءة الاستثمار، وقيمة استعمالات الأرض، ونماذج القرار العملية.',urban2Title:'أهمية ذلك للسعودية',urban2Text:'تساعدني هذه الخلفية على فهم التحول الحضري السعودي الواسع كتحدٍّ تنسيقي جاد، لا كمشهد بصري فقط. فالمشاريع المرتبطة بتجديد الرياض ونيوم والبنية التحتية الذكية تحتاج إلى تفكير يربط البيانات والتكلفة والاستدامة والتجربة الإنسانية.',city1Title:'وعي بالتنقل',city1Text:'جعلت تحديات الازدحام في الدار البيضاء تحليل الحركة ومحاكاة المرور موضوعين قريبين من تجربتي الشخصية.',city2Title:'عدسة اقتصادية',city2Text:'نمّت النشأة في العاصمة الاقتصادية للمغرب حساً بالإنتاجية وترتيب أولويات الاستثمار والجدوى التجارية.',city3Title:'صلة بالمدن الذكية',city3Text:'تمنحني خلفيتي فهماً واقعياً لأهمية التصميم الحضري المستدام والقائم على البيانات والمتمحور حول الإنسان.',city4Title:'ملاءمة سعودية',city4Text:'أطمح إلى الإسهام في مستقبل حضري يرتبط بنيوم وتجديد الرياض وأنظمة بنية تحتية تجمع بين الطموح وقابلية العيش.',urbanBadge:'بيان تموقع',urbanBannerText:'علّمتني الدار البيضاء معنى الضغط الحضري في الحياة اليومية. وتمثل السعودية فرصة لدراسة كيف يمكن للتخطيط الطموح أن يحوّل الضغط إلى إمكانية منظمة. هذا هو الجسر الفكري الذي أريد لهذا الملف أن يعبّر عنه.',urbanAssumption:'الموضوعات المرتبطة بنيوم والرياض اتجاهات بحثية مقترحة، وليست مشاريع منجزة مُدّعاة.',researchKicker:'اقتصاد مزدهر / بحثي',researchTitle:'أجندة بحثية مبنية على الصرامة المنهجية والمساهمة الاقتصادية.',researchNote:'تبقى الأجندة الآتية مرتبطة بعمل موثق، مع توسيع حذر نحو اتجاه بحثي سعودي: الأنظمة الحضرية، وذكاء البنية التحتية، والاستدامة، وأدوات القرار التي تدعم التنويع والإنتاجية والاستثمار ذي القيمة العامة.',thesisTitle:'اتجاه الأطروحة المقترح',thesisText:'نموذج قرار مدعوم بالذكاء الاصطناعي للاستثمار المستدام في البنية التحتية الحضرية بالسعودية، يجمع بيانات الحركة، ونمذجة التكلفة، والمؤشرات الاجتماعية الاقتصادية، والقيود البيئية، وضوابط الحوكمة، والتقييم القابل للتفسير.',thesisLi1:'المنهج: طرق مختلطة، تحليل مكاني، نمذجة مالية، تحقق مع أصحاب المصلحة، وافتراضات شفافة.',thesisLi2:'المخرجات: نموذج دعم قرار، لوحة تقييم، مسار تسويق، وقائمة تحقق للحوكمة.',thesisLi3:'الحالة: امتداد بحثي مقترح، ولا يُعرض كتجربة مهنية منجزة.',project1Title:'مشروع سابق: نموذج يربط الحركة بالربحية',project1Text:'مشروع نهاية الدراسة الموثق: ربحية الإعلانات الخارجية في الدار البيضاء باستخدام المرور، ونظم المعلومات الجغرافية، ومؤشرات ديموغرافية، وCAPEX، وOPEX، وROI، وTCO، والقيود التنظيمية.',project2Title:'امتداد سعودي: تقييم استثمارات المدن الذكية',project2Text:'توسيع منطق اختيار مواقع الإعلانات نحو أصول البنية التحتية الحضرية: عقد النقل، مناطق السياحة، المناطق اللوجستية، أنظمة المياه، وإتاحة الخدمات.',project3Title:'امتداد الوضع الأخضر',project3Text:'عند تفعيل الوضع الأخضر، يتحول اتجاه الأطروحة نحو التحلية المستدامة، والبنية التحتية للطاقة المتجددة، وتقييم الأثر البيئي.',ihsanAiKicker:'الذكاء الاصطناعي، الإحسان ورؤية 2030',ihsanAiTitle:'الذكاء الاصطناعي في خدمة الإحسان',ihsanAiIntro:'تربط هذه الوحدة كل مشروع بمنطق الإتقان النافع: دقة أقوى، أتمتة ما هو متكرر، وتوجيه التقنية نحو منفعة إنسانية أو بيئية أو اجتماعية منسجمة مع رؤية 2030.',ihsanAiBadge:'الدقة · الأتمتة · الرحمة',ihsanProject1Title:'مشروع الدار البيضاء: نموذج يربط الحركة بالربحية',ihsanProject1Status:'أساس موثق + طبقة ذكاء اصطناعي',ihsanPrecisionTitle:'الدقة المعززة',ihsanAutomationTitle:'الارتقاء عبر الأتمتة',ihsanRahmahTitle:'الأثر الإنساني، الرحمة',ihsanProject1Precision:'يساعد الذكاء الاصطناعي على فحص الاتساق بين بيانات SUMO وطبقات نظم المعلومات الجغرافية وافتراضات CAPEX/OPEX ومؤشر IRP، بما يقلل أخطاء الإدخال ويجعل كل قرار أكثر قابلية للتدقيق.',ihsanProject1Automation:'تُنقل المهام المتكررة مثل استخراج XML ومقارنة سيناريوهات ROI/TCO وترتيب المواقع إلى مسار مؤتمت، حتى يتركز الجهد البشري على الحكم متعدد المعايير.',ihsanProject1Rahmah:'الغاية هي مدينة أقل تشبعاً بصرياً، ومواقع إعلانية أفضل، وامتثال أقوى، وتعامل مع الإعلان الحضري كتحسين مسؤول للفضاء العام.',ihsanProject2Title:'امتداد سعودي: تقييم استثمارات المدن الذكية',ihsanProject2Status:'امتداد بحثي مقترح',ihsanProject2Precision:'يجمع الذكاء الاصطناعي بين الحركة والتكلفة والإتاحة والمؤشرات الاجتماعية الاقتصادية وقيود الحوكمة للحد من القرارات المبنية فقط على الحدس أو هيبة المشروع.',ihsanProject2Automation:'تصبح محاكاة السيناريوهات والأوزان ولوحات القرار قابلة للتكرار، مما يحرر الوقت لتحليل المفاضلة بين الربحية والخدمة العامة والاستدامة.',ihsanProject2Rahmah:'الهدف التنبؤي هو توجيه الاستثمار نحو بنية تحتية نافعة فعلاً: إتاحة أفضل، جودة خدمة أعلى، وقرار عام أكثر شفافية.',ihsanProject3Title:'الوضع الأخضر: تقييم المياه والطاقة والاستدامة',ihsanProject3Status:'امتداد موجه للاستدامة',ihsanProject3Precision:'يساعد الذكاء الاصطناعي على مقارنة التكاليف والمخاطر والآثار البيئية للخيارات الخضراء بمنطق قابل للتتبع، وتجنب الاستنتاجات العامة غير المدعومة بالبيانات.',ihsanProject3Automation:'تُؤتمت الحسابات المتكررة الخاصة بالتكلفة الكلية للملكية وحساسية الطاقة والقيود البيئية وترتيب البدائل، حتى يتركز التفكير على الاختيارات الاستراتيجية.',ihsanProject3Rahmah:'الفائدة المتوقعة بيئية واجتماعية: دعم المرونة المائية، تقليل البصمة الطاقية، وتفضيل تقنية تحمي موارد المستقبل.',ihsanAiFootnote:'ملاحظة نزاهة: تميز هذه الوحدة بين أساس مشروع نهاية الدراسة الموثق والامتدادات البحثية المقترحة. يقدم الذكاء الاصطناعي كأداة للصرامة والخدمة دون ادعاء نتائج لم يتم التحقق منها بعد.',giftKicker:'اقتصاد مزدهر / منهجية الدور',giftTitle:'دورة بحث مستوحاة من الدور للمنهجية التكرارية والمساهمة الاقتصادية.',giftNote:'بدلاً من مخطط زمني خطي، تُعرض خطة البحث كدورة مستوحاة من الدور. كل محطة تعكس معنى الحركة الدائرية والانضباط والعودة، وتبني في الوقت نفسه منهجاً بحثياً صارماً: تأصيل المشكلة السعودية، وتحقيق الأدلة، وصياغة النماذج، ثم ترجمة النتائج إلى أدوات قابلة للاستخدام لجودة القرار والتنويع الاقتصادي.',daourCenterTitle:'إلهام 39 يوماً',daourCenterText:'رحلة دائرية من التعلم والتنقيح والعودة، أُعيد تصورها كمنهجية بحثية تكرارية.',giftPhaseG:'التأصيل',giftPhaseI:'التحقيق',giftPhaseF:'الصياغة',giftPhaseT:'الترجمة',stop1Title:'1. النية',stop1Text:'تحديد المشكلة السعودية والغاية والقيمة العامة المتوخاة.',stop1Meta:'الشهر 1',stop2Title:'2. خريطة الأدبيات',stop2Text:'رسم الفجوة البحثية عبر التخطيط الحضري والحركية والاستثمار المستدام.',stop2Meta:'الشهر 2',stop3Title:'3. جمع البيانات',stop3Text:'تجميع البيانات والمؤشرات والأدلة من أصحاب المصلحة والقيود السياقية.',stop3Meta:'الشهر 3–4',stop4Title:'4. المنطق الميداني',stop4Text:'اختبار الفرضيات في ضوء البنية التحتية الواقعية والتخطيط واحتياجات المستخدمين.',stop4Meta:'الشهر 5',stop5Title:'5. بناء النموذج',stop5Text:'بناء نموذج القرار وبطاقات التقييم والسيناريوهات وهيكلة لوحة القيادة.',stop5Meta:'الشهر 6–8',stop6Title:'6. التحقق والأخلاقيات',stop6Text:'فحص قابلية الاستخدام والتفسير والملاءمة التجارية والضمانات الأخلاقية.',stop6Meta:'الشهر 9–10',stop7Title:'7. العودة بالأثر',stop7Text:'تسليم الأطروحة والنموذج العملي وتصور المنتج ومخرج لنقل المعرفة يمكن أن يخلق قيمة اقتصادية واجتماعية.',stop7Meta:'الشهر 11–12',giftGTitle:'التأسيس',giftITitle:'الاستقصاء',giftFTitle:'الصياغة',giftTTitle:'الترجمة',giftList1Title:'من الإرث إلى الفرضية',giftList1Text:'تبدأ الرحلة بصياغة المشكلة: تحدٍّ سعودي حضري أو استدامي يُربط برؤية 2030 والدافع الشخصي ومراجعة دقيقة للأدلة.',giftList2Title:'من الملاحظة إلى الدليل',giftList2Text:'تبني البيانات والمنطق الميداني ورؤى أصحاب المصلحة قاعدة تجريبية موثوقة بدلاً من مقترح نظري صرف.',giftList3Title:'من الدليل إلى النموذج',giftList3Text:'في منتصف الرحلة تتحول الأدلة إلى نموذج دعم قرار وتحليل سيناريوهات ومنطق استثماري واضح.',giftList4Title:'من النموذج إلى الخدمة',giftList4Text:'العودة النهائية ليست رمزية فقط، بل تحول البحث إلى مخرجات قابلة للاستعمال للأكاديميا والسياسات وريادة الأعمال وطموحات التنويع في رؤية 2030.',commercialKicker:'تحويل البحث إلى أثر',commercialTitle:'من الأطروحة إلى أداة قرار ملائمة للمنشآت السعودية الصغيرة والمتوسطة.',commercialNote:'يربط هذا القسم البحث المقترح بهدف رؤية 2030 المتعلق برفع مساهمة المنشآت الصغيرة والمتوسطة إلى 35٪ من الناتج المحلي بحلول 2030، مع الحفاظ على شفافية المرحلة الحالية بوصفها مساهمة مقترحة لا أثراً منجزاً.',engagementKicker:'وطن طموح / الخدمة والتطوع',engagementTitle:'خيمة حمراء للخدمة: مشاركة المعرفة والوقت والبركة التقنية.',engagementNote:'يعرض هذا القسم مساهمة مقصودة في الحياة الأكاديمية والمجتمعية السعودية. وهو توجه مستقبلي، ولا يدّعي تجارب تطوعية غير موثقة.',engagementPanelTitle:'الخيمة كرمز للخدمة',engagementPanelText:'في ذاكرة رݣراݣة، تستحضر الخيمة الحمراء الضيافة والجمع والحركة والتبليغ. وفي هذا الملف تصبح رمزاً لموقفي المدني في السعودية: خلق قيمة لا عبر البحث فقط، بل أيضاً عبر الإرشاد، وتبسيط المعرفة، والدعم الرقمي المسؤول.',engage1Title:'تبادل المعرفة',engage1Text:'أرغب في المساهمة عبر تحويل الأفكار التقنية إلى رؤى مفهومة للطلاب والزملاء والمبادرات ذات التوجه غير الربحي.',engage2Title:'عقلية تطوعية',engage2Text:'هدفي دعم طموح رؤية 2030 في تعزيز الثقافة غير الربحية وتوسيع قاعدة التطوع من خلال مساهمة مفيدة قائمة على المهارات.',engage3Title:'بركة تقنية',engage3Text:'أقصد بالبركة التقنية توظيف أدوات التحليل بسخاء: مساعدة المجتمعات على الاستفادة من البيانات والتنظيم والوضوح الرقمي بدلاً من إبقاء الخبرة معزولة.',engagementRouteTitle:'مسارات انخراطي المقصودة',engagementRouteText:'إذا أُتيحت لي فرصة الدراسة في السعودية، فأريد أن يرافق انخراطي عملي الأكاديمي. فالهدف ليس فقط إنجاز البحث، بل أن أكون نافعاً في البيئات التي يمكن أن يساعد فيها التفكير المنظم والأخلاقيات الرقمية والتحليل العملي الآخرين على النمو.',route1Title:'مرافقة الطلبة',route1Text:'دعم الزملاء عبر مجموعات الدراسة ومذكرات المنهجية والتعاون الأكاديمي الموجه بالتحليل.',route2Title:'الإسهام غير الربحي',route2Text:'تقديم التفكير التحليلي للمبادرات غير الربحية أو المجتمعية حيث يمكن للتخطيط أو التقارير أو التنظيم الرقمي أن يخلق قيمة.',route3Title:'ترجمة المعرفة',route3Text:'تحويل نتائج البحث إلى تصورات ومذكرات أو لوحات قيادة تجعل الأفكار أكثر قابلية للاستعمال لدى جمهور أوسع.',route4Title:'ضيافة مجتمعية',route4Text:'حمل روح الخيمة إلى التعاون: تبادل مرحّب به وتواضع وإنصات وخدمة عملية.',engagementBannerText:'يدعو ركن الوطن الطموح في رؤية 2030 إلى مواطنين منضبطين، ومجتمعات فاعلة، ومنظومة غير ربحية أقوى. ستكون مساهمتي متواضعة لكنها صادقة: الجمع بين صرامة البحث وروح الخدمة، واستخدام مهاراتي لرد الجميل إلى البيئة الأكاديمية والاجتماعية التي تحتضنني.',engagementAssumption:'ملاحظة مستقبلية: تعبّر هذه الفقرة عن أهداف انخراط وتطوع مقصودة، لا عن إنجازات سابقة غير موثقة.',tabRoadmap:'خارطة البحث',tabCommercial:'التسويق',tabEthics:'الأخلاقيات الرقمية',roadmapTitle:'مسار البحث نحو الأثر',roadmapText:'يعرض الملف تقدماً منضبطاً: تحديد مشكلة سعودية، جمع الأدلة، بناء نموذج قرار، التحقق منه، ثم ترجمته إلى لوحة قيادة ومخرج أطروحة وحالة استخدام عملية.',commercialPanelTitle:'تصور منتج ملائم للمنشآت الصغيرة والمتوسطة',commercialPanelText:'التصور التجاري طويل المدى هو أداة دعم قرار للمنشآت السعودية الصغيرة والمتوسطة أو البلديات أو مشغلي البنية التحتية: تقييم خيارات الاستثمار، تقدير التكلفة الكلية للملكية، مقارنة الأثر البيئي، وتوضيح مفاضلات الخدمة.',comm1Title:'1. أصل بحثي',comm1Text:'نموذج تقييم موثق، نموذج أولي للوحة قيادة، ومنهجية شفافة.',comm2Title:'2. حالة استخدام للمنشآت',comm2Text:'تحليلات خفيفة لاختيار الموقع أو توسيع الخدمات أو التخطيط اللوجستي أو قرارات البنية التحتية الخضراء.',comm3Title:'3. صلة الرؤية',comm3Text:'يدعم الإنتاجية وريادة الأعمال المبنية على البيانات وهدف مساهمة المنشآت في الناتج المحلي.',ethicsPanelTitle:'بيان أخلاقيات مدمج في التصميم',ethicsPanelText:'أي نموذج يستخدم بيانات الحركة أو المؤشرات الاجتماعية أو التشغيلية يجب أن يحافظ على الخصوصية وأن يكون قابلاً للتفسير ومحكوماً بالمساءلة البشرية. الهدف هو دعم القرار لا المراقبة الغامضة أو الإقصاء الآلي.',ethicsKicker:'الأخلاقيات الرقمية',ethicsTitle:'تحليلات موثوقة لبحث يخدم القيمة العامة.',ethicsNote:'يظهر بيان الأخلاقيات بوضوح لأن لجان المنح ينبغي أن ترى طموحاً تقنياً متوازناً مع نضج الحوكمة، وانضباط الخصوصية، والتواضع العلمي.',ethic1Title:'تقليل البيانات',ethic1Text:'جمع المتغيرات المطلوبة فقط لسؤال البحث، مع تفضيل المؤشرات المجمعة والمجهولة الهوية.',ethic2Title:'القابلية للتفسير',ethic2Text:'يجب أن يكون كل تقييم قابلاً للتتبع إلى معايير واضحة: التكلفة أو تغطية الخدمة أو المخاطر أو الاستدامة أو الأهمية الاجتماعية.',ethic3Title:'إشراف بشري',ethic3Text:'يدعم النموذج حكم الخبراء ولا يستبدل الحوكمة أو الإشراف الأكاديمي أو مراجعة أصحاب المصلحة.',ethic4Title:'لا إطار مراقبة',ethic4Text:'ينبغي أن تخدم بيانات الحركة والتخطيط القيمة العامة، لا التتبع المقتحم أو التنميط التمييزي.',consentTitle:'موافقة تحترم الخصوصية',consentText:'انطلاقاً من الأمانة واحترام الخصوصية، لا يستخدم هذا الموقع تحليلات أو بيكسلات إعلانية أو أدوات تتبع مخفية. اختيارك يتحكم فقط في إخفاء هذا التنبيه داخل هذا المتصفح. الوصول الكامل متاح في كل الحالات.',consentSession:'المتابعة دون حفظ',consentSave:'حفظ الاختيار محلياً',manifestoKicker:'الميثاق الأخلاقي وفلسفة البحث',manifestoTitle:'الأخلاقيات الرقمية الإسلامية كنظام تشغيل بحثي.',manifestoNote:'يحوّل هذا المانيفستو المفاهيم الأخلاقية الإسلامية إلى كفاءات بحثية عملية في البيانات والاستدامة والأمن السيبراني وعدالة الخوارزميات والابتكار ذي القيمة العامة المنسجم مع رؤية السعودية 2030.',ihsanTitle:'الإتقان في العمل',ihsanText:'أتعامل مع جودة البحث كمسؤولية أخلاقية: منهج صارم، نماذج قابلة لإعادة الإنتاج، حدود واضحة، كتابة دقيقة، ورفض تضخيم النتائج.',khilafatTitle:'استخلاف الأرض',khilafatText:'تتعامل مشاريعي في الاستدامة مع البيانات كأداة للاستخلاف المسؤول: تقليل الهدر، قرارات بنية تحتية أفضل، مرونة بيئية، ومنفعة عامة طويلة الأمد.',amanahTitle:'الثقة والموثوقية',amanahText:'في إدارة البيانات والأمن السيبراني تعني الأمانة ضبط الوصول، توثيقاً نظيفاً، فرضيات قابلة للتتبع، معالجة آمنة، ومساءلة عن كل مخرج تحليلي.',adalahTitle:'العدل والإنصاف',adalahText:'ينبغي اختبار النماذج الخوارزمية من حيث التحيز والأثر التوزيعي والإقصاء غير العادل. الكفاءة وحدها لا تكفي إذا أضر النموذج بالمستخدمين الهشّين أو المجتمعات غير المرئية.',privacyTitle:'الاحترام المقدس للخصوصية',privacyText:'ينبغي تقليل بيانات الحركة والبيانات الاجتماعية والتشغيلية، وتجميعها عند الإمكان، وإخفاء هويتها، واستخدامها فقط لأغراض بحثية واضحة.',sidqTitle:'الصدق والوضوح: نزاهة وشفافية في تصميم الواجهة',sidqText:'تتبع الواجهة عقداً بلا أنماط مظلمة: تنقل شفاف، موافقة غير خادعة، عدم وجود تتبع مخفي، عدم افتراض التنازل عن الخصوصية، وتمييز واضح بين الخبرة الموثقة والطموح البحثي المقترح.',clarity1Title:'مسارات شفافة',clarity1Text:'كل تسمية قسم توضّح بدقة ما سيجده المراجع.',clarity2Title:'خيارات متوازنة',clarity2Text:'إجراءات الموافقة مقروءة ومتوازنة وغير تلاعبية.',clarity3Title:'إتاحة افتراضية',clarity3Text:'الوصول بلوحة المفاتيح، التركيز المرئي، التباين القوي، دعم RTL، وتقليل الحركة تُعامل كاحترام للمستخدمين.',clarity4Title:'نزاهة أكاديمية',clarity4Text:'يتم الفصل بوضوح بين العمل المنجز والامتدادات المقترحة والافتراضات والحدود.',knowledgeKicker:'قاعدة المعرفة',knowledgeTitle:'رف رقمي للتعلم المستمر.',knowledgeNote:'ينبغي أن يرى المراجعون ليس فقط ما أنجزته، بل أيضاً ما أدرسه الآن وكيف يدعم هوية بحثية متماسكة.',book1Title:'الذكاء الاصطناعي وتحليل القرار',book1Text:'التقييم التنبئي والتوقع والتعلم الآلي القابل للتفسير ومنطق الصحة الرقمية وحوكمة لوحات القيادة.',book2Title:'الأمن المائي',book2Text:'اقتصاديات التحلية وإعادة استخدام المياه وكثافة الطاقة وتخطيط المرونة.',book3Title:'البنية التحتية المتجددة',book3Text:'أنظمة الشمس والرياح وتكلفة الملكية والملاءمة المكانية ومنطق الاسترداد.',book4Title:'ريادة الأعمال والمنشآت الصغيرة والمهارات',book4Text:'مسارات التسويق وإنتاجية المنشآت ومواءمة التعليم مع التوظيف وسياسات اقتصاد المعرفة.',book5Title:'الإلمام الثقافي السعودي والمغاربي',book5Text:'رؤية 2030 والضيافة والسدو والقط العسيري والدرعية والعلا وعمران الدار البيضاء والإرث الأمازيغي.',realityKicker:'فحص الأدلة / واقعية التنفيذ',realityTitle:'تُعرض رؤية 2030 كتحول نشط، لا كنجاح مكتمل.',realityNote:'يستخدم هذا الملف رؤية 2030 كإطار مواءمة. ويفصل بين البنية الرسمية المستقرة، والأولويات القطاعية، والمساهمة البحثية المقترحة، وحدود التنفيذ.',reality1Title:'أساس مستقر',reality1Text:'تُعامل الركائز الثلاث، وتنويع الاقتصاد بعيداً عن النفط، ونمو القطاعات غير النفطية، والسياحة، والتقنية، والطاقة المتجددة، وتنمية المنشآت الصغيرة والمتوسطة كموضوعات مستقرة في رؤية 2030.',reality1Note:'قاعدة الملف: استخدام هذه العناصر كسياق استراتيجي لا كإنجازات شخصية.',reality2Title:'قطاعات ما زالت قيد التقدم',reality2Text:'يُعرض تحول الرعاية الصحية، وإصلاح التعليم، وتنمية القدرات البشرية، والصحة الرقمية، والشراكات بين القطاعين العام والخاص، والاستدامة، والبنية التحتية المتجددة كبرامج وطنية جارية لها تقدم قابل للقياس وتحديات باقية.',reality2Note:'قاعدة الملف: استخدم هدفاً أو إصلاحاً أو مساراً أو برنامجاً؛ وتجنب ادعاء الاكتمال.',reality3Title:'واقعية نقدية',reality3Text:'يعترف الملف بأن قدرة التنفيذ والحوكمة ورأس المال البشري والقيود الاجتماعية والسياسية يمكن أن تؤثر في الإنجاز. وهذا يجعل النبرة البحثية أكثر مصداقية وأقل ترويجاً.',reality3Note:'قاعدة الملف: طموح مع تحقق، لا احتفاء أعمى.',realityMatrixTitle:'مصفوفة ضبط الادعاءات',realityMatrix1Title:'حقيقة',realityMatrix1Text:'الإطلاق والركائز والبرامج والأهداف الرسمية تُعرض كحقائق مرتبطة برؤية 2030 ومسنودة بالمصادر.',realityMatrix2Title:'هدف',realityMatrix2Text:'أرقام المنشآت الصغيرة والمتوسطة والقطاع الخاص والسياحة والاستدامة والتطوع هي أهداف وليست نتائج منجزة.',realityMatrix3Title:'امتداد بحثي',realityMatrix3Text:'تقييم المدن الذكية، والوضع الأخضر، وروابط الصحة والتعليم هي تطبيقات بحثية مقترحة.',realityMatrix4Title:'استعارة',realityMatrix4Text:'رحلة رݣراݣة والخيمة والدلة وخط 170 بكسل هي رموز سردية أو تصميمية وليست ادعاءات إثبات.',cultureKicker:'تفاصيل ثقافية مخفية',cultureTitle:'تفاصيل صغيرة تحمل معنى أكبر.',cultureNote:'هذه التفاعلات مقصودة لتكون هادئة ومحترمة وذات صلة فكرية، لا زخرفة شكلية فقط.',dallahTitle:'تحية الضيافة',dallahText:'مرر المؤشر أو استخدم التركيز على رمز الدلة فيظهر فنجان صغير من الجهة اليمنى كتلميح رشيق إلى ضيافة القهوة السعودية.',dallahCaption:'تفصيل التقديم باليد اليمنى',lineTitle:'تأثير ذا لاين',lineText:'يمتد خط مضيء بطول 170 بكسل أثناء التمرير، كإشارة تصميمية رمزية إلى مفهوم ذا لاين الرسمي بطول 170 كيلومتراً؛ ويبقى الخط نفسه استعارة بصرية لا قياساً تقنياً.',khaimaTitle:'أيقونة الخيمة الحمراء',khaimaText:'تمزج الواجهة بين الأخضر السعودي وأحمر رݣراݣة بشكل مضبوط. وتشير الخيمة إلى الخيمة الحمراء المرتبطة بالذاكرة الرݣراݣية وتمنح هوية الصفحة توقيعاً شخصياً.',tifinaghTitle:'تحية لغوية',tifinaghText:'يحمل زر التبديل بين الإنجليزية والعربية رمزاً تيفيناغياً خافتاً تكريماً للإرث الأمازيغي ولحكاية احترام الاختلاف اللغوي بدل اعتباره مسافة.',greenDemo:'انظر إلى شريط التنقل لمبدّل اللغة الثنائي.',accessKicker:'إتاحة WCAG',accessTitle:'تم بناء الإتاحة داخل الواجهة.',accessNote:'يتبع التنفيذ أنماطاً موجّهة نحو WCAG 2.2 AA: بنية دلالية، تنقل بلوحة المفاتيح، تركيز مرئي، دعم تقليل الحركة، ضبط الاتجاه ثنائي اللغة، وتباين قوي.',access1Title:'معالم دلالية',access1Text:'الرأس والتنقل والمحتوى الرئيسي والأقسام والمقالات والتذييل والعناوين ورابط التجاوز واضحة وصريحة.',access2Title:'قابل للتشغيل بلوحة المفاتيح',access2Text:'تدعم التبويبات النقر وEnter/Space وHome/End وأسهم لوحة المفاتيح.',access3Title:'التحكم في الحركة',access3Text:'يحصل مستخدمو تقليل الحركة على سلوك ثابت دون رسوم متحركة مفروضة.',access4Title:'سلامة RTL',access4Text:'يغير زر العربية اللغة والاتجاه والخطوط وتسميات التنقل واتجاه الصفحة ونص الواجهة.',footerTitle:'جاهز للمساهمة ببحث قابل للقياس وأخلاقي.',sourceNote:'ملاحظة تحقق: تُعرض أرقام رؤية 2030 كأهداف أو برامج أو اتجاهات سياساتية، لا كنتائج منجزة. يُصاغ هدف السياحة كهدف 150 مليون زائر سنوياً بحلول 2030، وتُعرض نسب 35٪ للمنشآت الصغيرة والمتوسطة و65٪ للقطاع الخاص وهدف 10 مليارات شجرة كأهداف سياساتية. ويُعامل تحول الرعاية الصحية وتنمية القدرات البشرية والاستدامة وإصلاح التعليم كبرامج جارية مع تحديات تنفيذ. وتصف نيوم مفهوم ذا لاين بطول 170 كيلومتراً، أما خط 170 بكسل فيبقى استعارة تصميمية فقط. وتظل بيانات المشروع منسجمة مع مشروع نهاية الدراسة ووثائق التدريب الموثقة.',countdownLabel:'العد التنازلي إلى 2030:',hiddenMessage:'جاهز لخدمة رؤية المملكة ببحث صارم ومفيد وأخلاقي.',evidence1:'أساس أكاديمي موثق',evidence1Text:'مبني على مشروع نهاية دراسة موثق حول الحركة والربحية ودعم القرار الحضري.',evidence2:'جسر فكري ثنائي اللغة',evidence2Text:'واجهة إنجليزية/عربية مع سلامة اتجاه RTL وسردية واعية بالتراث.',evidence3:'أخلاقيات مدمجة في التصميم',evidence3Text:'الخصوصية وقابلية التفسير والنزاهة الأكاديمية عناصر ظاهرة داخل الواجهة.',evidence4:'ملاءمة بحثية سعودية',evidence4Text:'تحويل تحليلات المدن الذكية والاستدامة والبنية التحتية إلى منطق رؤية 2030.'
+  }
+};
+const enBtn=document.getElementById('enBtn');
+const arBtn=document.getElementById('arBtn');
+const greenToggle=document.getElementById('greenToggle');
+let currentLang='en';
+function setLang(lang){
+  currentLang=lang;
+  document.documentElement.lang=lang==='ar'?'ar':'en';
+  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  document.body.classList.toggle('rtl',lang==='ar');
+  enBtn.setAttribute('aria-pressed',String(lang==='en'));
+  arBtn.setAttribute('aria-pressed',String(lang==='ar'));
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key=el.dataset.i18n;
+    if(translations[lang][key]) el.textContent=translations[lang][key];
+  });
+  enBtn.setAttribute('aria-label', lang==='ar'?'التبديل إلى اللغة الإنجليزية':'Switch language to English');
+  arBtn.setAttribute('aria-label', lang==='ar'?'التبديل إلى اللغة العربية':'Switch language to Arabic');
+  updateMilestoneText();
+}
+enBtn.addEventListener('click',()=>setLang('en'));
+arBtn.addEventListener('click',()=>setLang('ar'));
+greenToggle.addEventListener('click',()=>{
+  const active=document.body.classList.toggle('green-mode');
+  greenToggle.setAttribute('aria-pressed',String(active));
+  const thesis=document.getElementById('thesisText');
+  if(active){
+    thesis.textContent=currentLang==='ar'
+      ?'نموذج قرار يعطي الأولوية للاستثمار المستدام في التحلية والطاقة المتجددة والبنية التحتية الخضراء مع قياس التكلفة والأثر البيئي والمخاطر.'
+      :'Sustainability-first decision model for desalination, renewable energy, and green infrastructure investment, integrating cost, environmental impact, and risk scoring.';
+  }else{
+    thesis.textContent=translations[currentLang].thesisText;
+  }
+});
+const fixedLine=document.querySelector('.fixed-line');
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  const p=h>0?window.scrollY/h:0;
+  fixedLine.style.setProperty('--scroll-scale',Math.min(1,Math.max(.12,p*1.8)));
+},{passive:true});
+function setActiveTab(tab,focus=false){
+  const tabs=[...document.querySelectorAll('[role="tab"]')];
+  tabs.forEach(t=>{
+    const active=t===tab;
+    t.setAttribute('aria-selected',String(active));
+    document.getElementById(t.getAttribute('aria-controls')).hidden=!active;
+  });
+  if(focus) tab.focus();
+}
+document.querySelectorAll('[role="tab"]').forEach((tab,idx,all)=>{
+  tab.addEventListener('click',()=>setActiveTab(tab));
+  tab.addEventListener('keydown',e=>{
+    let next=null;
+    if(e.key==='ArrowRight') next=all[(idx+(document.documentElement.dir==='rtl'?-1:1)+all.length)%all.length];
+    if(e.key==='ArrowLeft') next=all[(idx+(document.documentElement.dir==='rtl'?1:-1)+all.length)%all.length];
+    if(e.key==='Home') next=all[0];
+    if(e.key==='End') next=all[all.length-1];
+    if(e.key==='Enter'||e.key===' ') next=tab;
+    if(next){e.preventDefault();setActiveTab(next,true);}
+  });
+});
+function updateCountdown(){
+  const target=new Date('2030-01-01T00:00:00');
+  const now=new Date();
+  let diff=target-now;
+  if(diff<0) diff=0;
+  const days=Math.floor(diff/86400000);
+  const hours=Math.floor((diff%86400000)/3600000);
+  const mins=Math.floor((diff%3600000)/60000);
+  document.getElementById('countdownValue').textContent=`${days}d ${hours}h ${mins}m`;
+}
+updateCountdown();
+setInterval(updateCountdown,60000);
+const milestones={
+  en:['Vision 2030 milestone: 150M annual visitors target by 2030.','Vision 2030 milestone: 65% private-sector GDP contribution target.','Vision 2030 milestone: SME contribution to GDP target of 35%.','Saudi Green Initiative: 10 billion trees target.','NEOM signal: THE LINE 170 km concept encoded as a 170 px design metaphor.'],
+  ar:['مستهدف رؤية 2030: 150 مليون زائر سنوياً بحلول 2030.','مستهدف رؤية 2030: مساهمة القطاع الخاص في الناتج المحلي بنسبة 65٪.','مستهدف رؤية 2030: مساهمة المنشآت الصغيرة والمتوسطة في الناتج المحلي بنسبة 35٪.','مبادرة السعودية الخضراء: هدف زراعة 10 مليارات شجرة.','إشارة نيوم: مفهوم ذا لاين بطول 170 كيلومتراً مرمّز كخط تصميمي بطول 170 بكسل.']
+};
+let mi=0;
+function updateMilestoneText(){document.getElementById('microText').textContent=milestones[currentLang][mi];}
+setInterval(()=>{mi=(mi+1)%milestones[currentLang].length;updateMilestoneText();},3500);
+const countdownBtn=document.getElementById('countdown');
+countdownBtn.addEventListener('click',()=>{
+  const msg=document.getElementById('hiddenMessage');
+  const open=!msg.classList.contains('revealed');
+  msg.classList.toggle('revealed',open);
+  countdownBtn.setAttribute('aria-expanded',String(open));
+});
+
+const consentBanner=document.getElementById('privacyConsent');
+const consentSession=document.getElementById('consentSession');
+const consentSave=document.getElementById('consentSave');
+try{
+  if(localStorage.getItem('elghaliPrivacyNotice')==='hidden-locally-v1') consentBanner.hidden=true;
+}catch(e){}
+consentSession.addEventListener('click',()=>{consentBanner.hidden=true;});
+consentSave.addEventListener('click',()=>{
+  try{localStorage.setItem('elghaliPrivacyNotice','hidden-locally-v1');}catch(e){}
+  consentBanner.hidden=true;
+});
+
+setLang('en');
+
+/* ── Daour Cycle hub: draw step dots on the ring ── */
+function initDaourHub(){
+  const dotGroup=document.getElementById('daourDots');
+  const spokeGroup=document.getElementById('daourSpokeGroup');
+  if(!dotGroup||!spokeGroup) return;
+  const n=7, cx=105, cy=105, r=100;
+  const startAngle=-Math.PI/2;
+  const step=(2*Math.PI)/n;
+  const phaseColors=['#1B8F56','#1B8F56','#007C89','#007C89','#A13B39','#A13B39','#A13B39'];
+  for(let i=0;i<n;i++){
+    const a=startAngle+i*step;
+    const px=cx+r*Math.cos(a);
+    const py=cy+r*Math.sin(a);
+    // spoke from inner ring (r=68) to dot
+    const x1=cx+68*Math.cos(a), y1=cy+68*Math.sin(a);
+    const line=document.createElementNS('http://www.w3.org/2000/svg','line');
+    line.setAttribute('x1',x1.toFixed(1)); line.setAttribute('y1',y1.toFixed(1));
+    line.setAttribute('x2',(cx+92*Math.cos(a)).toFixed(1)); line.setAttribute('y2',(cy+92*Math.sin(a)).toFixed(1));
+    line.setAttribute('stroke',phaseColors[i]); line.setAttribute('stroke-width','1.5');
+    line.setAttribute('stroke-dasharray','3 2'); line.setAttribute('opacity','0.7');
+    spokeGroup.appendChild(line);
+    // dot on outer ring
+    const circle=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    circle.setAttribute('cx',px.toFixed(1)); circle.setAttribute('cy',py.toFixed(1));
+    circle.setAttribute('r','6');
+    circle.setAttribute('fill',phaseColors[i]);
+    circle.setAttribute('stroke','white'); circle.setAttribute('stroke-width','2');
+    dotGroup.appendChild(circle);
+    // number label
+    const text=document.createElementNS('http://www.w3.org/2000/svg','text');
+    text.setAttribute('x',px.toFixed(1)); text.setAttribute('y',py.toFixed(1));
+    text.setAttribute('text-anchor','middle'); text.setAttribute('dominant-baseline','central');
+    text.setAttribute('font-size','7'); text.setAttribute('font-weight','900');
+    text.setAttribute('fill','white'); text.textContent=i+1;
+    dotGroup.appendChild(text);
+  }
+}
+document.addEventListener('DOMContentLoaded', initDaourHub);
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
+<script>
+(function(){
+const EGS_ZONES = {
+ maarif: {
+ label:'Maârif', color:'#FF3355', center:[33.5866,-7.6325], zoom:14,
+ heatmapFile:'maarif_heatmap.json',
+ simulationFile:'maarif_simulation_geo.json',
+ analysis:'Maârif: central dense fabric. Heatmap highlights concentration; simulation displays vehicles from geo-corrected SUMO FCD outputs.'
+ },
+ hay_hassani: {
+ label:'Hay Hassani', color:'#FFB830', center:[33.5607,-7.6900], zoom:14,
+ heatmapFile:'hay_hassani_heatmap.json',
+ simulationFile:'hay_hassani_simulation_geo.json',
+ analysis:'Hay Hassani: peripheral flows and transition zones. Useful to detect localized slowdowns and vehicle accumulation.'
+ },
+ ben_msick: {
+ label:"Ben M'Sick", color:'#00E676', center:[33.5500,-7.5800], zoom:14,
+ heatmapFile:'ben_msick_heatmap.json',
+ simulationFile:'ben_msick_simulation_geo.json',
+ analysis:"Ben M'Sick: dense urban network. The dashboard supports reading conflict points, secondary-road intensity and speed variations."
+ },
+ sidi_maarouf: {
+ label:'Sidi Maârouf', color:'#BF5AF2', center:[33.5250,-7.6500], zoom:14,
+ heatmapFile:'sidi_maarouf_heatmap.json',
+ simulationFile:'sidi_maarouf_simulation_geo.json',
+ analysis:'Sidi Maârouf: strategic employment and arterial area. Simulation shows flows related to business poles and major roads.'
+ },
+ bd_mohammed_v: {
+ label:'Bd. Mohammed V', color:'#00B4D8', center:[33.5950,-7.6100], zoom:15,
+ heatmapFile:'bd_mohammed_v_heatmap.json',
+ simulationFile:'bd_mohammed_v_simulation_geo.json',
+ analysis:'Boulevard Mohammed V: major corridor. Heatmap and simulation identify concentration and slowdown segments.'
+ }
+};
+ let map=null, heatLayer=null, canvas=null, ctx=null;
+ let mode='heatmap', zoneKey='maarif', currentData=null, heatPoints=[], stepIndex=0;
+ let playing=true, raf=null, lastFrame=0;
+ const MAX_HEAT_POINTS=12000, MAX_VEHICLES_PER_FRAME=1600;
+
+ function $(id){ return document.getElementById(id); }
+ function setText(id,v){ const e=$(id); if(e) e.textContent=v; }
+ async function loadJson(file){ const r=await fetch(file+'?v='+Date.now()); if(!r.ok) throw new Error(file); return r.json(); }
+
+ function initMap(){
+ const z=EGS_ZONES[zoneKey];
+ map=L.map('egsSumoMap',{center:z.center,zoom:z.zoom,zoomControl:true,attributionControl:false,preferCanvas:true});
+ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19}).addTo(map);
+ canvas=$('egsTrafficCanvas');
+ ctx=canvas.getContext('2d');
+ resizeCanvas();
+ map.on('move zoom resize',()=>{resizeCanvas(); if(mode==='simulation') drawStep();});
+ window.addEventListener('resize',()=>{resizeCanvas(); if(mode==='simulation') drawStep();});
+ }
+
+ function resizeCanvas(){
+ if(!canvas||!ctx) return;
+ const r=canvas.getBoundingClientRect(), d=window.devicePixelRatio||1;
+ canvas.width=r.width*d; canvas.height=r.height*d;
+ ctx.setTransform(d,0,0,d,0,0);
+ }
+
+ function clearCanvas(){
+ if(!ctx||!canvas) return;
+ const r=canvas.getBoundingClientRect();
+ ctx.clearRect(0,0,r.width,r.height);
+ }
+
+ function removeHeat(){
+ if(heatLayer){ map.removeLayer(heatLayer); heatLayer=null; }
+ }
+
+ function updateUI(){
+ const isHeat=mode==='heatmap', z=EGS_ZONES[zoneKey];
+ document.querySelectorAll('.egs-mode-btn').forEach(b=>b.classList.toggle('active',b.dataset.egsMode===mode));
+ document.querySelectorAll('.egs-zone-btn').forEach(b=>b.classList.toggle('active',b.dataset.egsZone===zoneKey));
+ $('egsHeatControls').classList.toggle('egs-hidden',!isHeat);
+ $('egsSimulationControls').classList.toggle('egs-hidden',isHeat);
+ $('egsHeatLegend').classList.toggle('egs-hidden',!isHeat);
+ $('egsSimulationLegend').classList.toggle('egs-hidden',isHeat);
+ setText('egsZoneTitle', z.label);
+ setText('egsAnalysisText', z.analysis);
+ setText('egsMainLabel', isHeat?'POINTS':'VISIBLE');
+ ['egsKpiMain','egsKpiVehicles','egsKpiSteps','egsKpiSpeed'].forEach(id=>setText(id,'—'));
+ }
+
+ async function loadCurrent(){
+ if(!map) return;
+ cancelAnimationFrame(raf);
+ raf=null; playing=false; stepIndex=0;
+ removeHeat(); clearCanvas(); updateUI();
+ const z=EGS_ZONES[zoneKey];
+ map.setView(z.center,z.zoom);
+ if(mode==='heatmap') await loadHeatmap(); else await loadSimulation();
+ }
+
+ async function loadHeatmap(){
+ const z=EGS_ZONES[zoneKey];
+ setText('egsStatusText','Loading SUMO heatmap...');
+ try{
+ currentData=await loadJson(z.heatmapFile);
+ if(!currentData.points) throw new Error('Invalid heatmap format');
+ setText('egsStatusText','Loaded: '+z.heatmapFile);
+ heatPoints=normalizeHeat(currentData.points);
+ drawHeatmap();
+ updateHeatKpis();
+ }catch(e){
+ console.error(e);
+ setText('egsStatusText','Heatmap load error: '+z.heatmapFile);
+ }
+ }
+
+ function normalizeHeat(points){
+ const arr=[];
+ for(const p of points){
+ if(!Array.isArray(p)||p.length<2) continue;
+ const lat=+p[0], lng=+p[1], intensity=+(p[2]||0.4);
+ if(Number.isFinite(lat)&&Number.isFinite(lng)){
+ arr.push([lat,lng,Math.max(.05,Math.min(intensity,1))]);
+ }
+ }
+ if(arr.length<=MAX_HEAT_POINTS) return arr;
+ const int=Math.ceil(arr.length/MAX_HEAT_POINTS);
+ return arr.filter((_,i)=>i%int===0).slice(0,MAX_HEAT_POINTS);
+ }
+
+ function drawHeatmap(){
+ removeHeat();
+ if(!heatPoints.length||!L.heatLayer) return;
+ const radius=+$('egsRadiusRange').value, blur=+$('egsBlurRange').value, mult=+$('egsIntensityRange').value/12;
+ const pts=heatPoints.map(p=>[p[0],p[1],Math.min(.55,p[2]*mult)]);
+ heatLayer=L.heatLayer(pts,{
+ radius, blur, maxZoom:18, minOpacity:.08, max:1,
+ gradient:{0.15:'#00FF88',0.35:'#FFD700',0.60:'#FF8A00',1:'#FF3355'}
+ }).addTo(map);
+ fitPoints(pts);
+ }
+
+ function updateHeatKpis(){
+ setText('egsKpiMain',heatPoints.length.toLocaleString('fr-FR'));
+ const k=currentData.kpis||{};
+ setText('egsKpiVehicles',Number(k.vehicleRecords||0).toLocaleString('fr-FR'));
+ setText('egsKpiSteps',Number(k.steps||0).toLocaleString('fr-FR'));
+ setText('egsKpiSpeed',Number(k.averageSpeed||0).toFixed(2)+' m/s');
+ }
+
+ async function loadSimulation(){
+ const z=EGS_ZONES[zoneKey];
+ setText('egsStatusText','Loading SUMO geo simulation...');
+ try{
+ currentData=await loadJson(z.simulationFile);
+ if(!currentData.timesteps) throw new Error('Invalid simulation format');
+ setText('egsStatusText','Loaded: '+z.simulationFile);
+ setText('egsKpiSteps',currentData.timesteps.length.toLocaleString('fr-FR'));
+ if(currentData.kpis) setText('egsKpiSpeed',Number(currentData.kpis.averageSpeed||0).toFixed(2)+' m/s');
+ setTimeout(()=>{ resizeCanvas(); fitSimulation(); playing=true; startAnimation(); },250);
+ }catch(e){
+ console.error(e);
+ setText('egsStatusText','Simulation load error: '+z.simulationFile);
+ }
+ }
+
+ function getLL(v){
+ const lat=+(v.lat), lng=+(v.lng);
+ return Number.isFinite(lat)&&Number.isFinite(lng)?[lat,lng]:null;
+ }
+
+ function fitSimulation(){
+ if(!currentData?.timesteps) return;
+ const pts=[];
+ for(const st of currentData.timesteps){
+ for(const v of (st.vehicles||[])){
+ const ll=getLL(v); if(ll) pts.push(ll);
+ }
+ if(pts.length>3000) break;
+ }
+ fitPoints(pts);
+ drawStep();
+ }
+
+ function drawStep(){
+ if(mode!=='simulation'||!currentData?.timesteps) return;
+ const st=currentData.timesteps[stepIndex];
+ if(!st) return;
+ clearCanvas();
+ const vs=sampleVehicles(st.vehicles||[],MAX_VEHICLES_PER_FRAME);
+ let n=0, sum=0;
+ for(const v of vs){
+ const ll=getLL(v); if(!ll) continue;
+ const pt=map.latLngToContainerPoint(ll);
+ const sp=+(v.speed||0), angle=+(v.angle||0);
+ if(!Number.isFinite(pt.x)||!Number.isFinite(pt.y)) continue;
+ drawVehicle(pt.x,pt.y,sp,angle);
+ n++; sum+=sp;
+ }
+ setText('egsKpiMain',n.toLocaleString('fr-FR'));
+ setText('egsKpiVehicles',n.toLocaleString('fr-FR'));
+ setText('egsKpiSpeed',(n?sum/n:0).toFixed(2)+' m/s');
+ }
+
+ function sampleVehicles(vs,max){
+ if(vs.length<=max) return vs;
+ const int=Math.ceil(vs.length/max);
+ return vs.filter((_,i)=>i%int===0);
+ }
+
+ function colorSpeed(s){ return s<3?'#FF3355':s<8?'#FFD700':'#00FF88'; }
+
+ function drawVehicle(x,y,speed,angle){
+ const size=+$('egsVehicleSizeRange').value||6;
+ const col=colorSpeed(speed);
+ const a=(+(angle||0)-90)*Math.PI/180;
+ ctx.save();
+ ctx.translate(x,y);
+ ctx.rotate(a);
+ ctx.fillStyle=col;
+ ctx.strokeStyle='rgba(255,255,255,.95)';
+ ctx.lineWidth=1.4;
+ ctx.shadowBlur=10;
+ ctx.shadowColor=col;
+ roundRect(-size,-size/2,size*2.4,size*1.15,Math.max(2,size/2));
+ ctx.fill();
+ ctx.stroke();
+ ctx.restore();
+ }
+
+ function roundRect(x,y,w,h,r){
+ ctx.beginPath();
+ ctx.moveTo(x+r,y);
+ ctx.lineTo(x+w-r,y);
+ ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+ ctx.lineTo(x+w,y+h-r);
+ ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+ ctx.lineTo(x+r,y+h);
+ ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+ ctx.lineTo(x,y+r);
+ ctx.quadraticCurveTo(x,y,x+r,y);
+ ctx.closePath();
+ }
+
+ function startAnimation(){
+ cancelAnimationFrame(raf);
+ lastFrame=0;
+ raf=requestAnimationFrame(loop);
+ }
+
+ function loop(t){
+ if(mode!=='simulation') return;
+ const delay=Math.max(20,280-(+$('egsSpeedRange').value||6)*20);
+ if(playing&&t-lastFrame>=delay){
+ drawStep();
+ stepIndex=(stepIndex+1)%currentData.timesteps.length;
+ lastFrame=t;
+ }
+ raf=requestAnimationFrame(loop);
+ }
+
+ function fitPoints(points){
+ if(!points||!points.length) return;
+ const b=L.latLngBounds(points.map(p=>[p[0],p[1]]));
+ if(b.isValid()) map.fitBounds(b,{padding:[30,30],maxZoom:EGS_ZONES[zoneKey].zoom});
+ }
+
+ function bindEvents(){
+ document.querySelectorAll('.egs-mode-btn').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.egsMode; loadCurrent();}));
+ document.querySelectorAll('.egs-zone-btn').forEach(b=>b.addEventListener('click',()=>{zoneKey=b.dataset.egsZone; loadCurrent();}));
+ ['egsRadiusRange','egsBlurRange','egsIntensityRange'].forEach(id=>$(id).addEventListener('input',()=>{ if(mode==='heatmap') drawHeatmap(); }));
+ $('egsResetHeatmapBtn').addEventListener('click',()=>{ if(mode==='heatmap') drawHeatmap(); });
+ $('egsPlayBtn').addEventListener('click',()=>playing=true);
+ $('egsPauseBtn').addEventListener('click',()=>playing=false);
+ $('egsRestartBtn').addEventListener('click',()=>{stepIndex=0; drawStep();});
+ $('egsVehicleSizeRange').addEventListener('input',drawStep);
+ $('egsResetSimulationBtn').addEventListener('click',fitSimulation);
+ }
+
+ document.addEventListener('DOMContentLoaded',()=>{
+ const panel=$('sumo-dashboard');
+ if(!panel) return;
+ bindEvents();
+ const obs=new IntersectionObserver(entries=>{
+ if(entries[0].isIntersecting){
+ if(!map) initMap();
+ loadCurrent();
+ obs.disconnect();
+ }
+ },{threshold:.10});
+ obs.observe(panel);
+ });
+})();
+
+</script>
+</body>
+</html>
