@@ -496,6 +496,405 @@ body.rtl .ihsan-ai-head h3{letter-spacing:0}
 @media(max-width:760px){.ihsan-ai-module{padding:20px 16px;border-radius:24px}.ihsan-badge{width:100%;white-space:normal;text-align:center}.ihsan-project-card{padding:16px}}
 
 
+
+
+
+
+/* === Methodology Pipeline: Smart City Grid === */
+.methodology-pipeline-module{
+  margin:22px 0 18px;
+  padding:28px;
+  border-radius:30px;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 10% 12%, rgba(0,124,137,.14), transparent 30%),
+    radial-gradient(circle at 92% 5%, rgba(0,108,53,.14), transparent 24%),
+    linear-gradient(135deg, rgba(255,255,255,.74), rgba(255,249,239,.58));
+  border:1px solid rgba(255,255,255,.44);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(18px);
+}
+.methodology-pipeline-module::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg, rgba(255,255,255,.14), transparent 32%, transparent 70%, rgba(255,255,255,.10));
+  pointer-events:none;
+}
+.methodology-pipeline-module.is-vision-active{animation:methodologyVisionFlash 1.1s ease;}
+@keyframes methodologyVisionFlash{
+  0%{box-shadow:var(--shadow);border-color:rgba(255,255,255,.44)}
+  18%{box-shadow:0 0 0 2px rgba(0,108,53,.24), 0 0 38px rgba(0,108,53,.22), var(--shadow);border-color:rgba(0,108,53,.34)}
+  70%{box-shadow:0 0 0 1px rgba(0,108,53,.14), 0 0 22px rgba(0,108,53,.16), var(--shadow)}
+  100%{box-shadow:var(--shadow);border-color:rgba(255,255,255,.44)}
+}
+.methodology-pipeline-head{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:start;margin-bottom:16px}
+.methodology-pipeline-title{color:var(--diriyah);font-size:clamp(1.35rem,2.6vw,2.2rem);line-height:1.12;letter-spacing:-.03em;margin:0}
+body.rtl .methodology-pipeline-title{letter-spacing:0}
+.methodology-pipeline-badge{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 14px;min-height:42px;border-radius:999px;background:rgba(255,255,255,.62);border:1px solid rgba(0,124,137,.18);color:#005c66;font-weight:900;box-shadow:var(--shadow-soft)}
+.methodology-pipeline-hook{position:relative;z-index:1;margin:0 0 18px;color:var(--diriyah);font-size:clamp(1.02rem,1.55vw,1.22rem);line-height:1.7;font-weight:900;max-width:1120px}
+.methodology-grid-shell{position:relative;z-index:1;display:grid;gap:18px}
+.methodology-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;align-items:stretch}
+.method-step{position:relative;min-height:166px;padding:18px 15px 16px;border-radius:22px;border:1px solid rgba(255,255,255,.44);background:linear-gradient(180deg, rgba(255,255,255,.84), rgba(255,249,239,.62));box-shadow:var(--shadow-soft);backdrop-filter:blur(14px);display:flex;flex-direction:column;gap:10px;transition:transform .24s ease, box-shadow .24s ease, border-color .24s ease, background .24s ease}
+.method-step:hover,.method-step:focus-within,.method-step.is-active{transform:translateY(-4px);box-shadow:0 18px 38px rgba(0,124,137,.15);border-color:rgba(0,163,173,.42);background:linear-gradient(180deg, rgba(255,255,255,.94), rgba(236,247,249,.88))}
+.method-step.is-complete{border-color:rgba(0,108,53,.34); box-shadow:0 16px 34px rgba(0,108,53,.16)}
+.method-step-index{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--green),var(--redsea));color:#fff;font-size:.82rem;font-weight:900;box-shadow:0 10px 20px rgba(0,108,53,.18)}
+.method-step:nth-child(2n) .method-step-index{background:linear-gradient(135deg,var(--redsea),var(--sand))}
+.method-step:nth-child(3n) .method-step-index{background:linear-gradient(135deg,var(--regraga-red),var(--green))}
+.method-step-title{display:block;color:var(--diriyah);font-size:.94rem;line-height:1.38;font-weight:850}
+.method-step-meta{display:block;color:var(--muted);font-size:.78rem;line-height:1.55;font-weight:700}
+.method-step:not(.method-step--end)::after{content:"";position:absolute;top:50%;inset-inline-start:calc(100% + 5px);width:22px;height:4px;border-radius:999px;background:linear-gradient(90deg, rgba(0,163,173,.15), rgba(0,163,173,.95), rgba(255,255,255,.18));background-size:200% 100%;box-shadow:0 0 16px rgba(0,163,173,.34);animation:methodDataFlowX 1.9s linear infinite}
+body.rtl .method-step:not(.method-step--end)::after{inset-inline-start:auto;inset-inline-end:calc(100% + 5px);animation-name:methodDataFlowXrtl}
+.method-step-row-end::after{display:none!important}
+.method-step:not(.method-step--end)::before{content:"";position:absolute;inset-inline-start:50%;top:calc(100% + 5px);width:4px;height:22px;transform:translateX(-50%);border-radius:999px;background:linear-gradient(180deg, rgba(0,163,173,.15), rgba(0,163,173,.95), rgba(255,255,255,.18));background-size:100% 200%;box-shadow:0 0 16px rgba(0,163,173,.34);animation:methodDataFlowY 1.9s linear infinite;opacity:0}
+.method-step.row-1::before{opacity:1}
+.method-step.row-2::before{display:none}
+.method-step.row-1.method-step-row-end::before{display:none}
+.method-tooltip{position:absolute;inset:auto auto calc(100% + 12px) 0;width:min(270px, calc(100vw - 72px));padding:12px 13px;border-radius:14px;background:rgba(23,33,29,.95);color:#fff;font-size:.79rem;line-height:1.58;font-weight:650;box-shadow:0 16px 36px rgba(23,33,29,.32);opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .2s ease, transform .2s ease;z-index:5}
+body.rtl .method-tooltip{inset:auto 0 calc(100% + 12px) auto}
+.method-tooltip::after{content:"";position:absolute;top:100%;inset-inline-start:18px;width:12px;height:12px;background:rgba(23,33,29,.95);transform:rotate(45deg) translateY(-6px)}
+body.rtl .method-tooltip::after{inset-inline-start:auto;inset-inline-end:18px}
+.method-step:hover .method-tooltip,.method-step:focus-within .method-tooltip,.method-step.is-active .method-tooltip{opacity:1;transform:translateY(0)}
+.method-vision-action{margin-top:2px;display:inline-flex;align-items:center;justify-content:center;gap:8px;width:max-content;padding:8px 12px;border-radius:999px;background:rgba(0,108,53,.10);border:1px solid rgba(0,108,53,.16);color:var(--green);font-size:.76rem;font-weight:900;cursor:pointer;transition:transform .22s ease, box-shadow .22s ease, background .22s ease}
+.method-vision-action:hover,.method-vision-action:focus-visible{transform:translateY(-2px);box-shadow:0 14px 28px rgba(0,108,53,.14);background:rgba(0,108,53,.14)}
+.method-vision-box{border-radius:22px;padding:18px;background:linear-gradient(135deg, rgba(224,248,231,.82), rgba(255,255,255,.86));border:1px solid rgba(0,108,53,.20);box-shadow:0 18px 36px rgba(0,108,53,.10)}
+.method-vision-box[hidden]{display:none!important}
+.method-vision-box.is-visible{animation:methodReveal .34s ease both}
+@keyframes methodReveal{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+.method-vision-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px}
+.method-vision-head h4{margin:0;color:var(--diriyah);font-size:1rem;line-height:1.35}
+.method-vision-pill{display:inline-flex;padding:6px 10px;border-radius:999px;background:rgba(0,108,53,.12);color:var(--green);border:1px solid rgba(0,108,53,.18);font-size:.73rem;font-weight:900;white-space:nowrap}
+.method-vision-body{margin:0;color:var(--muted);line-height:1.72;font-weight:660}
+@keyframes methodDataFlowX{0%{background-position:200% 0}100%{background-position:0 0}}
+@keyframes methodDataFlowXrtl{0%{background-position:0 0}100%{background-position:200% 0}}
+@keyframes methodDataFlowY{0%{background-position:0 200%}100%{background-position:0 0}}
+@media(min-width:1181px){
+  .method-step:nth-child(1){grid-column:1;grid-row:1}
+  .method-step:nth-child(2){grid-column:2;grid-row:1}
+  .method-step:nth-child(3){grid-column:3;grid-row:1}
+  .method-step:nth-child(4){grid-column:4;grid-row:1}
+  .method-step:nth-child(5){grid-column:4;grid-row:2}
+  .method-step:nth-child(6){grid-column:3;grid-row:2}
+  .method-step:nth-child(7){grid-column:2;grid-row:2}
+  .method-step:nth-child(8){grid-column:1;grid-row:2}
+  .method-step.row-1.method-step-row-end::before{display:block;opacity:1}
+  .method-step.row-2:not(.method-step--end)::after{inset-inline-start:auto;inset-inline-end:calc(100% + 5px);animation-name:methodDataFlowXrtl}
+  body.rtl .method-step.row-2:not(.method-step--end)::after{inset-inline-start:calc(100% + 5px);inset-inline-end:auto;animation-name:methodDataFlowX}
+}
+@media(max-width:1180px){.methodology-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.method-step:nth-child(2n)::after{display:none}.method-step.row-1::before,.method-step.row-2::before,.method-step.row-1.method-step-row-end::before{opacity:1;display:block}.method-step:nth-child(7)::before,.method-step:nth-child(8)::before{display:none}}
+@media(max-width:760px){.methodology-pipeline-module{padding:22px 16px;border-radius:24px}.methodology-pipeline-head{grid-template-columns:1fr}.methodology-pipeline-badge{width:max-content;max-width:100%}.methodology-grid{grid-template-columns:1fr}.method-step{min-height:auto}.method-step::after{display:none!important}.method-step:not(.method-step--end)::before{display:block!important;opacity:1;left:50%;right:auto;height:20px}.method-tooltip{position:relative;inset:auto;width:100%;margin-top:4px;opacity:1;transform:none;background:rgba(23,33,29,.92)}.method-tooltip::after{display:none}}
+@media (prefers-reduced-motion:reduce){.method-step,.method-tooltip,.methodology-pipeline-module{transition:none!important}.method-step::after,.method-step::before{animation:none!important}.method-vision-box.is-visible{animation:none!important}}
+/* === The Ihsan Decision Engine: Data-Driven Urban Investment === */
+.ihsan-engine-module{
+  margin:22px 0 18px;
+  padding:26px;
+  border-radius:30px;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 8% 10%, rgba(0,163,173,.14), transparent 28%),
+    radial-gradient(circle at 92% 6%, rgba(161,59,57,.14), transparent 24%),
+    linear-gradient(135deg, rgba(255,255,255,.72), rgba(255,249,239,.55));
+  border:1px solid rgba(255,255,255,.42);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(18px);
+}
+.ihsan-engine-module::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:7px;
+  background:linear-gradient(90deg,var(--green),var(--redsea),var(--sand),var(--regraga-red));
+  opacity:.92;
+}
+.ihsan-engine-head{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:16px;
+  align-items:start;
+  margin-bottom:14px;
+}
+.ihsan-engine-head h3{
+  color:var(--diriyah);
+  font-size:clamp(1.35rem,2.6vw,2.2rem);
+  line-height:1.12;
+  letter-spacing:-.03em;
+}
+body.rtl .ihsan-engine-head h3{letter-spacing:0}
+.ihsan-engine-badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:10px 14px;
+  min-height:42px;
+  border-radius:999px;
+  background:rgba(255,255,255,.62);
+  border:1px solid rgba(0,124,137,.18);
+  color:#005c66;
+  font-weight:900;
+  box-shadow:var(--shadow-soft);
+}
+.ihsan-engine-intro{
+  position:relative;
+  z-index:1;
+  color:var(--muted);
+  line-height:1.78;
+  font-weight:650;
+  max-width:1080px;
+  margin-bottom:18px;
+}
+.ihsan-engine-shell{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:1.5fr .9fr;
+  gap:18px;
+  align-items:start;
+}
+.ihsan-funnel{
+  display:grid;
+  grid-template-columns:repeat(8,minmax(0,1fr));
+  gap:14px;
+  align-items:stretch;
+}
+.ihsan-node{
+  position:relative;
+  border:1px solid rgba(255,255,255,.44);
+  background:linear-gradient(180deg,rgba(255,255,255,.82),rgba(255,249,239,.6));
+  backdrop-filter:blur(14px);
+  border-radius:20px;
+  min-height:138px;
+  padding:16px 12px 14px;
+  box-shadow:var(--shadow-soft);
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:flex-start;
+  gap:10px;
+  text-align:left;
+  transition:transform .24s ease, box-shadow .24s ease, border-color .24s ease, background .24s ease;
+}
+body.rtl .ihsan-node{text-align:right;align-items:flex-start}
+.ihsan-node:hover,.ihsan-node:focus-visible,.ihsan-node.is-active{
+  transform:translateY(-3px);
+  box-shadow:0 18px 38px rgba(0,124,137,.15);
+  border-color:rgba(0,163,173,.42);
+}
+.ihsan-node.is-active{
+  background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(237,247,245,.9));
+}
+.ihsan-node.is-complete{
+  border-color:rgba(0,108,53,.34);
+  box-shadow:0 16px 34px rgba(0,108,53,.16);
+}
+.ihsan-node-step{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:34px;
+  height:34px;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--green),var(--redsea));
+  color:#fff;
+  font-size:.8rem;
+  font-weight:900;
+  box-shadow:0 10px 20px rgba(0,108,53,.18);
+}
+.ihsan-node-label{
+  display:block;
+  color:var(--diriyah);
+  font-size:.9rem;
+  line-height:1.42;
+  font-weight:850;
+}
+.ihsan-node-meta{
+  display:block;
+  color:var(--muted);
+  font-size:.76rem;
+  line-height:1.55;
+  font-weight:700;
+}
+.ihsan-node--final .ihsan-node-step{background:linear-gradient(135deg,var(--regraga-red),var(--sand))}
+.ihsan-node--final{
+  cursor:pointer;
+}
+.ihsan-node:not(:last-child)::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  inset-inline-start:calc(100% + 6px);
+  width:18px;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg,rgba(0,163,173,.15),rgba(0,163,173,.92),rgba(255,255,255,.15));
+  background-size:200% 100%;
+  box-shadow:0 0 16px rgba(0,163,173,.38);
+  animation:ihsanDataFlowX 1.8s linear infinite;
+}
+body.rtl .ihsan-node:not(:last-child)::after{
+  inset-inline-start:auto;
+  inset-inline-end:calc(100% + 6px);
+  animation-name:ihsanDataFlowXrtl;
+}
+.ihsan-tooltip{
+  position:absolute;
+  inset:auto auto calc(100% + 12px) 0;
+  width:min(250px,calc(100vw - 70px));
+  padding:11px 12px;
+  border-radius:14px;
+  background:rgba(23,33,29,.95);
+  color:#fff;
+  line-height:1.55;
+  font-size:.78rem;
+  font-weight:650;
+  box-shadow:0 16px 36px rgba(23,33,29,.32);
+  opacity:0;
+  transform:translateY(8px);
+  pointer-events:none;
+  transition:opacity .2s ease, transform .2s ease;
+  z-index:4;
+}
+body.rtl .ihsan-tooltip{inset:auto 0 calc(100% + 12px) auto}
+.ihsan-tooltip::after{
+  content:"";
+  position:absolute;
+  top:100%;
+  inset-inline-start:18px;
+  width:12px;
+  height:12px;
+  background:rgba(23,33,29,.95);
+  transform:rotate(45deg) translateY(-6px);
+}
+body.rtl .ihsan-tooltip::after{inset-inline-start:auto;inset-inline-end:18px}
+.ihsan-node:hover .ihsan-tooltip,
+.ihsan-node:focus-visible .ihsan-tooltip,
+.ihsan-node.is-active .ihsan-tooltip{
+  opacity:1;
+  transform:translateY(0);
+}
+.ihsan-engine-console{
+  padding:18px;
+  border-radius:24px;
+  background:linear-gradient(180deg,rgba(255,255,255,.8),rgba(247,231,203,.56));
+  border:1px solid rgba(122,78,54,.16);
+  box-shadow:var(--shadow-soft);
+}
+.ihsan-console-kicker{
+  display:inline-flex;
+  padding:5px 9px;
+  border-radius:999px;
+  background:rgba(0,124,137,.1);
+  color:#005862;
+  font-size:.72rem;
+  font-weight:900;
+  margin-bottom:10px;
+}
+.ihsan-engine-status{
+  color:var(--diriyah);
+  font-size:.95rem;
+  line-height:1.64;
+  font-weight:800;
+  margin-bottom:12px;
+  min-height:50px;
+}
+.ihsan-calc-bar{
+  height:12px;
+  border-radius:999px;
+  background:rgba(23,33,29,.08);
+  overflow:hidden;
+  border:1px solid rgba(23,33,29,.08);
+  margin-bottom:14px;
+}
+.ihsan-calc-fill{
+  display:block;
+  width:0%;
+  height:100%;
+  border-radius:inherit;
+  background:linear-gradient(90deg,var(--green),var(--redsea),var(--sand),var(--regraga-red));
+  box-shadow:0 0 18px rgba(0,163,173,.34);
+  transition:width .22s ease;
+}
+.ihsan-console-note{
+  color:var(--muted);
+  font-size:.84rem;
+  line-height:1.62;
+  font-weight:640;
+  margin-bottom:14px;
+}
+.ihsan-recommendation-card{
+  border-radius:22px;
+  padding:16px;
+  background:linear-gradient(135deg,rgba(255,255,255,.95),rgba(237,247,245,.9));
+  border:1px solid rgba(0,108,53,.18);
+  box-shadow:0 18px 36px rgba(0,108,53,.10);
+}
+.ihsan-recommendation-card[hidden]{display:none!important}
+.ihsan-recommendation-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:10px;
+}
+.ihsan-recommendation-card h4{
+  color:var(--diriyah);
+  font-size:1rem;
+  line-height:1.35;
+}
+.ihsan-recommendation-pill{
+  display:inline-flex;
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(0,108,53,.12);
+  color:var(--green);
+  border:1px solid rgba(0,108,53,.18);
+  font-size:.73rem;
+  font-weight:900;
+  white-space:nowrap;
+}
+.ihsan-recommendation-body{
+  color:var(--muted);
+  line-height:1.72;
+  font-weight:660;
+}
+.ihsan-recommendation-body strong{color:var(--green)}
+@keyframes ihsanDataFlowX{0%{background-position:200% 0}100%{background-position:0 0}}
+@keyframes ihsanDataFlowXrtl{0%{background-position:0 0}100%{background-position:200% 0}}
+@keyframes ihsanDataFlowY{0%{background-position:0 200%}100%{background-position:0 0}}
+@media(max-width:1180px){
+  .ihsan-engine-shell{grid-template-columns:1fr}
+  .ihsan-funnel{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media(max-width:760px){
+  .ihsan-engine-module{padding:20px 16px;border-radius:24px}
+  .ihsan-engine-head{grid-template-columns:1fr}
+  .ihsan-engine-badge{width:max-content;max-width:100%}
+  .ihsan-funnel{grid-template-columns:1fr}
+  .ihsan-node{min-height:112px}
+  .ihsan-node:not(:last-child)::after{
+    top:calc(100% + 5px);
+    left:50%;
+    right:auto;
+    width:3px;
+    height:20px;
+    transform:translateX(-50%);
+    background:linear-gradient(180deg,rgba(0,163,173,.15),rgba(0,163,173,.92),rgba(255,255,255,.15));
+    background-size:100% 200%;
+    animation:ihsanDataFlowY 1.8s linear infinite;
+  }
+  body.rtl .ihsan-node:not(:last-child)::after{left:50%;right:auto}
+  .ihsan-tooltip{position:relative;inset:auto;width:100%;margin-top:4px;opacity:1;transform:none;background:rgba(23,33,29,.92)}
+  .ihsan-tooltip::after{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .ihsan-node,.ihsan-tooltip,.ihsan-calc-fill{transition:none!important}
+  .ihsan-node:not(:last-child)::after{animation:none!important}
+}
+
 /* ── SUMO Simulation Dashboard ── */
 .egs-sumo-shell {
  background: #050505;
@@ -1174,6 +1573,111 @@ html[dir="rtl"] .egs-side{border-left:1px solid #004400;border-right:0;}
  </div>
  </div>
 
+
+
+    <div class="ihsan-engine-module" aria-labelledby="ihsanEngineTitle">
+      <div class="ihsan-engine-head">
+        <div>
+          <div class="kicker" id="ihsanEngineKicker">Research &amp; Projects / Decision Engine</div>
+          <h3 id="ihsanEngineTitle">The Ihsan Decision Engine: Data-Driven Urban Investment</h3>
+        </div>
+        <span class="ihsan-engine-badge" id="ihsanEngineBadge">IRP · PIF-minded · Al-Amānah</span>
+      </div>
+      <p class="ihsan-engine-intro" id="ihsanEngineIntro">Guided by the Islamic principle of Al-Amānah (Fiduciary Responsibility and Trust), this decision-support model was built to eliminate investment guesswork. It ensures that capital is allocated efficiently, maximizing ROI and societal value—mirroring the data-driven investment strategies utilized by the Saudi Public Investment Fund (PIF).</p>
+      <div class="ihsan-engine-shell">
+        <div class="ihsan-funnel" id="ihsanDecisionFunnel" aria-label="Ihsan decision engine flowchart">
+          <button class="ihsan-node" type="button" data-node-index="0" data-node-key="traffic">
+            <span class="ihsan-node-step">01</span>
+            <span class="ihsan-node-label" id="ihsanNodeLabel0">Traffic volume</span>
+            <span class="ihsan-node-meta" id="ihsanNodeMeta0">Raw mobility signal</span>
+            <span class="ihsan-tooltip" role="tooltip" id="ihsanNodeTip0">Modeled using SUMO (Simulation of Urban MObility) to map vehicle and pedestrian density.</span>
+          </button>
+          <button class="ihsan-node" type="button" data-node-index="1" data-node-key="audience">
+            <span class="ihsan-node-step">02</span>
+            <span class="ihsan-node-label" id="ihsanNodeLabel1">Audience potential</span>
+            <span class="ihsan-node-meta" id="ihsanNodeMeta1">Exposure translation</span>
+            <span class="ihsan-tooltip" role="tooltip" id="ihsanNodeTip1">Traffic observations are translated into likely impression intensity, exposure windows, and visibility quality.</span>
+          </button>
+          <button class="ihsan-node" type="button" data-node-index="2" data-node-key="socio">
+            <span class="ihsan-node-step">03</span>
+            <span class="ihsan-node-label" id="ihsanNodeLabel2">Socio-economic value</span>
+            <span class="ihsan-node-meta" id="ihsanNodeMeta2">Local purchasing power</span>
+            <span class="ihsan-tooltip" role="tooltip" id="ihsanNodeTip2">Calculated using real estate prices and RGPH demographic data as a proxy for local purchasing power.</span>
+          </button>
+          <button class="ihsan-node" type="button" data-node-index="3" data-node-key="capexopex">
+            <span class="ihsan-node-step">04</span>
+            <span class="ihsan-node-label" id="ihsanNodeLabel3">CAPEX/OPEX</span>
+            <span class="ihsan-node-meta" id="ihsanNodeMeta3">Investment and operating costs</span>
+            <span class="ihsan-tooltip" role="tooltip" id="ihsanNodeTip3">Initial setup costs and yearly operating charges are modeled separately to preserve decision transparency.</span>
+          </button>
+          <button class="ihsan-node" type="button" data-node-index="4" data-node-key="tco">
+            <span class="ihsan-node-step">05</span>
+            <span class="ihsan-node-label" id="ihsanNodeLabel4">TCO</span>
+            <span class="ihsan-node-meta" id="ihsanNodeMeta4">5-year ownership logic</span>
+            <span class="ihsan-tooltip" role="tooltip" id="ihsanNodeTip4">Total Cost of Ownership calculated over a 5-year horizon, comparing traditional OOH versus DOOH (Digital Out-Of-Home) screens.</span>
+          </button>
+          <button class="ihsan-node" type="button" data-node-index="5" data-node-key="roi">
+            <span class="ihsan-node-step">06</span>
+            <span class="ihsan-node-label" id="ihsanNodeLabel5">ROI</span>
+            <span class="ihsan-node-meta" id="ihsanNodeMeta5">Financial return test</span>
+            <span class="ihsan-tooltip" role="tooltip" id="ihsanNodeTip5">Projected net gains are compared with total deployed capital to reveal the economic efficiency of each scenario.</span>
+          </button>
+          <button class="ihsan-node" type="button" data-node-index="6" data-node-key="irp">
+            <span class="ihsan-node-step">07</span>
+            <span class="ihsan-node-label" id="ihsanNodeLabel6">IRP ranking</span>
+            <span class="ihsan-node-meta" id="ihsanNodeMeta6">Long-term attractiveness score</span>
+            <span class="ihsan-tooltip" role="tooltip" id="ihsanNodeTip6">The Potential Profitability Index (IRP) measures long-term value creation by calculating the present value of future cash flows against the initial investment.</span>
+          </button>
+          <button class="ihsan-node ihsan-node--final" id="ihsanFinalNode" type="button" data-node-index="7" data-node-key="recommendation" aria-describedby="ihsanEngineStatus">
+            <span class="ihsan-node-step">08</span>
+            <span class="ihsan-node-label" id="ihsanNodeLabel7">Investment recommendation</span>
+            <span class="ihsan-node-meta" id="ihsanNodeMeta7">Click to simulate Saudi output</span>
+            <span class="ihsan-tooltip" role="tooltip" id="ihsanNodeTip7">The final recommendation combines return, risk, and strategic fit into a capital-allocation decision.</span>
+          </button>
+        </div>
+
+        <aside class="ihsan-engine-console" aria-label="Decision engine console">
+          <span class="ihsan-console-kicker" id="ihsanConsoleKicker">Decision console</span>
+          <div class="ihsan-engine-status" id="ihsanEngineStatus" aria-live="polite">Click the final node to run a Saudi-context simulation.</div>
+          <div class="ihsan-calc-bar" aria-hidden="true"><span class="ihsan-calc-fill" id="ihsanCalcFill"></span></div>
+          <p class="ihsan-console-note" id="ihsanConsoleNote">The engine converts traffic, socioeconomic, and financial evidence into an auditable investment recommendation.</p>
+          <article class="ihsan-recommendation-card" id="ihsanRecommendationCard" hidden>
+            <div class="ihsan-recommendation-head">
+              <h4 id="ihsanRecTitle">Saudi context recommendation</h4>
+              <span class="ihsan-recommendation-pill" id="ihsanRecPill">Simulated output</span>
+            </div>
+            <p class="ihsan-recommendation-body" id="ihsanRecBody">Applying this IRP model to Riyadh's King Fahd Road or NEOM's commercial districts would allow Saudi advertising operators to systematically optimize their DOOH (Digital Out-of-Home) investments, aligning urban aesthetics with maximum financial profitability.</p>
+          </article>
+        </aside>
+      </div>
+    </div>
+
+    
+
+    <div class="methodology-pipeline-module" id="methodologyPipeline" aria-labelledby="methodologyPipelineTitle">
+      <div class="methodology-pipeline-head">
+        <div>
+          <div class="kicker" id="methodologyPipelineKicker">Research &amp; Projects / Methodology Pipeline</div>
+          <h3 class="methodology-pipeline-title" id="methodologyPipelineTitle">Methodology Pipeline</h3>
+        </div>
+        <span class="methodology-pipeline-badge" id="methodologyPipelineBadge">SUMO · GIS · ROI · IRP</span>
+      </div>
+      <p class="methodology-pipeline-hook" id="methodologyPipelineHook">“I transformed a complex urban-business problem into a structured decision model by combining traffic simulation, spatial analysis, financial modelling, and regulatory interpretation.”</p>
+      <div class="methodology-grid-shell">
+        <div class="methodology-grid" role="list" aria-label="Methodology pipeline smart city grid">
+          <article class="method-step row-1" role="listitem" tabindex="0"><span class="method-step-index">01</span><span class="method-step-title" id="methodNodeTitle0">Research Question</span><span class="method-step-meta" id="methodNodeMeta0">Problem definition</span><div class="method-tooltip" role="tooltip" id="methodNodeTip0">Defining the gap between urban traffic density and advertising ROI.</div></article>
+          <article class="method-step row-1" role="listitem" tabindex="0"><span class="method-step-index">02</span><span class="method-step-title" id="methodNodeTitle1">Data Collection</span><span class="method-step-meta" id="methodNodeMeta1">Demographic and market inputs</span><div class="method-tooltip" role="tooltip" id="methodNodeTip1">Aggregating demographic data (RGPH) and real estate valuations to map purchasing power.</div></article>
+          <article class="method-step row-1" role="listitem" tabindex="0"><span class="method-step-index">03</span><span class="method-step-title" id="methodNodeTitle2">SUMO Traffic Simulation</span><span class="method-step-meta" id="methodNodeMeta2">Microscopic mobility modelling</span><div class="method-tooltip" role="tooltip" id="methodNodeTip2">Deploying 'Simulation of Urban MObility' (SUMO) to microscopically model vehicle and pedestrian flows across urban networks.</div></article>
+          <article class="method-step row-1 method-step-row-end" role="listitem" tabindex="0"><span class="method-step-index">04</span><span class="method-step-title" id="methodNodeTitle3">GIS/Spatial Mapping</span><span class="method-step-meta" id="methodNodeMeta3">High-value visibility zones</span><div class="method-tooltip" role="tooltip" id="methodNodeTip3">Layering spatial data via Geographic Information Systems to pinpoint high-value visibility zones.</div></article>
+          <article class="method-step row-2" role="listitem" tabindex="0"><span class="method-step-index">05</span><span class="method-step-title" id="methodNodeTitle4">Financial Modelling</span><span class="method-step-meta" id="methodNodeMeta4">CAPEX and OPEX structuring</span><div class="method-tooltip" role="tooltip" id="methodNodeTip4">Structuring comprehensive CAPEX (initial equipment) and OPEX (recurring operational) cost models.</div></article>
+          <article class="method-step row-2" role="listitem" tabindex="0"><span class="method-step-index">06</span><span class="method-step-title" id="methodNodeTitle5">ROI / TCO Analysis</span><span class="method-step-meta" id="methodNodeMeta5">Comparative financial performance</span><div class="method-tooltip" role="tooltip" id="methodNodeTip5">Calculating Total Cost of Ownership and Return on Investment across different technological assets (OOH vs. DOOH).</div></article>
+          <article class="method-step row-2" role="listitem" tabindex="0"><span class="method-step-index">07</span><span class="method-step-title" id="methodNodeTitle6">IRP Scoring</span><span class="method-step-meta" id="methodNodeMeta6">Potential Profitability Index</span><div class="method-tooltip" role="tooltip" id="methodNodeTip6">Formulating the Potential Profitability Index (IRP) to rank urban locations based on financial viability and regulatory constraints.</div></article>
+          <article class="method-step row-2 method-step--end" role="listitem" tabindex="0" id="methodNodeEnd"><span class="method-step-index">08</span><span class="method-step-title" id="methodNodeTitle7">Strategic Recommendations</span><span class="method-step-meta" id="methodNodeMeta7">Actionable urban-business strategy</span><div class="method-tooltip" role="tooltip" id="methodNodeTip7">Delivering data-backed, actionable investment strategies for media operators and urban planners.</div><button class="method-vision-action" type="button" id="methodVisionBtn" aria-expanded="false" aria-controls="methodVisionBox">Vision 2030 Application</button></article>
+        </div>
+        <article class="method-vision-box" id="methodVisionBox" hidden aria-live="polite"><div class="method-vision-head"><h4 id="methodVisionTitle">Vision 2030 Application</h4><span class="method-vision-pill" id="methodVisionPill">Scalable methodology</span></div><p class="method-vision-body" id="methodVisionBody">This methodology is highly scalable. The exact pipeline used to optimize commercial assets in Casablanca can be directly applied to optimize urban infrastructure investments, digital out-of-home networks, and smart-city commercial zones in Riyadh's redevelopment or NEOM’s 'The Line'.</p></article>
+      </div>
+    </div>
+
     <div class="ihsan-ai-module" aria-labelledby="ihsanAiTitle">
       <div class="ihsan-ai-head">
         <div>
@@ -1653,6 +2157,8 @@ function setLang(lang){
   arBtn.setAttribute('aria-label', lang==='ar'?'التبديل إلى اللغة العربية':'Switch language to Arabic');
   updateMilestoneText();
   renderSgiContent(document.body.classList.contains('green-mode'));
+  renderIhsanDecisionSection();
+  renderMethodologyPipeline();
   applyLocalizationArchitecture();
   announceLocalization(lang);
 }
@@ -1858,8 +2364,216 @@ consentSave.addEventListener('click',()=>{
   consentBanner.hidden=true;
 });
 
+
+const ihsanDecisionCopy={
+  en:{
+    kicker:'Research & Projects / Decision Engine',
+    title:'The Ihsan Decision Engine: Data-Driven Urban Investment',
+    badge:'IRP · PIF-minded · Al-Amānah',
+    intro:'Guided by the Islamic principle of Al-Amānah (Fiduciary Responsibility and Trust), this decision-support model was built to eliminate investment guesswork. It ensures that capital is allocated efficiently, maximizing ROI and societal value—mirroring the data-driven investment strategies utilized by the Saudi Public Investment Fund (PIF).',
+    consoleKicker:'Decision console',
+    idle:'Click the final node to run a Saudi-context simulation.',
+    running:'Running simulated capital-allocation logic...',
+    done:'Saudi-context recommendation generated.',
+    consoleNote:'The engine converts traffic, socioeconomic, and financial evidence into an auditable investment recommendation.',
+    recTitle:'Saudi context recommendation',
+    recPill:'Simulated output',
+    recBody:"Applying this IRP model to Riyadh's King Fahd Road or NEOM's commercial districts would allow Saudi advertising operators to systematically optimize their DOOH (Digital Out-of-Home) investments, aligning urban aesthetics with maximum financial profitability.",
+    nodes:[
+      {label:'Traffic volume',meta:'Raw mobility signal',tip:'Modeled using SUMO (Simulation of Urban MObility) to map vehicle and pedestrian density.'},
+      {label:'Audience potential',meta:'Exposure translation',tip:'Traffic observations are translated into likely impression intensity, exposure windows, and visibility quality.'},
+      {label:'Socio-economic value',meta:'Local purchasing power',tip:'Calculated using real estate prices and RGPH demographic data as a proxy for local purchasing power.'},
+      {label:'CAPEX/OPEX',meta:'Investment and operating costs',tip:'Initial setup costs and yearly operating charges are modeled separately to preserve decision transparency.'},
+      {label:'TCO',meta:'5-year ownership logic',tip:'Total Cost of Ownership calculated over a 5-year horizon, comparing traditional OOH versus DOOH (Digital Out-Of-Home) screens.'},
+      {label:'ROI',meta:'Financial return test',tip:'Projected net gains are compared with total deployed capital to reveal the economic efficiency of each scenario.'},
+      {label:'IRP ranking',meta:'Long-term attractiveness score',tip:'The Potential Profitability Index (IRP) measures long-term value creation by calculating the present value of future cash flows against the initial investment.'},
+      {label:'Investment recommendation',meta:'Click to simulate Saudi output',tip:'The final recommendation combines return, risk, and strategic fit into a capital-allocation decision.'}
+    ]
+  },
+  ar:{
+    kicker:'الأبحاث والمشاريع / محرك القرار',
+    title:'محرك الإحسان للقرار: استثمار حضري قائم على البيانات',
+    badge:'IRP · بمنطق PIF · الأمانة',
+    intro:'انطلاقاً من المبدأ الإسلامي الأصيل، الأمانة (المسؤولية الائتمانية والثقة)، بُني هذا النموذج المساند للقرار من أجل إزالة التخمين من الاستثمار. فهو يضمن تخصيص رأس المال بكفاءة، وتعظيم العائد على الاستثمار والقيمة المجتمعية، بما يعكس المنهجيات الاستثمارية المعتمدة على البيانات لدى صندوق الاستثمارات العامة السعودي (PIF).',
+    consoleKicker:'لوحة القرار',
+    idle:'انقر على العقدة الأخيرة لتشغيل محاكاة في السياق السعودي.',
+    running:'جارٍ تشغيل منطق تخصيص رأس المال بشكلٍ محاكى...',
+    done:'تم توليد توصية استثمارية للسياق السعودي.',
+    consoleNote:'يحوّل هذا المحرك بيانات الحركة والقيمة الاجتماعية-الاقتصادية والمؤشرات المالية إلى توصية استثمارية قابلة للتدقيق.',
+    recTitle:'توصية في السياق السعودي',
+    recPill:'مخرج محاكى',
+    recBody:'إن تطبيق نموذج IRP هذا على طريق الملك فهد في الرياض أو على المناطق التجارية في نيوم سيسمح لمشغلي الإعلانات السعوديين بتحسين استثماراتهم في شاشات DOOH (الإعلانات الرقمية الخارجية) بشكل منهجي، بما يحقق مواءمة بين الجماليات الحضرية وأقصى ربحية مالية.',
+    nodes:[
+      {label:'حجم المرور',meta:'إشارة الحركة الخام',tip:'تمت نمذجته باستخدام SUMO ‏(Simulation of Urban MObility) لرسم كثافة المركبات والمشاة.'},
+      {label:'الإمكانات الجماهيرية',meta:'ترجمة التعرض الإعلاني',tip:'تُحوَّل بيانات الحركة إلى شدة انطباعات محتملة ونوافذ تعرّض وجودة الرؤية.'},
+      {label:'القيمة الاجتماعية-الاقتصادية',meta:'القوة الشرائية المحلية',tip:'تُحسب باستخدام أسعار العقار وبيانات RGPH الديموغرافية بوصفها مؤشراً تقريبياً للقوة الشرائية المحلية.'},
+      {label:'CAPEX/OPEX',meta:'تكاليف الاستثمار والتشغيل',tip:'تُنمذج تكاليف الإطلاق الأولى والمصاريف التشغيلية السنوية بشكل منفصل للحفاظ على شفافية القرار.'},
+      {label:'TCO',meta:'منطق الملكية لخمس سنوات',tip:'تم حساب التكلفة الإجمالية للملكية على أفق 5 سنوات مع مقارنة الإعلانات الخارجية التقليدية OOH بالشاشات الرقمية الخارجية DOOH.'},
+      {label:'العائد على الاستثمار ROI',meta:'اختبار العائد المالي',tip:'تُقارن الأرباح الصافية المتوقعة بإجمالي رأس المال الموظف لإظهار الكفاءة الاقتصادية لكل سيناريو.'},
+      {label:'ترتيب IRP',meta:'درجة الجاذبية طويلة الأجل',tip:'يقيس مؤشر الربحية المحتملة IRP خلق القيمة على المدى الطويل من خلال حساب القيمة الحالية للتدفقات النقدية المستقبلية مقابل الاستثمار الأولي.'},
+      {label:'التوصية الاستثمارية',meta:'انقر لمحاكاة الخرج السعودي',tip:'تجمع التوصية النهائية بين العائد والمخاطر والملاءمة الاستراتيجية ضمن قرار لتخصيص رأس المال.'}
+    ]
+  }
+};
+let ihsanDecisionBusy=false;
+let ihsanDecisionTimers=[];
+function clearIhsanDecisionTimers(){
+  ihsanDecisionTimers.forEach(t=>clearTimeout(t));
+  ihsanDecisionTimers=[];
+}
+function renderIhsanDecisionSection(){
+  const copy=ihsanDecisionCopy[currentLang]||ihsanDecisionCopy.en;
+  setText('ihsanEngineKicker',copy.kicker);
+  setText('ihsanEngineTitle',copy.title);
+  setText('ihsanEngineBadge',copy.badge);
+  setText('ihsanEngineIntro',copy.intro);
+  setText('ihsanConsoleKicker',copy.consoleKicker);
+  setText('ihsanConsoleNote',copy.consoleNote);
+  setText('ihsanRecTitle',copy.recTitle);
+  setText('ihsanRecPill',copy.recPill);
+  setText('ihsanRecBody',copy.recBody);
+  copy.nodes.forEach((node,idx)=>{
+    setText(`ihsanNodeLabel${idx}`,node.label);
+    setText(`ihsanNodeMeta${idx}`,node.meta);
+    setText(`ihsanNodeTip${idx}`,node.tip);
+  });
+  const status=document.getElementById('ihsanEngineStatus');
+  const rec=document.getElementById('ihsanRecommendationCard');
+  if(status && !ihsanDecisionBusy && rec && rec.hidden) status.textContent=copy.idle;
+  if(status && !ihsanDecisionBusy && rec && !rec.hidden) status.textContent=copy.done;
+}
+function initIhsanDecisionEngine(){
+  const finalBtn=document.getElementById('ihsanFinalNode');
+  const status=document.getElementById('ihsanEngineStatus');
+  const progress=document.getElementById('ihsanCalcFill');
+  const rec=document.getElementById('ihsanRecommendationCard');
+  const nodes=[...document.querySelectorAll('.ihsan-node')];
+  if(!finalBtn||!status||!progress||!rec||!nodes.length) return;
+  const reduceMotion=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const resetNodes=()=>nodes.forEach(node=>node.classList.remove('is-active','is-complete'));
+  finalBtn.addEventListener('click',()=>{
+    if(ihsanDecisionBusy) return;
+    const copy=ihsanDecisionCopy[currentLang]||ihsanDecisionCopy.en;
+    ihsanDecisionBusy=true;
+    clearIhsanDecisionTimers();
+    resetNodes();
+    rec.hidden=true;
+    progress.style.width='0%';
+    status.textContent=copy.running;
+    finalBtn.setAttribute('aria-disabled','true');
+    const totalSteps=nodes.length;
+    const duration=reduceMotion?400:2000;
+    const stepDelay=Math.max(70,Math.round(duration/totalSteps));
+    nodes.forEach((node,idx)=>{
+      ihsanDecisionTimers.push(setTimeout(()=>{
+        resetNodes();
+        nodes.forEach((n,i)=>n.classList.toggle('is-complete',i<idx));
+        node.classList.add('is-active');
+        progress.style.width=`${Math.round(((idx+1)/totalSteps)*100)}%`;
+      },idx*stepDelay));
+    });
+    ihsanDecisionTimers.push(setTimeout(()=>{
+      nodes.forEach(n=>n.classList.remove('is-active'));
+      nodes.forEach(n=>n.classList.add('is-complete'));
+      rec.hidden=false;
+      status.textContent=copy.done;
+      finalBtn.removeAttribute('aria-disabled');
+      ihsanDecisionBusy=false;
+    },duration));
+  });
+}
+
+
+
+const methodologyPipelineCopy={
+  en:{
+    kicker:'Research & Projects / Methodology Pipeline',
+    title:'Methodology Pipeline',
+    badge:'SUMO · GIS · ROI · IRP',
+    hook:'“I transformed a complex urban-business problem into a structured decision model by combining traffic simulation, spatial analysis, financial modelling, and regulatory interpretation.”',
+    visionBtn:'Vision 2030 Application',
+    visionTitle:'Vision 2030 Application',
+    visionPill:'Scalable methodology',
+    visionBody:"This methodology is highly scalable. The exact pipeline used to optimize commercial assets in Casablanca can be directly applied to optimize urban infrastructure investments, digital out-of-home networks, and smart-city commercial zones in Riyadh's redevelopment or NEOM’s 'The Line'.",
+    nodes:[
+      {title:'Research Question',meta:'Problem definition',tip:'Defining the gap between urban traffic density and advertising ROI.'},
+      {title:'Data Collection',meta:'Demographic and market inputs',tip:'Aggregating demographic data (RGPH) and real estate valuations to map purchasing power.'},
+      {title:'SUMO Traffic Simulation',meta:'Microscopic mobility modelling',tip:"Deploying 'Simulation of Urban MObility' (SUMO) to microscopically model vehicle and pedestrian flows across urban networks."},
+      {title:'GIS/Spatial Mapping',meta:'High-value visibility zones',tip:'Layering spatial data via Geographic Information Systems to pinpoint high-value visibility zones.'},
+      {title:'Financial Modelling',meta:'CAPEX and OPEX structuring',tip:'Structuring comprehensive CAPEX (initial equipment) and OPEX (recurring operational) cost models.'},
+      {title:'ROI / TCO Analysis',meta:'Comparative financial performance',tip:'Calculating Total Cost of Ownership and Return on Investment across different technological assets (OOH vs. DOOH).'},
+      {title:'IRP Scoring',meta:'Potential Profitability Index',tip:'Formulating the Potential Profitability Index (IRP) to rank urban locations based on financial viability and regulatory constraints.'},
+      {title:'Strategic Recommendations',meta:'Actionable urban-business strategy',tip:'Delivering data-backed, actionable investment strategies for media operators and urban planners.'}
+    ]
+  },
+  ar:{
+    kicker:'الأبحاث والمشاريع / خط المنهجية',
+    title:'خط المنهجية',
+    badge:'SUMO · GIS · ROI · IRP',
+    hook:'"حوّلتُ مشكلة حضرية-تجارية معقدة إلى نموذج قرار منظّم من خلال الجمع بين محاكاة المرور، والتحليل المكاني، والنمذجة المالية، والتفسير التنظيمي."',
+    visionBtn:'تطبيق رؤية 2030',
+    visionTitle:'تطبيق رؤية 2030',
+    visionPill:'منهجية قابلة للتوسّع',
+    visionBody:"هذه المنهجية قابلة للتوسّع بدرجة عالية. فالخط نفسه الذي استُخدم لتحسين الأصول التجارية في الدار البيضاء يمكن تطبيقه مباشرة لتحسين استثمارات البنية التحتية الحضرية، وشبكات الإعلانات الخارجية الرقمية، والمناطق التجارية للمدن الذكية ضمن إعادة تطوير الرياض أو في مشروع 'ذا لاين' في نيوم.",
+    nodes:[
+      {title:'سؤال البحث',meta:'تعريف المشكلة',tip:'تحديد الفجوة بين كثافة الحركة الحضرية والعائد على الاستثمار الإعلاني.'},
+      {title:'جمع البيانات',meta:'مدخلات ديموغرافية وسوقية',tip:'تجميع البيانات الديموغرافية (RGPH) وتقييمات العقار لرسم خريطة القوة الشرائية.'},
+      {title:'محاكاة المرور باستخدام SUMO',meta:'نمذجة حركية مجهرية',tip:"توظيف 'Simulation of Urban MObility' (SUMO) لنمذجة تدفقات المركبات والمشاة بشكل مجهرّي عبر الشبكات الحضرية."},
+      {title:'الخرائط الجغرافية/المكانية',meta:'مناطق الرؤية عالية القيمة',tip:'تراكب البيانات المكانية عبر نظم المعلومات الجغرافية لتحديد مناطق الرؤية ذات القيمة العالية.'},
+      {title:'النمذجة المالية',meta:'هيكلة CAPEX و OPEX',tip:'بناء نماذج شاملة لتكاليف CAPEX (التجهيز الأولي) وOPEX (التشغيل المتكرر).'},
+      {title:'تحليل ROI / TCO',meta:'الأداء المالي المقارن',tip:'حساب التكلفة الإجمالية للملكية والعائد على الاستثمار عبر الأصول التكنولوجية المختلفة (OOH مقابل DOOH).'},
+      {title:'تقييم IRP',meta:'مؤشر الربحية المحتملة',tip:'صياغة مؤشر الربحية المحتملة (IRP) لترتيب المواقع الحضرية حسب الجدوى المالية والقيود التنظيمية.'},
+      {title:'التوصيات الاستراتيجية',meta:'استراتيجية حضرية-تجارية قابلة للتنفيذ',tip:'تقديم استراتيجيات استثمارية قابلة للتنفيذ ومدعومة بالبيانات لصالح المشغلين الإعلاميين والمخططين الحضريين.'}
+    ]
+  }
+};
+function renderMethodologyPipeline(){
+  const copy=methodologyPipelineCopy[currentLang]||methodologyPipelineCopy.en;
+  setText('methodologyPipelineKicker',copy.kicker);
+  setText('methodologyPipelineTitle',copy.title);
+  setText('methodologyPipelineBadge',copy.badge);
+  setText('methodologyPipelineHook',copy.hook);
+  setText('methodVisionBtn',copy.visionBtn);
+  setText('methodVisionTitle',copy.visionTitle);
+  setText('methodVisionPill',copy.visionPill);
+  setText('methodVisionBody',copy.visionBody);
+  copy.nodes.forEach((node,idx)=>{ setText(`methodNodeTitle${idx}`,node.title); setText(`methodNodeMeta${idx}`,node.meta); setText(`methodNodeTip${idx}`,node.tip); });
+}
+function initMethodologyPipeline(){
+  const module=document.getElementById('methodologyPipeline');
+  const btn=document.getElementById('methodVisionBtn');
+  const box=document.getElementById('methodVisionBox');
+  const steps=[...document.querySelectorAll('.method-step')];
+  if(!module||!btn||!box||!steps.length) return;
+  const reduceMotion=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let busy=false;
+  function pulseSteps(){
+    steps.forEach(step=>step.classList.remove('is-active','is-complete'));
+    if(reduceMotion){ steps.forEach(step=>step.classList.add('is-complete')); return; }
+    steps.forEach((step,idx)=>{ setTimeout(()=>{ steps.forEach((s,i)=>s.classList.toggle('is-complete',i<idx)); step.classList.add('is-active'); setTimeout(()=>step.classList.remove('is-active'),180); },idx*85); });
+    setTimeout(()=>steps.forEach(step=>step.classList.add('is-complete')),steps.length*85+120);
+  }
+  btn.addEventListener('click',()=>{
+    if(busy) return;
+    busy=true;
+    module.classList.remove('is-vision-active');
+    void module.offsetWidth;
+    module.classList.add('is-vision-active');
+    pulseSteps();
+    setTimeout(()=>{
+      box.hidden=false;
+      box.classList.remove('is-visible');
+      void box.offsetWidth;
+      box.classList.add('is-visible');
+      btn.setAttribute('aria-expanded','true');
+      busy=false;
+    }, reduceMotion?40:420);
+  });
+}
 console.info("This website's accessibility architecture was built to exceed WCAG AAA standards in honor of the Islamic principles of Ar-Raḥmah (mercy and inclusivity) and Al-ṣidq wa al-wuḍūḥ (honesty and clarity), ensuring no user is left behind.");
 setLang('en');
+initIhsanDecisionEngine();
+initMethodologyPipeline();
 
 /* ── Daour Cycle hub: draw step dots on the ring ── */
 function initDaourHub(){
