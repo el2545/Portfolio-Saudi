@@ -601,6 +601,48 @@ body.rtl .nav .sgi-action .control-label{font-family:var(--font-ar);font-size:.9
   .nav .sgi-action{justify-content:space-between;min-width:min(100%,320px);}
 }
 
+
+/* Reviewer-clean alignment fixes */
+.footer .footer-inner{
+  max-width:980px;
+  margin-inline:auto;
+  text-align:center;
+}
+.footer .footer-review-note,
+.footer .review-footer-note{
+  max-width:920px;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+  direction:ltr;
+  unicode-bidi:isolate;
+}
+.footer .review-footer-note{
+  margin-top:12px;
+}
+body.rtl .footer .footer-review-note,
+body.rtl .footer .review-footer-note{
+  direction:rtl;
+  text-align:center;
+}
+body.rtl .footer .review-footer-note span{
+  display:inline-block;
+  direction:rtl;
+  unicode-bidi:isolate;
+}
+body.rtl .source-grid,
+body.rtl .docs-grid{
+  direction:rtl;
+}
+body.rtl .source,
+body.rtl .doc-card{
+  text-align:right;
+}
+body.rtl .source a,
+body.rtl .doc-actions{
+  justify-content:center;
+}
+
 </style>
 </head>
 <body>
@@ -657,7 +699,7 @@ body.rtl .nav .sgi-action .control-label{font-family:var(--font-ar);font-size:.9
 <a class="nav-link-bi" href="#vision"><span class="nav-num">05</span><span class="nav-title">Vision Roadmap</span><span class="ar-hover">خارطة الرؤية</span></a>
 <a class="nav-link-bi" href="#daour"><span class="nav-num">06</span><span class="nav-title">Daour Method</span><span class="ar-hover">منهجية الدور</span></a>
 <a class="nav-link-bi" href="#vault"><span class="nav-num">07</span><span class="nav-title">Evidence Archive</span><span class="ar-hover">مستودع الأمانة</span></a>
-<a class="nav-link-bi" href="#reality"><span class="nav-num">08</span><span class="nav-title">Scope & Evidence</span><span class="ar-hover">ضبط الادعاءات</span></a>
+<a class="nav-link-bi" href="#reality"><span class="nav-num">08</span><span class="nav-title">Scope & Evidence</span><span class="ar-hover">النطاق والأدلة</span></a>
 </nav>
 <div class="nav-controls" aria-label="Interface controls">
 <button class="nav-action pitch-action active" id="pitchBtn" type="button">
@@ -835,7 +877,7 @@ body.rtl .nav .sgi-action .control-label{font-family:var(--font-ar);font-size:.9
 </div>
 </div>
 </div>
-<div class="small-note" style="margin-top:12px"><b>SUMO data scope.</b> The Leaflet/SUMO dashboard code uses the JSON files stored at the GitHub repository root: <span class="ltr">maarif_heatmap.json</span>, <span class="ltr">maarif_simulation_geo.json</span>, and equivalent files for Hay Hassani, Ben M’Sick, Sidi Maârouf, and Boulevard Mohammed V. If those files are not present, the map base loads but heatmap/simulation layers cannot render.</div>
+<div class="small-note" style="margin-top:12px"><b>SUMO data scope.</b> The Leaflet/SUMO dashboard code uses the JSON files stored in the same folder as this webpage: <span class="ltr">maarif_heatmap.json</span>, <span class="ltr">maarif_simulation_geo.json</span>, and equivalent files for Hay Hassani, Ben M’Sick, Sidi Maârouf, and Boulevard Mohammed V. If those files are not present, the map base loads but heatmap/simulation layers cannot render.</div>
 </section>
 <section aria-labelledby="engineTitle" class="page-section" id="engine">
 <div class="section-head"><div><div class="kicker">04 — Decision Engine</div><h2 id="engineTitle">Decision Engine: Smart City Capital Allocation.</h2></div><p class="section-note">This section moves from predictive forecasting to strategic ranking. It integrates XGBoost demand predictions with carbon-adjusted Decoupled Net Present Value (DNPV) and AROMAN ranking to prioritize Vision 2030 infrastructure investments under geoeconomic and climate uncertainty. Multi-criteria scorecards improve reviewability compared with a single-indicator NPV model.</p></div>
@@ -905,8 +947,7 @@ body.rtl .nav .sgi-action .control-label{font-family:var(--font-ar);font-size:.9
 <article class="doc-card"><div><h3>The Vision 2030 Agenda (KAUST TIE Research Proposal)</h3><span class="badge supported">Vision 2030 Aligned</span><p class="meta">Structured proposal using the GIFT framework. Focused on commercializing trustworthy AI mobility solutions for Saudi cognitive cities.</p></div><div class="doc-actions"><a class="primary file-ref" href="./KAUST_TIE_Research_Proposal_El_Ghali_Sany.pdf" target="_blank" rel="noopener" download>↓ Download KAUST Proposal</a></div></article>
 <article class="doc-card"><div><h3>Statement of Purpose (KAUST TIE SOP)</h3><span class="badge supported">Strategic Intent</span><p class="meta">The strategic narrative connecting empirical traffic modeling, advanced AI scorecards, and venture creation within Saudi Arabia’s innovation ecosystem.</p></div><div class="doc-actions"><a class="primary file-ref" href="./KAUST_TIE_Statement_of_Purpose_El_Ghali_Sany.pdf" target="_blank" rel="noopener" download>↓ Download KAUST SOP</a></div></article>
 </div>
-<div class="small-note github-safe-note" style="margin-top:16px">📁 <b>GitHub deployment note:</b> Document links now point to files stored at the repository root. Keep the PDF names exactly unchanged, including spaces in <code>AI-MCDM Investment Scoring for Smart Cities.pdf</code>.</div>
-  <div class="small-note" style="margin-top:16px">🛡️ <b>Data Sovereignty &amp; Compliance Note:</b> Datasets, traffic simulations, and predictive AI models associated with this archive are structured around Privacy-by-Design principles. The proposed architecture is designed to align with the Saudi Personal Data Protection Law (PDPL), the Saudi Data and Artificial Intelligence Authority (SDAIA), and the National Data Management Office (NDMO). <span class="badge assumption">Forward-looking compliance architecture</span></div>
+<div class="small-note" style="margin-top:16px">🛡️ <b>Data Sovereignty &amp; Compliance Note:</b> Datasets, traffic simulations, and predictive AI models associated with this archive are structured around Privacy-by-Design principles. The proposed architecture is designed to align with the Saudi Personal Data Protection Law (PDPL), the Saudi Data and Artificial Intelligence Authority (SDAIA), and the National Data Management Office (NDMO). <span class="badge assumption">Forward-looking compliance architecture</span></div>
 </section>
 <section aria-labelledby="realityTitle" class="page-section" id="reality">
 <div class="section-head"><div><div class="kicker">08 — Evidence Check / Implementation Realism</div><h2 id="realityTitle">Vision 2030 is treated as an active transformation, not as a completed success.</h2></div><p class="section-note">This section clarifies the scope: completed projects are separated from future applications, policy targets, evidence, and limitations.</p></div>
@@ -930,7 +971,7 @@ body.rtl .nav .sgi-action .control-label{font-family:var(--font-ar);font-size:.9
 <div class="section-head"><div><div class="kicker">Sources & Evidence</div><h2 id="sourcesTitle">Governing Frameworks &amp; Empirical Evidence Baseline.</h2></div><p class="section-note">The following institutional frameworks and reporting standards support the methodologies presented in this portfolio. These links distinguish official Vision 2030 regulatory context from my academic contributions.</p></div>
 <div class="source-grid">
 <article class="source"><b>Vision 2030</b><a href="https://www.vision2030.gov.sa/en" rel="noopener" target="_blank">Official Blueprint</a><p>Anchors the socioeconomic objectives of the AI-MCDA framework across the Kingdom's three pillars.</p></article>
-<article class="source"><b>Saudi Green Initiative</b><a href="https://www.sgi.gov.sa/saudi-global-climate-impact/" rel="noopener" target="_blank">Sustainability Targets</a><p>Aligns infrastructure evaluation metrics with the Circular Carbon Economy and net-zero 2060 ambition.</p></article>
+<article class="source"><b>Saudi Green Initiative</b><a href="https://www.sgi.gov.sa/saudi-climate-vision/" rel="noopener" target="_blank">Saudi Climate Vision</a><p>Aligns infrastructure evaluation metrics with the Circular Carbon Economy and net-zero 2060 ambition.</p></article>
 <article class="source"><b>SDAIA &amp; PDPL</b><a href="https://dgp.sdaia.gov.sa/wps/wcm/connect/f579bc32-fda8-47bd-bc6f-66b8cb77985c/ENG-Guide%2Bto%2Bthe%2Bsaudi%2BPDP%2Blaw%2Bfor%2Bcontrollersprocessors.pdf?MOD=AJPERES" rel="noopener" target="_blank">PDPL Guidance</a><p>Supports data sovereignty, privacy-by-design, and compliance-aware architecture.</p></article>
 <article class="source"><b>TRIPOD+AI / PROBAST+AI</b><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11025451/" rel="noopener" target="_blank">TRIPOD+AI Open Article</a><p>Adapted as a strict reporting inspiration for transparent, auditable AI model communication.</p></article>
 <article class="source"><b>MSc PFE Full Report</b><a class="file-ref" href="./el_ghali_sany_pfe_casablanca_dooh_profitability.pdf" target="_blank" rel="noopener" download>Open 155-Page PDF</a><p>Primary empirical evidence for the Casablanca DOOH study, SUMO/GIS collection, TCO/ROI scenarios, and IRP.</p></article>
@@ -945,7 +986,7 @@ body.rtl .nav .sgi-action .control-label{font-family:var(--font-ar);font-size:.9
 </div>
 </section>
 </main>
-<footer class="footer"><div class="container" style="padding:0"><p><b>Review note.</b> This portfolio separates completed work, proposed research extensions, and Saudi-focused applications. Supporting files and scope notes are included for clear academic review.</p><p class="review-footer-note"><b>Review structure:</b> evidence first, research direction second, supporting files last.</p></div></footer>
+<footer class="footer"><div class="container footer-inner" style="padding:0"><p class="footer-review-note"><b>Review note.</b> This portfolio separates completed work, proposed research extensions, and Saudi-focused applications. Supporting files and scope notes are included for clear academic review.</p><p class="review-footer-note"><b>Review structure:</b> <span>evidence first, research direction second, supporting files last.</span></p></div></footer>
 <div aria-labelledby="pitchTitle" aria-modal="true" class="modal" id="pitchModal" role="dialog"><div class="modal-card"><div class="modal-head"><div><div class="kicker">Executive Pitch · 2 minutes</div><h2 id="pitchTitle">GIFT Summary: Urban Data → Decision Framework → Saudi Cognitive Cities</h2></div><button class="close" id="closePitch" type="button">Close</button></div><div class="gift-grid"><article class="gift-card"><span class="gift-letter">G</span><h3>Gap</h3><p>Smart-city mobility and infrastructure decisions fail when technical forecasts ignore trust, data sovereignty, and investment feasibility.</p></article><article class="gift-card"><span class="gift-letter">I</span><h3>Idea</h3><p>Build a reviewable AI-MCDA decision framework that converts urban data into risk-adjusted investment rankings.</p></article><article class="gift-card"><span class="gift-letter">F</span><h3>Feasibility</h3><p>Evidence base: 155-page Casablanca PFE, XGBoost/AROMAN Final Paper, and KAUST TIE venture-readiness proposal.</p></article><article class="gift-card"><span class="gift-letter">T</span><h3>Timeline</h3><p>16-month TIE path for MVP definition, then 36–48 months for doctoral/institutional validation and venture transfer.</p></article></div><div class="cta-row"><a class="cta primary" href="#vault" id="modalVault">Open the Evidence Archive</a></div></div></div>
 <div aria-live="polite" class="toast" id="toast" role="status"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
@@ -1277,7 +1318,7 @@ const I18N_AR = {
   "This section uses heritage as identity, symbolism, and motivation. Technical competence is demonstrated separately through the PFE, modelling work, and supporting documents.": "تم الاحتفاظ بهذه الفقرة من النسخة الأقوى ثقافياً، لكن مع إعادة تأطيرها بحدود أكاديمية أكثر صرامة: فالتراث هنا هو هوية ورمز ودافع، وليس دليلاً على الكفاءة التقنية.",
   "The Regraga frame": "الإطار الركراكي",
   "According to Regraga oral tradition, the journey toward Mecca symbolizes transmission, learning, dignity, and return. In this portfolio, that memory becomes a design metaphor for disciplined knowledge transfer between Morocco, Saudi Arabia, and future smart-city research.": "وفقاً للذاكرة الشفوية للركراكة، ترمز الرحلة نحو مكة إلى التلقي والتعلم والكرامة والعودة. وفي هذه المحفظة، تتحول تلك الذاكرة إلى استعارة تصميمية لنقل معرفي منضبط بين المغرب والسعودية وبحوث المدن الذكية المستقبلية.",
-  "Cultural narrative; technical evidence appears separately": "سرد ثقافي، وليس ادعاءً تجريبياً مثبتاً",
+  "Cultural narrative; technical evidence appears separately": "سرد ثقافي، والدليل التقني يظهر في موضع منفصل",
   "The academic parallel": "الموازاة الأكاديمية",
   "The Saudi application is positioned as more than a degree search: it becomes a structured research journey toward the heart of the Arab and Islamic worlds, where technical excellence, ethical data practice, and public-value infrastructure can meet.": "يُقدَّم الترشح إلى السعودية بوصفه أكثر من مجرد بحث عن شهادة؛ إنه رحلة بحثية منظمة نحو قلب العالمين العربي والإسلامي، حيث يمكن أن تلتقي الدقة التقنية، وأخلاقيات البيانات، والبنية التحتية ذات القيمة العامة.",
   "Ihsan": "الإحسان",
@@ -1306,7 +1347,7 @@ const I18N_AR = {
   "2026 · The Vision 2030 Horizon (KAUST TIE Direction)": "2026 · أفق رؤية 2030 — اتجاه KAUST TIE",
   "Capability unlocked: Transitioning from analytical models to commercializable, venture-ready AI decision tools for Smart City infrastructure and sustainable investments.": "القدرة المكتسبة: الانتقال من النماذج التحليلية إلى أدوات قرار بالذكاء الاصطناعي قابلة للتسويق ومهيأة ريادياً للبنية التحتية الذكية والاستثمارات المستدامة.",
   "Tech Stack & Ethics Dashboard · Research Continuity Mapping": "لوحة التقنيات والأخلاقيات · خريطة استمرارية البحث",
-  "Hover a capability card: the timeline step it supports will highlight. This shows how each technical point connects to a documented application.": "مرّر المؤشر فوق بطاقة قدرة ليظهر الجزء الزمني الذي تدعمه. يوضح ذلك أن كل ادعاء تقني مرتبط بتطبيق موثق.",
+  "Hover a capability card: the timeline step it supports will highlight. This shows how each technical point connects to a documented application.": "مرّر المؤشر فوق بطاقة قدرة ليظهر الجزء الزمني الذي تدعمه. يوضح ذلك كيف ترتبط كل نقطة تقنية بتطبيق موثق.",
   "Financial Modelling": "النمذجة المالية",
   "ROI, CAPEX, OPEX, TCO, and scenario analysis. DNPV logic for risk-adjusted, climate-resilient infrastructure evaluation.": "تحليل ROI وCAPEX وOPEX وTCO والسيناريوهات. ومنطق DNPV لتقييم بنية تحتية معدلة بالمخاطر وقادرة على مقاومة تقلبات المناخ.",
   "Data Science & AI": "علوم البيانات والذكاء الاصطناعي",
@@ -1350,7 +1391,7 @@ const I18N_AR = {
   "Potential Profitability Index for long-term location and format prioritization.": "مؤشر الربحية المحتملة لترتيب المواقع والصيغ الإعلانية على المدى الطويل.",
   "Saudi Portability.": "قابلية النقل إلى السياق السعودي.",
   "The spatial and financial logic developed in this Casablanca empirical study is inherently scalable. The ability to correlate traffic simulation with infrastructure ROI is directly transferable to optimizing commercial assets within the Riyadh Metro expansion or the cognitive transit hubs of NEOM.": "المنطق المكاني والمالي المطور في هذه الدراسة التطبيقية للدار البيضاء قابل للتوسع بطبيعته. فالقدرة على ربط محاكاة المرور بعائد البنية التحتية قابلة للنقل إلى تحسين الأصول التجارية ضمن توسع مترو الرياض أو مراكز النقل الذكية في نيوم.",
-  "Transfer scenario; not a live deployment": "نقل سيناريوهات، وليس ادعاء تشغيل فعلي",
+  "Transfer scenario; not a live deployment": "سيناريو نقل؛ وليس تشغيلًا فعليًا",
   "📄 Download Full PFE Evidence (155-page PDF)": "📄 تحميل دليل مشروع نهاية الدراسة كاملاً — PDF من 155 صفحة",
   "🚗 Traffic Simulation · Heatmap & Real-time Simulation": "🚗 محاكاة المرور · خريطة حرارية ومحاكاة لحظية",
   "OpenStreetMap · SUMO FCD · 5 Casablanca zones": "OpenStreetMap · مخرجات SUMO FCD · خمس مناطق في الدار البيضاء",
@@ -1380,7 +1421,7 @@ const I18N_AR = {
   "SUMO .net.xml correction": "تصحيح ملف SUMO بصيغة .net.xml",
   "5 Casablanca zones": "خمس مناطق في الدار البيضاء",
   "SUMO data scope.": "حدود بيانات SUMO.",
-  "The Leaflet/SUMO dashboard code uses the JSON files stored at the GitHub repository root:": "تمت استعادة كود لوحة Leaflet/SUMO من المحفظة الأصلية. ويتوقع وجود ملفات JSON الأصلية في جذر الموقع:",
+  "The Leaflet/SUMO dashboard code uses the JSON files stored in the same folder as this webpage:": "تستخدم لوحة Leaflet/SUMO ملفات JSON الموضوعة في المجلد نفسه مع صفحة الويب:",
   ", and equivalent files for Hay Hassani, Ben M’Sick, Sidi Maârouf, and Boulevard Mohammed V. If those files are not present, the map base loads but heatmap/simulation layers cannot render.": "، إضافة إلى الملفات المكافئة للحي الحسني وبن مسيك وسيدي معروف وشارع محمد الخامس. إذا لم تكن هذه الملفات موجودة فستُحمَّل خريطة الأساس فقط، ولن تظهر طبقات الخريطة الحرارية أو المحاكاة.",
   "04 — Decision Engine": "04 — محرك القرار بالذكاء الاصطناعي",
   "Decision Engine: Smart City Capital Allocation.": "محرك القرار بالذكاء الاصطناعي: تخصيص رأسمال قابل للتدقيق للمدن الذكية.",
@@ -1402,7 +1443,7 @@ const I18N_AR = {
   "Sensitivity disclosed": "إفصاح الحساسية",
   "Carbon-price thresholds, λ parameter, and cross-method comparisons are made visible.": "تظهر عتبات سعر الكربون، ومعامل λ، والمقارنات بين الطرق بوضوح.",
   "Stakeholder validation": "تحقق أصحاب المصلحة",
-  "Future work requires expert and user testing before any real Saudi deployment.": "يتطلب العمل اللاحق اختباراً من الخبراء والمستخدمين قبل أي ادعاء بتطبيق فعلي في السعودية.",
+  "Future work requires expert and user testing before any real Saudi deployment.": "يتطلب العمل اللاحق اختباراً من الخبراء والمستخدمين قبل أي تطبيق فعلي في السعودية.",
   "Scope": "حدود",
   "The Vision 2030 Stress-Test Lab (AROMAN & Carbon)": "مختبر اختبار الضغط لرؤية 2030 — AROMAN والكربون",
   "This mini-dashboard demonstrates model transparency: rankings shift when normative trade-offs or carbon-price scenarios change.": "تُظهر هذه اللوحة المصغرة شفافية النموذج: إذ تتغير الترتيبات عندما تتغير المفاضلات المعيارية أو افتراضات سعر الكربون.",
@@ -1462,7 +1503,7 @@ const I18N_AR = {
   "Month 5": "الشهر 5",
   "Build": "البناء",
   "5. Prototype": "5. النموذج الأولي",
-  "Build dashboards, scorecards, sensitivity lab, and scope-evidence interface.": "بناء لوحات معلومات، وبطاقات تقييم، ومختبر حساسية، وواجهة لضبط الادعاءات.",
+  "Build dashboards, scorecards, sensitivity lab, and scope-evidence interface.": "بناء لوحات معلومات، وبطاقات تقييم، ومختبر حساسية، وواجهة لالنطاق والأدلة.",
   "Month 6–8": "الشهر 6–8",
   "Validate": "التحقق",
   "6. Ethics & Robustness": "6. الأخلاقيات والمتانة",
@@ -1477,12 +1518,12 @@ const I18N_AR = {
   "Research backbone": "الأفضل من الملف الثاني",
   "PFE evidence, MCDA logic, the KAUST TIE roadmap, and the evidence archive create the portfolio’s strategic structure.": "استراتيجية AI-MCDA واضحة، وقاعدة أدلة مشروع نهاية الدراسة، وخارطة KAUST TIE، ومستودع الأمانة، وانضباط المصادر.",
   "Presentation choices": "ما تم حذفه",
-  "The final version prioritizes evidence, readability, and direct access to supporting documents.": "السرد المتكرر، والادعاءات العامة الضعيفة، وكل عنصر تصميمي لا يعزز مصداقية ملف القبول.",
+  "The final version prioritizes evidence, readability, and direct access to supporting documents.": "تعطي النسخة النهائية الأولوية للأدلة وقابلية القراءة والوصول المباشر إلى الملفات الداعمة.",
   "Final structure": "المنطق النهائي",
-  "Culture frames the story; evidence supports it; the decision model demonstrates the research direction.": "الثقافة تفتح الانتباه، والأدلة تبني الثقة، ومحرك الذكاء الاصطناعي يثبت الملاءمة، والمستودع يضبط الادعاءات.",
+  "Culture frames the story; evidence supports it; the decision model demonstrates the research direction.": "الثقافة تفتح الانتباه، والأدلة تبني الثقة، ومحرك الذكاء الاصطناعي يوضح اتجاه البحث، والمستودع ينظم الملفات الداعمة.",
   "07 — The Evidence Archive": "07 — مستودع الأمانة",
   "Data Integrity & Evidence Archive.": "سلامة البيانات ومستودع الأدلة.",
-  "Guided by Al-Amānah (fiduciary trust and intellectual integrity), this archive provides structured access to my foundational research, empirical datasets, and policy proposals. The materials are presented for academic review and distinguish completed work from proposed extensions.": "استناداً إلى مبدأ الأمانة، بوصفها ثقة ونزاهة فكرية، يوفر هذا المستودع وصولاً شفافاً وقابلاً للتدقيق إلى أبحاثي الأساسية، ومجموعات البيانات التطبيقية، والمقترحات السياساتية. وجميع المواد مفتوحة للمراجعة المؤسسية، مع منع الادعاءات المبالغ فيها حول التطبيق، وضمان الانسجام مع معايير التقرير الدولية في الذكاء الاصطناعي.",
+  "Guided by Al-Amānah (fiduciary trust and intellectual integrity), this archive provides structured access to my foundational research, empirical datasets, and policy proposals. The materials are presented for academic review and distinguish completed work from proposed extensions.": "استناداً إلى مبدأ الأمانة، بوصفها ثقة ونزاهة فكرية، يوفر هذا المستودع وصولاً شفافاً وقابلاً للتدقيق إلى أبحاثي الأساسية، ومجموعات البيانات التطبيقية، والمقترحات السياساتية. وتُعرض المواد للمراجعة المؤسسية مع توضيح حدود التشغيل الفعلي والاتساق مع معايير الإفصاح الدولية في الذكاء الاصطناعي.",
   "CV & Capability Matrix": "السيرة الذاتية ومصفوفة القدرات",
   "Profile & Capability Summary": "هوية وقدرات موثقة",
   "KAUST TIE outreach profile detailing quantitative finance foundations, smart-city analytics, and venture-ready execution milestones.": "ملف تواصلي لمسار KAUST TIE يوضح أسس المالية الكمية، وتحليلات المدن الذكية، ومراحل التنفيذ ذات الجاهزية الريادية.",
@@ -1509,7 +1550,7 @@ const I18N_AR = {
   "Forward-looking compliance architecture": "معمارية امتثال استشرافية",
   "08 — Evidence Check / Implementation Realism": "08 — فحص الأدلة / واقعية التطبيق",
   "Vision 2030 is treated as an active transformation, not as a completed success.": "تُعرض رؤية 2030 كتحول نشط جارٍ، لا كنجاح مكتمل.",
-  "This section clarifies the scope: completed projects are separated from future applications, policy targets, evidence, and limitations.": "تحافظ هذه النسخة المدمجة على قاعدة المصداقية في الملف المصحح: كل ادعاء يُصاغ إما كعمل منجز، أو امتداد مقترح، أو هدف مؤسسي، أو سياق مدعوم بالمصادر، أو قيد واضح.",
+  "This section clarifies the scope: completed projects are separated from future applications, policy targets, evidence, and limitations.": "توضح هذه الصفحة النطاق: الأعمال المنجزة منفصلة عن التطبيقات المستقبلية، وأهداف السياسات، والأدلة، والحدود المنهجية.",
   "Completed work": "عمل منجز",
   "PFE methodology, SUMO/GIS experimentation, CAPEX/OPEX reasoning, and the portfolio interface are presented as the applicant’s demonstrated evidence base.": "تُعرض منهجية مشروع نهاية الدراسة، وتجارب SUMO/GIS، ومنطق CAPEX/OPEX، وواجهة المحفظة بوصفها قاعدة أدلة مثبتة للمرشح.",
   "Supported by portfolio materials": "مدعوم بمواد المحفظة",
@@ -1519,7 +1560,7 @@ const I18N_AR = {
   "Critical realism": "واقعية نقدية",
   "The page explicitly acknowledges that formal data access, regulatory approval, stakeholder calibration, and institutional validation are required before operational deployment.": "تقر الصفحة صراحة بأن الوصول الرسمي إلى البيانات، والموافقة التنظيمية، ومعايرة أصحاب المصلحة، والتحقق المؤسسي شروط لازمة قبل أي تشغيل فعلي.",
   "Scenario-based": "واعٍ بالافتراضات",
-  "Scope matrix": "مصفوفة ضبط الادعاءات",
+  "Scope matrix": "مصفوفة النطاق والأدلة",
   "The final version separates facts, targets, research extensions, and design metaphors so the portfolio remains ambitious while staying reviewable.": "تفصل النسخة النهائية بين الحقائق، والأهداف، والامتدادات البحثية، والاستعارات التصميمية، حتى تبدو المحفظة طموحة دون مبالغة.",
   "Fact": "حقيقة",
   "Education, PFE, tools, methods, and documents.": "التعليم، ومشروع نهاية الدراسة، والأدوات، والمنهجيات، والوثائق.",
@@ -1547,6 +1588,7 @@ const I18N_AR = {
   "Anchors the socioeconomic objectives of the AI-MCDA framework across the Kingdom's three pillars.": "يربط الأهداف الاجتماعية والاقتصادية لإطار AI-MCDA بركائز المملكة الثلاث.",
   "Saudi Green Initiative": "مبادرة السعودية الخضراء",
   "Sustainability Targets": "أهداف الاستدامة",
+  "Saudi Climate Vision": "الرؤية المناخية السعودية",
   "Aligns infrastructure evaluation metrics with the Circular Carbon Economy and net-zero 2060 ambition.": "يوائم مقاييس تقييم البنية التحتية مع اقتصاد الكربون الدائري وطموح الحياد الصفري بحلول 2060.",
   "Data Governance": "حوكمة البيانات",
   "Supports data sovereignty, privacy-by-design, and compliance-aware architecture.": "يدعم سيادة البيانات، والخصوصية منذ التصميم، ومعمارية واعية بالامتثال.",
@@ -1573,7 +1615,7 @@ const I18N_AR = {
   "🛡️ Pillar 2 : Algorithmic Transparency & Al-Amānah": "🛡️ الركيزة 2: الشفافية الخوارزمية والأمانة",
   "Normative Sensitivity Lab:": "مختبر الحساسية المعيارية:",
   "λ trade-off slider showing cost-minimization vs. benefit-maximization.": "منزلق λ يوضح المفاضلة بين تقليل التكلفة وتعظيم المنفعة.",
-  "Epistemic Scope & Evidence:": "ضبط الادعاءات معرفياً:",
+  "Epistemic Scope & Evidence:": "النطاق المعرفي والأدلة:",
   "terms such as supported, partially validated, scenario transfer, and implementation limits.": "مصطلحات منضبطة مثل يدعم، تحقق جزئي، حدود، ونقل سيناريو.",
   "Institutional Sources & Evidence:": "انضباط المصادر المؤسسية:",
   "traceability of geoeconomic, regulatory, and demographic inputs.": "قابلية تتبع المدخلات الجغرافية الاقتصادية والتنظيمية والديموغرافية.",
@@ -1586,10 +1628,12 @@ const I18N_AR = {
   "heatmap and real-time vehicle simulation engine from the project portfolio.": "استعادة الخريطة الحرارية ومحرك محاكاة المركبات اللحظية من المحفظة الأصلية.",
   "Sticky Global Navigation:": "تنقل عالمي ثابت:",
   "transition from local urban data to global AI strategy.": "انتقال من بيانات حضرية محلية إلى استراتيجية عالمية للذكاء الاصطناعي.",
+  "The Leaflet/SUMO dashboard code uses the JSON files stored in the same folder as this webpage:": "تستخدم لوحة Leaflet/SUMO ملفات JSON الموضوعة في المجلد نفسه مع صفحة الويب:",
   "Review note.": "ملاحظة عن المحفظة.",
   "This portfolio separates completed work, proposed research extensions, and Saudi-focused applications. Supporting files and scope notes are included for clear academic review.": "فصلتُ بين العمل المنجز، وأفكار البحث المستقبلية، والتطبيقات المرتبطة بالسياق السعودي. وتظهر الأدلة والافتراضات والحدود عند الحاجة حتى تكون المراجعة واضحة.",
   "Review structure:": "هيكل المراجعة:",
-  "base architecture selected from the AI Decision Portfolio; cultural narrative, Daour methodology, reality check, and accessibility logic integrated from the corrected Saudi Vision 2030 portfolio.": "تم اختيار المعمارية الأساسية من محفظة قرار الذكاء الاصطناعي؛ ثم أُدمج السرد الثقافي، ومنهجية الرحلة الدائرية، والتحقق الواقعي، ومنطق الإتاحة من محفظة رؤية السعودية 2030 المصححة.",
+  "evidence first, research direction second, supporting files last.": "الأدلة أولاً، ثم اتجاه البحث، ثم الملفات الداعمة.",
+  "base architecture selected from the AI Decision Portfolio; cultural narrative, Daour methodology, reality check, and accessibility logic integrated from the corrected Saudi Vision 2030 portfolio.": "تعتمد الصفحة على معمارية قرار واضحة تجمع بين السرد الثقافي، ومنهجية الرحلة الدائرية، والتحقق الواقعي، ومنطق الإتاحة.",
   "Executive Pitch · 2 minutes": "العرض التنفيذي · دقيقتان",
   "GIFT Summary: Urban Data → Decision Framework → Saudi Cognitive Cities": "ملخص GIFT: البيانات الحضرية ← محرك قرار بالذكاء الاصطناعي ← مدن سعودية ذكية معرفية",
   "Close": "إغلاق",
@@ -1626,7 +1670,7 @@ Object.assign(I18N_AR, {
   "05 Vision Roadmap": "05 خارطة الرؤية",
   "06 Daour Method": "06 منهجية الدور",
   "07 Evidence Archive": "07 مستودع الأمانة",
-  "08 Reality Check": "08 ضبط الادعاءات",
+  "08 Reality Check": "08 تحقق واقعي",
   "Casablanca-born · Regraga-rooted · KAUST TIE target · Saudi Vision 2030 alignment": "من الدار البيضاء · بجذور ركراكية · نحو KAUST TIE · مواءمة مع رؤية السعودية 2030",
   "From Casablanca Roots to Cognitive Cities:": "من جذور الدار البيضاء إلى المدن المعرفية الذكية:",
   "A Smart-City Investment Scorecard for Vision 2030.": "محرك قرار بالذكاء الاصطناعي قابل للتدقيق لرؤية السعودية 2030.",
@@ -1664,10 +1708,10 @@ Object.assign(I18N_AR, {
   "This module replaces a generic linear timeline with a Daour-inspired cycle. It translates the symbolic journey into a structured methodology for AI-enabled infrastructure decision research.": "يحافظ هذا الجزء على أقوى فكرة في النسخة التراثية: استبدال الخط الزمني الخطي بدورة مستلهمة من الدور. فهو يحوّل الرمز الثقافي إلى منهجية صارمة لبحث قرارات البنية التحتية المدعومة بالذكاء الاصطناعي.",
   "The interface combines heritage, bilingual accessibility, and methodological rigor while keeping cultural symbolism separate from technical evidence.": "سرد واعٍ بالتراث، وانضباط RTL والإتاحة، واستعارة الدور في تجربة المستخدم، وواقعية نقدية.",
   "Data Integrity & Evidence Archive.": "سلامة البيانات ومستودع الأدلة.",
-  "Guided by Al-Amānah (fiduciary trust and intellectual integrity), this archive provides structured access to my foundational research, empirical datasets, and policy proposals. The materials are presented for academic review and distinguish completed work from proposed extensions.": "انطلاقاً من مبدأ الأمانة، يتيح هذا المستودع وصولاً شفافاً وقابلاً للتدقيق إلى بحوثي التأسيسية وبياناتي التطبيقية ومقترحاتي السياساتية. تُعرض المواد للمراجعة المؤسسية، مع منع أي ادعاء مبالغ فيه حول التشغيل الفعلي، وضمان الاتساق مع معايير الإفصاح الدولية للذكاء الاصطناعي.",
+  "Guided by Al-Amānah (fiduciary trust and intellectual integrity), this archive provides structured access to my foundational research, empirical datasets, and policy proposals. The materials are presented for academic review and distinguish completed work from proposed extensions.": "انطلاقاً من مبدأ الأمانة، يتيح هذا المستودع وصولاً شفافاً وقابلاً للتدقيق إلى بحوثي التأسيسية وبياناتي التطبيقية ومقترحاتي السياساتية. تُعرض المواد للمراجعة المؤسسية مع توضيح حدود التشغيل الفعلي والاتساق مع معايير الإفصاح الدولية للذكاء الاصطناعي.",
   "A concise statement positioning the project within KAUST innovation culture, Saudi Vision 2030, data sovereignty, and product-oriented research.": "بيان موجز يضع المشروع ضمن ثقافة الابتكار في KAUST، ورؤية السعودية 2030، وسيادة البيانات، والبحث الموجه نحو المنتج الرقمي.",
   "08 — Reality Check": "08 — ضبط الواقع",
-  "The portfolio keeps ambition without overstating certainty. Vision 2030 relevance is framed as alignment, research transfer, and scenario applicability—not as completed Saudi deployment.": "تحافظ النسخة المدمجة على الطموح، لكنها تتجنب اليقين المبالغ فيه. هنا تُعرض صلة رؤية السعودية 2030 بوصفها مواءمة ونقلاً بحثياً وقابلية سيناريوهات، لا كتطبيق سعودي مكتمل.",
+  "The portfolio keeps ambition without overstating certainty. Vision 2030 relevance is framed as alignment, research transfer, and scenario applicability—not as completed Saudi deployment.": "تحافظ هذه النسخة على الطموح، لكنها تتجنب اليقين المبالغ فيه. وتُعرض صلة رؤية السعودية 2030 بوصفها مواءمة ونقلاً بحثياً وقابلية سيناريوهات، لا كتطبيق سعودي مكتمل.",
   "Vision 2030, SGI, SME, tourism, and policy objectives.": "رؤية السعودية 2030، ومبادرة السعودية الخضراء، والمنشآت الصغيرة والمتوسطة، والسياحة، والأهداف السياساتية.",
   "English-to-Arabic UI transition while maintaining universal data visualizations.": "انتقال واجهة المستخدم من الإنجليزية إلى العربية مع الحفاظ على عروض البيانات العالمية.",
   "Supports data sovereignty, privacy-by-design, and compliance-aware architecture.": "يدعم سيادة البيانات، والخصوصية منذ التصميم، ومعمارية واعية بالامتثال.",
@@ -1693,7 +1737,7 @@ Object.assign(I18N_AR,{
   "Vision Roadmap": "خارطة الرؤية",
   "Daour Method": "منهجية الدور",
   "Evidence Archive": "مستودع الأمانة",
-  "Scope & Evidence": "ضبط الادعاءات"
+  "Scope & Evidence": "النطاق والأدلة"
 });
 function translatePage(toArabic){
   const root=document.body;
