@@ -227,36 +227,44 @@ body.rtl .modal-card{text-align:right}
 
 /* === GitHub-safe file references: no broken assets/docs links === */
 .file-ref{
+  text-decoration:none!important;
+  cursor:pointer;
+  word-break:break-word;
+}
+.doc-actions .file-ref{
   display:inline-flex;
   align-items:center;
   justify-content:center;
   gap:8px;
+  border:1px solid var(--line);
+  background:#fff;
   border-radius:14px;
   padding:10px 12px;
   font-weight:900;
-  background:rgba(215,183,119,.18);
-  color:var(--diriyah);
-  border:1px dashed rgba(122,78,54,.38);
-  cursor:default;
-  text-decoration:none!important;
-  word-break:break-word;
+  color:var(--ink);
+  font-size:.86rem;
+  max-width:100%;
+}
+.doc-actions a.primary.file-ref,
+.doc-actions button.primary.file-ref{
+  background:var(--green);
+  color:#fff;
+  border-color:var(--green);
 }
 .cta.file-ref{min-height:48px;border-radius:16px}
-.doc-actions .file-ref{font-size:.84rem;max-width:100%}
-.source .file-ref{justify-content:flex-start;font-size:.86rem;line-height:1.45}
-.file-ref::before{
-  content:"local";
-  display:inline-flex;
-  align-items:center;
-  min-height:20px;
-  padding:2px 7px;
-  border-radius:999px;
-  background:rgba(122,78,54,.12);
-  color:var(--diriyah);
-  font-size:.68rem;
-  letter-spacing:.02em;
+.source .file-ref{
+  display:inline;
+  padding:0;
+  border:0;
+  background:transparent;
+  border-radius:0;
+  color:#005b64;
+  font-weight:850;
+  font-size:inherit;
+  line-height:inherit;
 }
-body.rtl .file-ref::before{content:"محلي";}
+.file-ref::before{content:none!important;display:none!important;}
+body.rtl .file-ref::before{content:none!important;display:none!important;}
 
 
 /* === PREMIUM SAUDI / KAUST HEADER REDESIGN === */
