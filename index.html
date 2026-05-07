@@ -237,27 +237,423 @@ body.rtl .modal-card{text-align:right}
   letter-spacing:.02em;
 }
 body.rtl .file-ref::before{content:"محلي";}
+
+
+/* === PREMIUM SAUDI / KAUST HEADER REDESIGN === */
+.premium-nav{
+  position:sticky;
+  top:0;
+  z-index:120;
+  isolation:isolate;
+  background:
+    linear-gradient(180deg,rgba(255,252,246,.97),rgba(255,249,239,.91)),
+    radial-gradient(circle at 96% 50%,rgba(0,124,137,.09),transparent 32%);
+  border-bottom:1px solid rgba(122,78,54,.13);
+  box-shadow:0 14px 38px rgba(16,36,29,.08);
+  backdrop-filter:blur(18px);
+}
+.premium-nav::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:2px;
+  background:linear-gradient(90deg,transparent,rgba(215,183,119,.86),transparent);
+  pointer-events:none;
+}
+.premium-nav::after{
+  content:"";
+  position:absolute;
+  inset:0 0 0 auto;
+  width:min(420px,30vw);
+  opacity:.08;
+  background-image:
+    linear-gradient(45deg,transparent 46%,var(--diriyah) 47%,var(--diriyah) 49%,transparent 50%),
+    linear-gradient(-45deg,transparent 46%,var(--redsea) 47%,var(--redsea) 49%,transparent 50%);
+  background-size:44px 44px;
+  pointer-events:none;
+  z-index:-1;
+}
+body.rtl .premium-nav::after{inset:0 auto 0 0;}
+.premium-nav-inner{
+  max-width:1480px;
+  margin:auto;
+  padding:18px clamp(16px,2.6vw,42px);
+  display:grid;
+  grid-template-columns:minmax(286px,.55fr) minmax(0,1.45fr);
+  align-items:center;
+  gap:28px;
+}
+body.rtl .premium-nav-inner{grid-template-columns:minmax(0,1.45fr) minmax(286px,.55fr);}
+.brand-card{
+  min-width:0;
+  width:100%;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:14px 18px;
+  border-radius:999px;
+  background:linear-gradient(135deg,rgba(255,255,255,.86),rgba(255,249,239,.72));
+  border:1px solid rgba(122,78,54,.18);
+  box-shadow:0 14px 36px rgba(16,36,29,.08), inset 0 1px 0 rgba(255,255,255,.75);
+  text-decoration:none!important;
+  position:relative;
+  overflow:hidden;
+}
+body.rtl .brand-card{grid-column:2;flex-direction:row;}
+body.rtl .nav-workspace{grid-column:1;grid-row:1;}
+.brand-card::after{
+  content:"";
+  position:absolute;
+  inset:12px auto 12px -1px;
+  width:1px;
+  background:linear-gradient(180deg,transparent,rgba(215,183,119,.85),transparent);
+}
+body.rtl .brand-card::after{inset:12px -1px 12px auto;}
+.brand-mark{
+  width:62px;
+  height:62px;
+  border-radius:22px;
+  background:linear-gradient(145deg,rgba(255,255,255,.97),rgba(255,249,239,.82));
+  border:1px solid rgba(0,108,53,.20);
+  box-shadow:0 16px 34px rgba(0,108,53,.15), inset 0 1px 0 rgba(255,255,255,.92);
+  color:var(--green);
+}
+.brand-mark svg{width:42px;height:42px;filter:none;}
+.brand-mark .zaouia-node{display:block;}
+.brand-mark .zaouia-node .soft-layer{opacity:.34;}
+.brand-mark .zaouia-node .node-core{opacity:.92;}
+.brand-mark .zaouia-node .node-link{opacity:.82;}
+.brand-copy{display:grid;gap:4px;min-width:0;line-height:1.18;}
+.brand-copy strong{
+  font-size:1.13rem;
+  color:var(--deep);
+  font-weight:900;
+  letter-spacing:-.025em;
+  white-space:nowrap;
+}
+body.rtl .brand-copy strong{font-size:1.22rem;letter-spacing:0;}
+.brand-copy span{
+  font-size:.86rem;
+  color:var(--muted);
+  font-weight:750;
+  white-space:normal;
+}
+.brand-copy span .ltr, .brand-copy .ltr{font-weight:900;color:var(--green);}
+.nav-workspace{display:grid;gap:14px;min-width:0;}
+.premium-links{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:10px;
+  flex-wrap:wrap;
+  padding:0 0 14px;
+  border-bottom:1px solid rgba(122,78,54,.13);
+  overflow:visible;
+}
+body.rtl .premium-links{justify-content:flex-start;}
+.premium-links .nav-link-bi{
+  min-height:44px;
+  display:inline-flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:10px 16px;
+  border-radius:999px;
+  background:linear-gradient(180deg,rgba(255,255,255,.83),rgba(255,249,239,.68));
+  border:1px solid rgba(122,78,54,.16);
+  box-shadow:0 8px 20px rgba(16,36,29,.055), inset 0 1px 0 rgba(255,255,255,.8);
+  color:var(--ink);
+  font-weight:850;
+  font-size:.86rem;
+  line-height:1;
+  white-space:nowrap;
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease;
+}
+body.rtl .premium-links .nav-link-bi{flex-direction:row-reverse;font-family:var(--font-ar);font-size:.95rem;}
+.premium-links .nav-link-bi:hover{
+  transform:translateY(-1px);
+  border-color:rgba(0,124,137,.28);
+  box-shadow:0 13px 28px rgba(0,124,137,.10), inset 0 1px 0 rgba(255,255,255,.86);
+  text-decoration:none;
+}
+.premium-links .nav-link-bi[href="#heritage"]{
+  box-shadow:0 8px 20px rgba(16,36,29,.055), inset 0 0 0 1.5px rgba(0,108,53,.18), inset 0 1px 0 rgba(255,255,255,.84);
+}
+.premium-links .nav-num{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:24px;
+  color:var(--diriyah);
+  font-weight:950;
+  opacity:.78;
+  font-variant-numeric:tabular-nums;
+  direction:ltr;
+  unicode-bidi:isolate;
+}
+.premium-links .nav-title{display:inline-block;}
+.premium-links .ar-hover{display:none!important;}
+.nav-controls{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:12px;
+  flex-wrap:wrap;
+}
+body.rtl .nav-controls{justify-content:flex-start;}
+.nav-action{
+  min-height:48px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  border-radius:999px;
+  border:1px solid rgba(122,78,54,.16);
+  background:linear-gradient(180deg,rgba(255,255,255,.87),rgba(255,249,239,.70));
+  color:var(--ink);
+  padding:10px 16px;
+  font-weight:900;
+  box-shadow:0 10px 24px rgba(16,36,29,.07), inset 0 1px 0 rgba(255,255,255,.84);
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease;
+}
+.nav-action:hover{transform:translateY(-1px);text-decoration:none;box-shadow:0 15px 30px rgba(16,36,29,.11), inset 0 1px 0 rgba(255,255,255,.84);}
+.pitch-action{
+  background:linear-gradient(135deg,var(--green),#07543a);
+  color:#fff;
+  border-color:transparent;
+  box-shadow:0 14px 30px rgba(0,108,53,.23), inset 0 1px 0 rgba(255,255,255,.18);
+  padding-inline:18px;
+}
+.pitch-action .action-icon{width:24px;height:24px;display:grid;place-items:center;}
+.pitch-action svg{width:24px;height:24px;}
+.lang-action{
+  width:54px;
+  padding-inline:0;
+  color:var(--green);
+  font-family:var(--font-en);
+  font-weight:950;
+  letter-spacing:.02em;
+}
+.lang-action.active{background:var(--deep);color:#fff;border-color:var(--deep);}
+.sgi-action{padding-inline:14px 12px;}
+body.rtl .sgi-action{padding-inline:12px 14px;}
+.sgi-icon{width:24px;height:24px;display:grid;place-items:center;color:var(--green);}
+.sgi-icon svg{width:25px;height:25px;}
+.sgi-switch{
+  width:46px;
+  height:26px;
+  border-radius:999px;
+  padding:3px;
+  background:rgba(122,78,54,.14);
+  border:1px solid rgba(122,78,54,.10);
+  display:inline-flex;
+  justify-content:flex-start;
+  transition:background .2s ease;
+}
+.sgi-switch span{
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:#fff;
+  box-shadow:0 3px 8px rgba(16,36,29,.22);
+  transition:transform .2s ease;
+}
+.sgi-action.active .sgi-switch{background:linear-gradient(135deg,var(--green),var(--green-2));}
+.sgi-action.active .sgi-switch span{transform:translateX(20px);}
+body.rtl .sgi-action.active .sgi-switch span{transform:translateX(-20px);}
+.sgi-action.active{border-color:rgba(0,108,53,.24);box-shadow:0 12px 28px rgba(0,108,53,.13), inset 0 1px 0 rgba(255,255,255,.86);}
+body.rtl .nav-action{font-family:var(--font-ar);font-size:.96rem;}
+@media(max-width:1180px){
+  .premium-nav-inner{grid-template-columns:1fr;gap:16px;}
+  body.rtl .premium-nav-inner{grid-template-columns:1fr;}
+  body.rtl .brand-card,body.rtl .nav-workspace{grid-column:1;grid-row:auto;}
+  .brand-card{max-width:620px;justify-self:stretch;}
+  .premium-links,.nav-controls,body.rtl .premium-links,body.rtl .nav-controls{justify-content:flex-start;}
+}
+@media(max-width:760px){
+  .premium-nav-inner{padding:14px;gap:12px;}
+  .brand-card{border-radius:24px;padding:12px 14px;}
+  .brand-mark{width:50px;height:50px;border-radius:18px;}
+  .brand-copy strong{font-size:1rem;}
+  .brand-copy span{font-size:.78rem;}
+  .premium-links{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    scrollbar-width:none;
+    padding-bottom:10px;
+  }
+  .premium-links::-webkit-scrollbar{display:none;}
+  .premium-links .nav-link-bi{min-width:max-content;padding:10px 14px;}
+  .nav-controls{display:grid;grid-template-columns:1fr auto;align-items:center;}
+  .pitch-action{grid-column:1/-1;width:100%;}
+  .sgi-action{min-width:0;}
+}
+
+
+/* === SGI MODE TOGGLE FIX: active state must not become a heavy green block === */
+.nav .sgi-action{
+  min-height:48px;
+  gap:12px;
+  padding:9px 14px;
+  background:linear-gradient(180deg,rgba(255,255,255,.90),rgba(255,249,239,.74)) !important;
+  color:var(--deep) !important;
+  border:1px solid rgba(122,78,54,.16) !important;
+  box-shadow:0 10px 24px rgba(16,36,29,.065), inset 0 1px 0 rgba(255,255,255,.86) !important;
+}
+.nav .sgi-action:hover{
+  background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(246,255,243,.78)) !important;
+  border-color:rgba(0,108,53,.26) !important;
+  box-shadow:0 14px 30px rgba(0,108,53,.10), inset 0 1px 0 rgba(255,255,255,.90) !important;
+}
+.nav .sgi-action.active{
+  background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(246,255,243,.82)) !important;
+  color:var(--deep) !important;
+  border-color:rgba(0,108,53,.30) !important;
+  box-shadow:0 14px 32px rgba(0,108,53,.11), inset 0 0 0 1px rgba(0,108,53,.10), inset 0 1px 0 rgba(255,255,255,.92) !important;
+}
+.nav .sgi-action .sgi-icon{
+  width:30px;
+  height:30px;
+  flex:0 0 30px;
+  border-radius:999px;
+  background:rgba(0,108,53,.085);
+  color:var(--green);
+  box-shadow:inset 0 0 0 1px rgba(0,108,53,.10);
+}
+.nav .sgi-action .sgi-icon svg{
+  width:20px;
+  height:20px;
+}
+.nav .sgi-action.active .sgi-icon{
+  background:linear-gradient(135deg,rgba(0,108,53,.14),rgba(52,190,149,.12));
+  color:var(--green);
+}
+.nav .sgi-action .control-label{
+  color:var(--deep) !important;
+  font-weight:900;
+  line-height:1;
+  white-space:nowrap;
+}
+.nav .sgi-action.active .control-label{
+  color:var(--green) !important;
+}
+.nav .sgi-action .sgi-switch{
+  width:48px;
+  height:28px;
+  flex:0 0 48px;
+  padding:3px;
+  border-radius:999px;
+  background:rgba(122,78,54,.13) !important;
+  border:1px solid rgba(122,78,54,.12) !important;
+  box-shadow:inset 0 1px 3px rgba(16,36,29,.12);
+}
+.nav .sgi-action .sgi-switch span{
+  width:20px;
+  height:20px;
+  background:#fff;
+  box-shadow:0 3px 9px rgba(16,36,29,.24);
+}
+.nav .sgi-action.active .sgi-switch{
+  background:linear-gradient(135deg,var(--green),var(--green-2)) !important;
+  border-color:rgba(0,108,53,.18) !important;
+}
+.nav .sgi-action.active .sgi-switch span{transform:translateX(20px);}
+body.rtl .nav .sgi-action.active .sgi-switch span{transform:translateX(-20px);}
+body.rtl .nav .sgi-action{direction:rtl;}
+body.rtl .nav .sgi-action .control-label{font-family:var(--font-ar);font-size:.98rem;}
+@media(max-width:760px){
+  .nav .sgi-action{justify-content:space-between;min-width:min(100%,320px);}
+}
+
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <div aria-hidden="true" class="fixed-line"></div>
-<header aria-label="Primary navigation" class="nav">
-<div class="nav-inner">
-<a aria-label="El Ghali Sany portfolio home" class="logo" href="#top"><span aria-hidden="true" class="logo-mark"><svg viewbox="0 0 64 64"><path d="M32 4 39 24h21L43 37l7 21-18-13-18 13 7-21L4 24h21z" fill="currentColor"></path></svg></span><span>El Ghali Sany · Vision 2030 AI Portfolio</span></a>
-<nav aria-label="Portfolio sections" class="nav-links">
-<a class="nav-link-bi" href="#heritage"><span class="en-label">01 Heritage</span><span class="ar-hover">الجذور الثقافية</span></a>
-<a class="nav-link-bi" href="#human"><span class="en-label">02 Capability</span><span class="ar-hover">بناء القدرات</span></a>
-<a class="nav-link-bi" href="#pfe"><span class="en-label">03 Urban Intelligence</span><span class="ar-hover">الذكاء الحضري</span></a>
-<a class="nav-link-bi" href="#engine"><span class="en-label">04 AI Engine</span><span class="ar-hover">محرك القرار الذكي</span></a>
-<a class="nav-link-bi" href="#vision"><span class="en-label">05 Vision Roadmap</span><span class="ar-hover">خارطة الرؤية</span></a>
-<a class="nav-link-bi" href="#daour"><span class="en-label">06 Daour Method</span><span class="ar-hover">منهجية الرحلة الدائرية</span></a>
-<a class="nav-link-bi" href="#vault"><span class="en-label">07 Amanah Vault</span><span class="ar-hover">مستودع الأمانة</span></a>
-<a class="nav-link-bi" href="#reality"><span class="en-label">08 Reality Check</span><span class="ar-hover">تحقق واقعي</span></a>
-<button aria-pressed="false" id="sgiBtn" type="button">SGI Mode</button>
-<button aria-pressed="false" id="langBtn" type="button">AR</button>
-<button class="active" id="pitchBtn" type="button">Executive Pitch</button>
+<header aria-label="Primary navigation" class="nav premium-nav">
+<div class="nav-inner premium-nav-inner">
+<a aria-label="El Ghali Sany portfolio home" class="logo brand-card" href="#top">
+  <span aria-hidden="true" class="logo-mark brand-mark">
+    <svg class="zaouia-node" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+      <g class="soft-layer" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M32 7 43.5 11.5 52.5 20.5 57 32 52.5 43.5 43.5 52.5 32 57 20.5 52.5 11.5 43.5 7 32 11.5 20.5 20.5 11.5Z"/>
+        <path d="M32 12 44 20 52 32 44 44 32 52 20 44 12 32 20 20Z"/>
+        <path d="M16 16 48 16 48 48 16 48Z"/>
+        <path d="M32 8 56 32 32 56 8 32Z"/>
+      </g>
+      <g class="node-link" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M32 16v32M16 32h32"/>
+        <path d="M21 21 43 43"/>
+        <path d="M43 21 21 43"/>
+        <path d="M32 32 32 8"/>
+        <path d="M32 32 56 32"/>
+        <path d="M32 32 32 56"/>
+        <path d="M32 32 8 32"/>
+        <path d="M32 32 49 15"/>
+        <path d="M32 32 49 49"/>
+        <path d="M32 32 15 49"/>
+        <path d="M32 32 15 15"/>
+      </g>
+      <g class="node-core" fill="currentColor">
+        <circle cx="32" cy="32" r="3.8"/>
+        <circle cx="32" cy="8" r="2.5"/>
+        <circle cx="56" cy="32" r="2.5"/>
+        <circle cx="32" cy="56" r="2.5"/>
+        <circle cx="8" cy="32" r="2.5"/>
+        <circle cx="15" cy="15" r="2.2"/>
+        <circle cx="49" cy="15" r="2.2"/>
+        <circle cx="49" cy="49" r="2.2"/>
+        <circle cx="15" cy="49" r="2.2"/>
+      </g>
+    </svg>
+  </span>
+  <span class="brand-copy">
+    <strong>El Ghali Sany</strong>
+    <span>Vision 2030 AI Portfolio</span>
+  </span>
+</a>
+<div class="nav-workspace">
+<nav aria-label="Portfolio sections" class="nav-links premium-links">
+<a class="nav-link-bi" href="#heritage"><span class="nav-num">01</span><span class="nav-title">Heritage</span><span class="ar-hover">الجذور</span></a>
+<a class="nav-link-bi" href="#human"><span class="nav-num">02</span><span class="nav-title">Capability</span><span class="ar-hover">بناء القدرات</span></a>
+<a class="nav-link-bi" href="#pfe"><span class="nav-num">03</span><span class="nav-title">Urban Intelligence</span><span class="ar-hover">الذكاء الحضري</span></a>
+<a class="nav-link-bi" href="#engine"><span class="nav-num">04</span><span class="nav-title">AI Engine</span><span class="ar-hover">محرك القرار</span></a>
+<a class="nav-link-bi" href="#vision"><span class="nav-num">05</span><span class="nav-title">Vision Roadmap</span><span class="ar-hover">خارطة الرؤية</span></a>
+<a class="nav-link-bi" href="#daour"><span class="nav-num">06</span><span class="nav-title">Daour Method</span><span class="ar-hover">منهجية الدور</span></a>
+<a class="nav-link-bi" href="#vault"><span class="nav-num">07</span><span class="nav-title">Amanah Vault</span><span class="ar-hover">مستودع الأمانة</span></a>
+<a class="nav-link-bi" href="#reality"><span class="nav-num">08</span><span class="nav-title">Claim Control</span><span class="ar-hover">ضبط الادعاءات</span></a>
 </nav>
+<div class="nav-controls" aria-label="Interface controls">
+<button class="nav-action pitch-action active" id="pitchBtn" type="button">
+  <span class="action-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8A2.5 2.5 0 0 1 17.5 16H13v2.25h3.25a.9.9 0 0 1 0 1.8h-8.5a.9.9 0 0 1 0-1.8H11V16H6.5A2.5 2.5 0 0 1 4 13.5v-8Zm2.5-.7a.7.7 0 0 0-.7.7v8c0 .39.31.7.7.7h11a.7.7 0 0 0 .7-.7v-8a.7.7 0 0 0-.7-.7h-11Zm2.1 2.45h6.8a.9.9 0 0 1 0 1.8H8.6a.9.9 0 1 1 0-1.8Zm0 3.2h4.2a.9.9 0 1 1 0 1.8H8.6a.9.9 0 1 1 0-1.8Z" fill="currentColor"/></svg></span>
+  <span class="control-label">Executive Pitch</span>
+</button>
+<button aria-pressed="false" class="nav-action lang-action" id="langBtn" type="button">AR</button>
+<button aria-pressed="false" class="nav-action sgi-action" id="sgiBtn" type="button">
+  <span class="sgi-icon" aria-hidden="true">
+    <svg class="saudi-emblem-mini" viewBox="0 0 256 256" aria-hidden="true" focusable="false">
+      <g fill="currentColor">
+        <path d="M128 18c-9 21-10 43-2 66 9-22 11-44 2-66Z"/>
+        <path d="M116 58C92 37 63 34 34 50c31 3 57 14 78 36 2-10 3-19 4-28Z"/>
+        <path d="M140 58c24-21 53-24 82-8-31 3-57 14-78 36-2-10-3-19-4-28Z"/>
+        <path d="M115 84C88 69 61 72 39 91c31-3 57 5 79 24-2-11-3-21-3-31Z"/>
+        <path d="M141 84c27-15 54-12 76 7-31-3-57 5-79 24 2-11 3-21 3-31Z"/>
+        <path d="M120 112c-23-7-47 2-63 24 26-9 48-6 66 9-2-11-3-22-3-33Z"/>
+        <path d="M136 112c23-7 47 2 63 24-26-9-48-6-66 9 2-11 3-22 3-33Z"/>
+        <path d="M117 128h22l-4 55h-14l-4-55Z"/>
+      </g>
+      <g fill="none" stroke="currentColor" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M50 218c35-9 62-26 82-53"/>
+        <path d="M206 218c-35-9-62-26-82-53"/>
+      </g>
+    </svg>
+  </span>
+  <span class="control-label">SGI Mode</span>
+  <span class="sgi-switch" aria-hidden="true"><span></span></span>
+</button>
+</div>
+</div>
 </div>
 </header>
 <main class="container" id="main">
@@ -1248,6 +1644,19 @@ Object.assign(I18N_AR, {
   "Artificial Intelligence": "الذكاء الاصطناعي",
   "Data Sovereignty": "سيادة البيانات"
 });
+
+Object.assign(I18N_AR,{
+  "El Ghali Sany": "الغالي ساني",
+  "Vision 2030 AI Portfolio": "محفظة الذكاء الاصطناعي لرؤية السعودية 2030",
+  "Heritage": "الجذور",
+  "Capability": "القدرات",
+  "Urban Intelligence": "الذكاء الحضري",
+  "AI Engine": "محرك القرار",
+  "Vision Roadmap": "خارطة الرؤية",
+  "Daour Method": "منهجية الدور",
+  "Amanah Vault": "مستودع الأمانة",
+  "Claim Control": "ضبط الادعاءات"
+});
 function translatePage(toArabic){
   const root=document.body;
   const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode(node){
@@ -1277,7 +1686,16 @@ function translatePage(toArabic){
   const lang=document.getElementById('langBtn');
   if(lang) lang.textContent=toArabic?'EN':'AR';
   const sgi=document.getElementById('sgiBtn');
-  if(sgi) sgi.textContent=toArabic?'وضع السعودية الخضراء':'SGI Mode';
+  if(sgi){
+    const sgiLabel=sgi.querySelector('.control-label');
+    if(sgiLabel) sgiLabel.textContent=toArabic?'وضع السعودية الخضراء':'SGI Mode';
+    else sgi.textContent=toArabic?'وضع السعودية الخضراء':'SGI Mode';
+  }
+  const pitch=document.getElementById('pitchBtn');
+  if(pitch){
+    const pitchLabel=pitch.querySelector('.control-label');
+    if(pitchLabel) pitchLabel.textContent=toArabic?'العرض التنفيذي':'Executive Pitch';
+  }
   document.querySelectorAll('.ltr').forEach(el=>{el.setAttribute('dir','ltr');el.style.unicodeBidi='isolate';});
   document.title = toArabic ? 'الغالي ساني | محفظة بحثية لرؤية السعودية 2030' : 'El Ghali Sany | Merged Vision 2030 Research Portfolio';
 }
