@@ -643,6 +643,119 @@ body.rtl .doc-actions{
   justify-content:center;
 }
 
+
+
+/* === RTL readability pass for academic reviewers === */
+body.rtl .section-head{
+  display:block;
+  text-align:center;
+  margin-inline:auto;
+}
+body.rtl .section-head > div,
+body.rtl .section-head .kicker,
+body.rtl .section-head h2,
+body.rtl .section-note{
+  margin-inline:auto;
+  text-align:center;
+}
+body.rtl .section-head h2{
+  max-width:920px;
+  text-wrap:balance;
+}
+body.rtl .section-note{
+  max-width:820px;
+  margin-top:12px;
+  direction:rtl;
+}
+body.rtl .doc-card{
+  direction:rtl;
+  text-align:right;
+  align-items:stretch;
+}
+body.rtl .doc-card h3,
+body.rtl .doc-card .meta{
+  text-align:right;
+  direction:rtl;
+}
+body.rtl .doc-card .badge{
+  align-self:flex-start;
+}
+body.rtl .doc-actions{
+  justify-content:center;
+  direction:rtl;
+}
+body.rtl .doc-actions a,
+body.rtl .doc-actions button{
+  direction:rtl;
+  unicode-bidi:plaintext;
+  text-align:center;
+  white-space:normal;
+}
+body.rtl .control label{
+  direction:rtl;
+  align-items:flex-start;
+}
+body.rtl .control output,
+body.rtl .metric b,
+body.rtl .metric .ltr,
+body.rtl .rank-row b{
+  direction:ltr;
+  unicode-bidi:isolate;
+}
+body.rtl .control small{
+  display:block;
+  direction:rtl;
+  text-align:right;
+  line-height:1.65;
+}
+body.rtl .rank-list{
+  direction:rtl;
+}
+body.rtl .rank-row{
+  grid-template-columns:auto 1fr auto;
+  direction:rtl;
+  text-align:right;
+}
+body.rtl .rank-row b{grid-column:1;grid-row:1;text-align:right;}
+body.rtl .rank-row .rank-main,
+body.rtl .rank-row > span{grid-column:2;grid-row:1;justify-content:flex-start;text-align:right;}
+body.rtl .rank-row em{grid-column:3;grid-row:1;text-align:left;white-space:nowrap;}
+body.rtl .rank-main strong{direction:rtl;text-align:right;}
+body.rtl .project-tag{direction:rtl;white-space:nowrap;}
+body.rtl .badge{
+  direction:rtl;
+  unicode-bidi:plaintext;
+  text-align:center;
+}
+.footer .footer-inner,
+.footer .footer-review-note,
+.footer .review-footer-note,
+body.rtl .footer .footer-inner,
+body.rtl .footer .footer-review-note,
+body.rtl .footer .review-footer-note{
+  text-align:center!important;
+  margin-inline:auto!important;
+  justify-content:center!important;
+}
+body.rtl .footer .review-footer-note span{display:inline;}
+body.rtl .source,
+body.rtl .source p,
+body.rtl .source a{
+  text-align:right;
+  direction:rtl;
+}
+body.rtl .source b{display:block;text-align:right;}
+body.rtl .file-ref::after{
+  content:"";
+}
+@media(max-width:760px){
+  body.rtl .rank-row{grid-template-columns:1fr;}
+  body.rtl .rank-row b,
+  body.rtl .rank-row .rank-main,
+  body.rtl .rank-row > span,
+  body.rtl .rank-row em{grid-column:1;text-align:right;}
+}
+
 </style>
 </head>
 <body>
@@ -971,7 +1084,7 @@ body.rtl .doc-actions{
 <div class="section-head"><div><div class="kicker">Sources & Evidence</div><h2 id="sourcesTitle">Governing Frameworks &amp; Empirical Evidence Baseline.</h2></div><p class="section-note">The following institutional frameworks and reporting standards support the methodologies presented in this portfolio. These links distinguish official Vision 2030 regulatory context from my academic contributions.</p></div>
 <div class="source-grid">
 <article class="source"><b>Vision 2030</b><a href="https://www.vision2030.gov.sa/en" rel="noopener" target="_blank">Official Blueprint</a><p>Anchors the socioeconomic objectives of the AI-MCDA framework across the Kingdom's three pillars.</p></article>
-<article class="source"><b>Saudi Green Initiative</b><a href="https://www.sgi.gov.sa/saudi-climate-vision/" rel="noopener" target="_blank">Saudi Climate Vision</a><p>Aligns infrastructure evaluation metrics with the Circular Carbon Economy and net-zero 2060 ambition.</p></article>
+<article class="source"><b>Saudi Green Initiative</b><a href="https://www.sgi.gov.sa/about-sgi/sgi-targets/reduce-carbon-emissions/" rel="noopener" target="_blank">SGI Emissions Reduction Target</a><p>Aligns infrastructure evaluation metrics with the Circular Carbon Economy and net-zero 2060 ambition.</p></article>
 <article class="source"><b>SDAIA &amp; PDPL</b><a href="https://dgp.sdaia.gov.sa/wps/wcm/connect/f579bc32-fda8-47bd-bc6f-66b8cb77985c/ENG-Guide%2Bto%2Bthe%2Bsaudi%2BPDP%2Blaw%2Bfor%2Bcontrollersprocessors.pdf?MOD=AJPERES" rel="noopener" target="_blank">PDPL Guidance</a><p>Supports data sovereignty, privacy-by-design, and compliance-aware architecture.</p></article>
 <article class="source"><b>TRIPOD+AI / PROBAST+AI</b><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11025451/" rel="noopener" target="_blank">TRIPOD+AI Open Article</a><p>Adapted as a strict reporting inspiration for transparent, auditable AI model communication.</p></article>
 <article class="source"><b>MSc PFE Full Report</b><a class="file-ref" href="./el_ghali_sany_pfe_casablanca_dooh_profitability.pdf" target="_blank" rel="noopener" download>Open 155-Page PDF</a><p>Primary empirical evidence for the Casablanca DOOH study, SUMO/GIS collection, TCO/ROI scenarios, and IRP.</p></article>
@@ -989,7 +1102,42 @@ body.rtl .doc-actions{
 <footer class="footer"><div class="container footer-inner" style="padding:0"><p class="footer-review-note"><b>Review note.</b> This portfolio separates completed work, proposed research extensions, and Saudi-focused applications. Supporting files and scope notes are included for clear academic review.</p><p class="review-footer-note"><b>Review structure:</b> <span>evidence first, research direction second, supporting files last.</span></p></div></footer>
 <div aria-labelledby="pitchTitle" aria-modal="true" class="modal" id="pitchModal" role="dialog"><div class="modal-card"><div class="modal-head"><div><div class="kicker">Executive Pitch · 2 minutes</div><h2 id="pitchTitle">GIFT Summary: Urban Data → Decision Framework → Saudi Cognitive Cities</h2></div><button class="close" id="closePitch" type="button">Close</button></div><div class="gift-grid"><article class="gift-card"><span class="gift-letter">G</span><h3>Gap</h3><p>Smart-city mobility and infrastructure decisions fail when technical forecasts ignore trust, data sovereignty, and investment feasibility.</p></article><article class="gift-card"><span class="gift-letter">I</span><h3>Idea</h3><p>Build a reviewable AI-MCDA decision framework that converts urban data into risk-adjusted investment rankings.</p></article><article class="gift-card"><span class="gift-letter">F</span><h3>Feasibility</h3><p>Evidence base: 155-page Casablanca PFE, XGBoost/AROMAN Final Paper, and KAUST TIE venture-readiness proposal.</p></article><article class="gift-card"><span class="gift-letter">T</span><h3>Timeline</h3><p>16-month TIE path for MVP definition, then 36–48 months for doctoral/institutional validation and venture transfer.</p></article></div><div class="cta-row"><a class="cta primary" href="#vault" id="modalVault">Open the Evidence Archive</a></div></div></div>
 <div aria-live="polite" class="toast" id="toast" role="status"></div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js">
+
+Object.assign(I18N_AR, {
+  "🛡️ Fully Auditable: TRIPOD+AI & PROBAST+AI-informed reporting boundaries": "🛡️ قابل للتدقيق: حدود إفصاح مسترشدة بـ TRIPOD+AI وPROBAST+AI",
+  "System Architecture & Interactive Governance.": "معمارية النظام والحوكمة التفاعلية.",
+  "Data Integrity & Evidence Repository.": "سلامة البيانات ومستودع الأدلة.",
+  "Governing Frameworks & Empirical Evidence Baseline.": "الأطر الحاكمة وقاعدة الأدلة التطبيقية.",
+  "The Empirical Foundation (PFE Report)": "الأساس التطبيقي: تقرير مشروع نهاية الدراسة",
+  "Primary Urban Dataset": "ملف تطبيقي موثق",
+  "The 155-page foundational operational study: Casablanca OOH/DOOH profitability model leveraging SUMO, GIS, and CAPEX/OPEX engineering.": "دراسة تطبيقية من 155 صفحة حول ربحية OOH/DOOH في الدار البيضاء، بالاعتماد على SUMO/GIS وتحليل CAPEX/OPEX.",
+  "↓ Download 155-Page PDF": "فتح ملف PDF من 155 صفحة",
+  "SGI Emissions Reduction Target": "هدف خفض الانبعاثات ضمن مبادرة السعودية الخضراء",
+  "MSc PFE Full Report": "تقرير مشروع نهاية الدراسة",
+  "Open 155-Page PDF": "فتح ملف PDF من 155 صفحة",
+  "Fully Auditable: TRIPOD+AI & PROBAST+AI-informed reporting boundaries": "قابل للتدقيق: حدود إفصاح مسترشدة بـ TRIPOD+AI وPROBAST+AI",
+  "The Vision 2030 Stress-Test Lab (AROMAN & Carbon)": "مختبر اختبار الضغط لرؤية 2030: AROMAN والكربون",
+  "This mini-dashboard demonstrates model transparency: rankings shift when normative trade-offs or carbon-price scenarios change.": "توضح هذه اللوحة المصغرة شفافية النموذج: يتغير ترتيب المشروعات عندما تتغير المفاضلات المعيارية أو سيناريوهات سعر الكربون.",
+  "Normative λ": "المعامل المعياري λ",
+  "Carbon price": "سعر الكربون",
+  "0.3 = Cost-minimization · 0.7 = Benefit-maximization": "0.3 = تقليل التكلفة · 0.7 = تعظيم المنفعة",
+  "€0 Baseline · €30 Moderate · €85 Below 2°C · €150 Net Zero": "€0 خط أساس · €30 متوسط · €85 أقل من 2°C · €150 حياد صفري",
+  "District Cooling / Data Center Efficiency": "تبريد المناطق / كفاءة مراكز البيانات",
+  "Water Management": "إدارة المياه",
+  "Smart Grid Coastal": "الشبكة الذكية الساحلية",
+  "EV Motorway Corridors": "ممرات المركبات الكهربائية",
+  "SGI priority": "أولوية خضراء",
+  "Green contender": "خيار أخضر قوي",
+  "Transition candidate": "مرشح انتقالي",
+  "Net Zero": "حياد صفري",
+  "Baseline": "خط أساس",
+  "Moderate": "متوسط",
+  "Below 2°C": "أقل من 2°C",
+  "16-Month": "16 شهراً",
+  "Fully Auditable: TRIPOD+AI & PROBAST+AI-informed reporting boundaries 🛡️": "قابل للتدقيق: حدود إفصاح مسترشدة بـ TRIPOD+AI وPROBAST+AI 🛡️"
+});
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
 <script>
 (function(){
@@ -1813,7 +1961,7 @@ const SGI_COPY={
     metric3Value:'12/25',
     metric3Text:'Projects visibly re-ranked under the strongest net-zero stress scenario, making the SGI/CCE effect auditable.',
     metric3Note:'Net Zero stress impact',
-    metric4Value:'16-Month',
+    metric4Value:'16 شهراً',
     metric4Text:'The original venture-readiness roadmap remains intact, now read through an SGI-aware policy lens.',
     metric4Note:'Policy overlay active',
     rankLead:'SGI priority',
@@ -1842,13 +1990,13 @@ const SGI_COPY={
     metric3Value:'12/25',
     metric3Text:'مشروعات أُعيد ترتيبها بوضوح تحت أقوى سيناريو ضغط للحياد الصفري، بما يجعل أثر SGI/CCE قابلاً للتدقيق.',
     metric3Note:'أثر ضغط الحياد الصفري',
-    metric4Value:'16-Month',
+    metric4Value:'16 شهراً',
     metric4Text:'تبقى خارطة الجاهزية الريادية الأصلية قائمة، لكن تُقرأ الآن عبر عدسة سياساتية واعية بمبادرة السعودية الخضراء.',
     metric4Note:'عدسة سياساتية مفعلة',
-    rankLead:'أولوية SGI',
+    rankLead:'أولوية خضراء',
     rankSecond:'منافس أخضر',
     rankThird:'مرشح انتقالي',
-    greenTag:'أولوية SGI',
+    greenTag:'أولوية خضراء',
     insightBase:'عدسة SGI مفعلة: تحصل البنية التحتية الجاهزة للتخفيف على وزن أوضح حتى قبل الوصول إلى أقصى مستوى لضغط الحياد الصفري.',
     insight85:'إشارة CCE: عند €85/tCO₂ يبدأ الترتيب الواعي بالكربون في تفضيل المشروعات الأقل تعرضاً والأكثر توجهاً للمرونة.',
     insight150:'اختبار ضغط للحياد الصفري 2060: عند €150/tCO₂ يُعاد ترتيب 48% من المحفظة، أي 12 من أصل 25 مشروعاً. وتصبح أوزان SGI/CCE حاسمة استراتيجياً.',
@@ -1862,7 +2010,9 @@ const BASE_METRICS={
   metric3:{value:'25',text:'Smart-city projects ranked under carbon, energy, and geoeconomic risk using a multi-criteria investment scorecard.',note:''},
   metric4:{value:'16-Month',text:'KAUST TIE execution logic translated into actionable venture-readiness milestones.',note:''}
 };
-const carbonSteps=[{v:0,label:'€0 · Baseline'},{v:30,label:'€30 · Moderate'},{v:85,label:'€85 · Below 2°C'},{v:150,label:'€150 · Net Zero'}];
+const carbonSteps=[{v:0,en:'€0 · Baseline',ar:'€0 · خط أساس'},{v:30,en:'€30 · Moderate',ar:'€30 · متوسط'},{v:85,en:'€85 · Below 2°C',ar:'€85 · أقل من 2°C'},{v:150,en:'€150 · Net Zero',ar:'€150 · حياد صفري'}];
+const PROJECT_AR={'Smart Grid Coastal':'الشبكة الذكية الساحلية','Water Management':'إدارة المياه','EV Motorway Corridors':'ممرات المركبات الكهربائية','District Cooling / Data Center Efficiency':'تبريد المناطق / كفاءة مراكز البيانات'};
+function projectLabel(name){return document.body.classList.contains('rtl')?(PROJECT_AR[name]||name):name;}
 const rankSets={
   base:[{name:'Smart Grid Coastal'},{name:'Water Management'},{name:'EV Motorway Corridors'}],
   cost:[{name:'Water Management'},{name:'Smart Grid Coastal'},{name:'EV Motorway Corridors'}],
@@ -1875,9 +2025,9 @@ const rankSets={
   sgi85:[{name:'Water Management',green:true},{name:'Smart Grid Coastal',green:true},{name:'EV Motorway Corridors',green:true}],
   sgi150:[{name:'District Cooling / Data Center Efficiency',green:true},{name:'Water Management',green:true},{name:'Smart Grid Coastal',green:true}]
 };
-function setMetric(id,data,active=false){const card=$('#'+id);if(!card)return;const v=$('#'+id+'Value');const t=$('#'+id+'Text');const n=$('#'+id+'Note');if(v)v.textContent=data.value;if(t)t.textContent=data.text;if(n){if(data.note){n.hidden=false;n.textContent=data.note}else{n.hidden=true;n.textContent='';}}card.setAttribute('data-sgi-focus',active?'true':'false');}
+function setMetric(id,data,active=false){const card=$('#'+id);if(!card)return;const v=$('#'+id+'Value');const t=$('#'+id+'Text');const n=$('#'+id+'Note');if(v)v.textContent=(document.body.classList.contains('rtl')&&data.value==='16-Month')?'16 شهراً':data.value;if(t)t.textContent=data.text;if(n){if(data.note){n.hidden=false;n.textContent=data.note}else{n.hidden=true;n.textContent='';}}card.setAttribute('data-sgi-focus',active?'true':'false');}
 function updateSgiTexts(){const active=document.body.classList.contains('sgi');const lang=document.body.classList.contains('rtl')?'ar':'en';const copy=SGI_COPY[lang];const badge=$('#sgiLensBadge');if(badge){badge.hidden=!active;badge.textContent=copy.badge;}const why=$('#sgiWhyBox');if(why){why.hidden=!active;}if($('#sgiWhyTitle')) $('#sgiWhyTitle').textContent=copy.whyTitle;if($('#sgiWhyText')) $('#sgiWhyText').textContent=copy.whyText;copy.points.forEach((item,i)=>{const ti=$('#sgiPoint'+(i+1)+'Title');const te=$('#sgiPoint'+(i+1)+'Text');if(ti) ti.textContent=item[0];if(te) te.textContent=item[1];});if($('#sgiCceNote')) $('#sgiCceNote').textContent=copy.cceNote;const stressDesc=$('#stressLabDesc');if(stressDesc){stressDesc.textContent=active?copy.stressDesc:localizeText('This mini-dashboard demonstrates model transparency: rankings shift when normative trade-offs or carbon-price scenarios change.');}if(active){setMetric('metric1',{value:copy.metric1Value,text:copy.metric1Text,note:copy.metric1Note},true);setMetric('metric2',{value:copy.metric2Value,text:copy.metric2Text,note:copy.metric2Note},false);setMetric('metric3',{value:copy.metric3Value,text:copy.metric3Text,note:copy.metric3Note},true);setMetric('metric4',{value:copy.metric4Value,text:copy.metric4Text,note:copy.metric4Note},false);}else{Object.keys(BASE_METRICS).forEach(id=>{const base=BASE_METRICS[id];setMetric(id,{value:base.value,text:document.body.classList.contains('rtl')?localizeText(base.text):base.text,note:''},false);});}}
-function renderLab(){const lambda=parseFloat($('#lambdaRange').value);const c=carbonSteps[parseInt($('#carbonRange').value,10)];const active=document.body.classList.contains('sgi');const lang=document.body.classList.contains('rtl')?'ar':'en';const copy=SGI_COPY[lang];$('#lambdaOut').textContent=lambda.toFixed(1)+' · '+localizeText(lambda<0.5?'Cost-minimization':lambda>0.5?'Benefit-maximization':'Balanced');$('#carbonOut').textContent=c.label;let list=lambda<0.5?rankSets.cost:lambda>0.5?rankSets.benefit:rankSets.base;let insight='Transparency alert: Only Smart Grid Coastal and Water Management remain stable across the full λ range. This shows that rankings are normative and require stakeholder calibration.';if(c.v===85){list=rankSets.carbon85;insight='Geoeconomic Insight: At €85/tCO₂, carbon-cost exposure begins to erode NPV margins, triggering a rank re-ordering.'}if(c.v===150){list=rankSets.carbon150;insight='Net Zero stress-test: At €150/tCO₂, 48% of the portfolio (12/25 projects) is re-ranked. SGI/CCE weighting becomes strategically visible.'}if(active){list=lambda<0.5?rankSets.sgiCost:lambda>0.5?rankSets.sgiBenefit:rankSets.sgiBase;insight=copy.insightBase;if(c.v===85){list=rankSets.sgi85;insight=copy.insight85}if(c.v===150){list=rankSets.sgi150;insight=copy.insight150}}$('#stressLab').classList.toggle('netzero',c.v===150||active);const roles=active?[copy.rankLead,copy.rankSecond,copy.rankThird]:[localizeText('Lead candidate'),localizeText('Robust contender'),localizeText('Sensitive to assumptions')];$('#rankList').innerHTML=list.map((item,i)=>{const obj=typeof item==='string'?{name:item,green:false}:item;const middle=active?'<div class="rank-main"><strong>'+obj.name+'</strong>'+(obj.green?'<small class="project-tag">'+copy.greenTag+'</small>':'')+'</div>':'<span>'+obj.name+'</span>';return '<div class="rank-row'+(active&&obj.green?' green-project':'')+'"><b>#'+(i+1)+'</b>'+middle+'<em>'+roles[i]+'</em></div>';}).join('');const ins=$('#labInsight');ins.textContent=active?insight:localizeText(insight);ins.classList.remove('flash');void ins.offsetWidth;ins.classList.add('flash');}
+function renderLab(){const lambda=parseFloat($('#lambdaRange').value);const c=carbonSteps[parseInt($('#carbonRange').value,10)];const active=document.body.classList.contains('sgi');const lang=document.body.classList.contains('rtl')?'ar':'en';const copy=SGI_COPY[lang];$('#lambdaOut').textContent=lambda.toFixed(1)+' · '+localizeText(lambda<0.5?'Cost-minimization':lambda>0.5?'Benefit-maximization':'Balanced');$('#carbonOut').textContent=document.body.classList.contains('rtl')?c.ar:c.en;let list=lambda<0.5?rankSets.cost:lambda>0.5?rankSets.benefit:rankSets.base;let insight='Transparency alert: Only Smart Grid Coastal and Water Management remain stable across the full λ range. This shows that rankings are normative and require stakeholder calibration.';if(c.v===85){list=rankSets.carbon85;insight='Geoeconomic Insight: At €85/tCO₂, carbon-cost exposure begins to erode NPV margins, triggering a rank re-ordering.'}if(c.v===150){list=rankSets.carbon150;insight='Net Zero stress-test: At €150/tCO₂, 48% of the portfolio (12/25 projects) is re-ranked. SGI/CCE weighting becomes strategically visible.'}if(active){list=lambda<0.5?rankSets.sgiCost:lambda>0.5?rankSets.sgiBenefit:rankSets.sgiBase;insight=copy.insightBase;if(c.v===85){list=rankSets.sgi85;insight=copy.insight85}if(c.v===150){list=rankSets.sgi150;insight=copy.insight150}}$('#stressLab').classList.toggle('netzero',c.v===150||active);const roles=active?[copy.rankLead,copy.rankSecond,copy.rankThird]:[localizeText('Lead candidate'),localizeText('Robust contender'),localizeText('Sensitive to assumptions')];$('#rankList').innerHTML=list.map((item,i)=>{const obj=typeof item==='string'?{name:item,green:false}:item;const middle=active?'<div class="rank-main"><strong>'+projectLabel(obj.name)+'</strong>'+(obj.green?'<small class="project-tag">'+copy.greenTag+'</small>':'')+'</div>':'<span>'+projectLabel(obj.name)+'</span>';return '<div class="rank-row'+(active&&obj.green?' green-project':'')+'"><b>#'+(i+1)+'</b>'+middle+'<em>'+roles[i]+'</em></div>';}).join('');const ins=$('#labInsight');ins.textContent=active?insight:localizeText(insight);ins.classList.remove('flash');void ins.offsetWidth;ins.classList.add('flash');}
 function applySgiMode({resetRanges=false}={}){updateSgiTexts();if(resetRanges){$('#carbonRange').value=document.body.classList.contains('sgi')?'3':'1';$('#lambdaRange').value=document.body.classList.contains('sgi')?'0.6':'0.5';}renderLab();}
 $('#lambdaRange').addEventListener('input',renderLab);$('#carbonRange').addEventListener('input',renderLab);applySgiMode({resetRanges:false});
 $('#copyCitation').addEventListener('click',async()=>{const cite='Sany, E. G. (2026). AI-Enabled Investment Scorecards for Smart-City Infrastructure Financing under Geoeconomic Fragmentation [Unpublished working paper]. Local file: AI-MCDM Investment Scoring for Smart Cities.pdf';try{await navigator.clipboard.writeText(cite);showToast(localizeText('APA draft citation copied to clipboard.'))}catch(e){showToast(cite)}});
